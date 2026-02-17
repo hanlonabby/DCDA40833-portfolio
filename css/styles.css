@@ -379,6 +379,41 @@ footer a:hover {
 }
 
 /* =========================
+   Hamburger Menu Button
+   ========================= */
+/* Hidden by default on desktop */
+.hamburger {
+    display: none;             /* Invisible on wide screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 200;              /* Sit above the nav links */
+}
+
+/* Three horizontal bars that form the ☰ icon */
+.hamburger-bar {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animate bars into an "X" when menu is open */
+.hamburger.active .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .hamburger-bar:nth-child(2) {
+    opacity: 0;                /* Hide the middle bar */
+}
+.hamburger.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =========================
    Responsive Design (Mobile)
    ========================= */
 @media (max-width: 768px) {
@@ -386,20 +421,34 @@ footer a:hover {
         font-size: 1.5rem;     /* Smaller on mobile */
     }
 
-    nav {
-        font-size: 0.9rem;
+    /* Show the hamburger button on small screens */
+    .hamburger {
+        display: block;
     }
 
-    /* Stack navigation vertically on mobile */
+    nav {
+        font-size: 0.9rem;
+        flex-wrap: wrap;        /* Allow button + list to wrap */
+    }
+
+    /* Hide the link list by default on mobile */
     nav ul {
-        flex-direction: column;  /* Change from row to column */
-        align-items: center;     /* Center the stacked items */
+        display: none;           /* Collapsed by default */
+        flex-direction: column;  /* Stack links vertically */
+        align-items: center;
+        width: 100%;            /* Full width dropdown */
+    }
+
+    /* When JS adds .open, show the list */
+    nav ul.open {
+        display: flex;           /* Reveal the stacked links */
     }
 
     nav a {
         display: block;          /* Full width for easier tapping */
         width: 100%;
         text-align: center;
+        padding: 0.75rem 1rem;   /* Larger tap targets on mobile */
     }
 
     main section {
