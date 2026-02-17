@@ -370,6 +370,14 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Inner footer container to align content with the main layout */
+.footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
 /* =========================
    Responsive Design (Mobile)
    ========================= */
