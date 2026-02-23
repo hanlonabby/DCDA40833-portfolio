@@ -22,7 +22,13 @@
             <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
             <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
             <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-        </ul>
+            <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+                </ul>
+        <!-- Dark Mode Toggle Button -->
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
     </nav>
 
     <!-- Header: Your name and course info -->
@@ -54,6 +60,64 @@
             </figure>
         </section>
         <!-- I plan to update this photo soon, as I'll be taking a new agency headshot in the next couple of weeks. For now, I'm using this one as a placeholder -->
+
+        <!-- Image Carousel Section: I also plan to update this section soon, once I find carousel pictures that I would like to include as my work samples. -->
+        <section id="carousel-section">
+            <h2>Gallery</h2>
+            <p>CClick through this gallery to view my creative journey and learn about my work experiences.</p>
+
+            <div class="carousel-container">
+                <!-- Carousel Slides -->
+                <div class="carousel-slides">
+                    <!-- Slide 1 - will replace with my own images -->
+                    <div class="carousel-slide active">
+                        <img src="images/placeholder1.jpg" alt="Placeholder image 1">
+                        <div class="carousel-caption">
+                            <h3>Image Title 1</h3>
+                            <p>Add a description for your first image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - will replace with my own images -->
+                    <div class="carousel-slide">
+                        <img src="images/placeholder2.jpg" alt="Placeholder image 2">
+                        <div class="carousel-caption">
+                            <h3>Image Title 2</h3>
+                            <p>Add a description for your second image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 - will replace with my own images-->
+                    <div class="carousel-slide">
+                        <img src="images/placeholder3.jpg" alt="Placeholder image 3">
+                        <div class="carousel-caption">
+                            <h3>Image Title 3</h3>
+                            <p>Add a description for your third image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- will additionally add more slides by copying the structure above -->
+                </div>
+
+                <!-- Previous Button -->
+                <button class="carousel-btn prev-btn" aria-label="Previous slide">
+                    <span>&#10094;</span>
+                </button>
+
+                <!-- Next Button -->
+                <button class="carousel-btn next-btn" aria-label="Next slide">
+                    <span>&#10095;</span>
+                </button>
+
+                <!-- Carousel Indicators (dots) -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" aria-label="Go to slide 1"></button>
+                    <button class="indicator" aria-label="Go to slide 2"></button>
+                    <button class="indicator" aria-label="Go to slide 3"></button>
+                    <!-- Add more indicators if you add more slides -->
+                </div>
+            </div>
+        </section>
 
         <!-- Portfolio Section: Links to all lab pages -->
         <section id="portfolio">
@@ -141,6 +205,129 @@
                 hamburger.setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved preference, otherwise check system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            htmlElement.classList.add('dark-mode');
+        }
+
+        // Toggle dark mode when button is clicked
+        darkModeToggle.addEventListener('click', function () {
+            htmlElement.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            if (htmlElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Image Carousel Functionality
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        let currentSlide = 0;
+        let autoPlayInterval;
+
+        // Show specific slide
+        function showSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // Add active class to current slide and indicator
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        // Next slide
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto-play carousel
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Event listeners for navigation buttons
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay(); // Restart auto-play after manual navigation
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        }
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                showSlide(index);
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        });
+
+        // Pause auto-play on hover, resume on mouse leave
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            }
+        });
+
+        // Start auto-play when page loads (if carousel exists)
+        if (slides.length > 0) {
+            startAutoPlay();
+        }
     </script>
 </body>
 </html>
