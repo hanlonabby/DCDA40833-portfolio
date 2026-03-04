@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lab 6: Python Mapping - Custom Basemap & Interactive Hometown Map">
+  <meta name="author" content="Abby Hanlon">
+  <title>Lab 6: Python Mapping | Abby Hanlon</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .map-container {
+      width: 100%;
+      height: 600px;
+      margin: 2rem 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .reflection h3 {
+      margin-top: 2rem;
+      color: #2c3e50;
+    }
+
+    .map-info {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .map-info h3 {
+      margin-top: 0;
+    }
+
+    .map-info ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .map-info li {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+      <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+      <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+      <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+      <li><a href="lab06.html" class="active">Lab 6: Python Mapping</a></li>
+    </ul>
+
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="sun-icon">☀️</span>
+      <span class="moon-icon">🌙</span>
+    </button>
+  </nav>
+
+  <header>
+    <h1>Lab 6: Python Mapping</h1>
+    <p>Custom Basemap Design & Interactive Hometown Map</p>
+  </header>
+
+  <main>
+    <section class="reflection">
+      <h2>Lake Forest, Illinois - Interactive Map</h2>
+      
+      <div class="map-info">
+        <h3>About This Map</h3>
+        <p>This interactive map showcases a handful of meaningful locations from my hometown of Lake Forest, Illinois. Each marker represents a place that contributes to the unique character and community of this North Shore suburb.</p>
+        
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Custom Mapbox basemap design</li>
+          <li>Color-coded markers by location type (parks, restaurants, schools, cultural sites, etc.)</li>
+          <li>Interactive pop-ups with images and personal descriptions</li>
+          <li>Geocoded addresses using the Mapbox Geocoding API</li>
+          <li>Built with Python using Folium and Pandas</li>
+        </ul>
+        
+        <p><em>Click on any marker to see the location's image and my personal thoughts about why it's special!</em></p>
+      </div>
+
+      <!-- Embedded Interactive Map -->
+      <div class="map-container">
+        <iframe src="hometown_map.html" title="Lake Forest Interactive Hometown Map"></iframe>
+      </div>
+
+      <h2>Reflection</h2>
+
+      <h3>Design Inspiration</h3>
+      <p>For the personalized map of my hometown, Lake Forest, Illinois – a suburb of Chicago - I decided to draw artistic inspiration from one of my favorite local artists, Mark McMahon. He is very well known in my area for his loose, abstract, and watercolor-esque approach to painting busy scenes of the north Chicago suburbs and the beauty of those communities.</p>
+
+      <p>Growing up in such a beautiful town surrounded by creativity, I saw McMahon’s work displayed in my elementary and high school, along with our local library, and as a mural in a local restaurant. His work reminds me of home, and I took inspiration for the color choices on my personal map from the map he painted of the Lake Forest area, which you can view below. I wanted my map to feel whimsical yet resemble the realness of the earth.</p>
+      <figure class="viz-container">
+        <img src="images/McMahonMap.jpeg" alt="Mark McMahon's Map of Lake Forest, Illinois" style="width: 100%; max-width: 800px;">
+        <figcaption>Mark McMahon's Map of Lake Forest, Illinois</figcaption>
+      </figure>
+      
+      <p>The text style is pretty basic and straightforward, as I wanted all types of viewers to easily access my map and its detailing. I left the font choice basic and clean for this reason. Although Lake Forest and its surrounding communities are situated on very flat land, I was able to see the mountains' depths when I zoomed into states like Colorado and Nevada. I enjoyed understanding the ins and outs of the Mapbox platform and how detailed one can truly make a map. </p>
+
+      <h3>Cartographic and Technical Challenges</h3>
+      <p>Throughout my experience, both in class and on my own time learning Mapbox, I encountered various challenges, both technical and cartographic, as I tried to understand the software and learn from my mistakes. It was easy to get caught up in minor details and to feel confused or frustrated when I colored the wrong type of “land” or “road.” To overcome this issue, I found it best to keep the detailing in my map very straightforward and easy to read. I look forward to asking more questions in class to fully grasp this platform’s capabilities in the future.</p>
+
+      <p>Additionally, I’m currently struggling with how to make the text on roads and in town areas larger when users zoom in. I was having confusion bouncing between both Mapbox and VS Code when applying minor edits to my map, including trying to make the text bigger. I am unsure of this answer at the moment, but when I preview my map in Mapbox, the road and town section text appears larger and easier to read than when displayed in my VS Code portfolio. I’m hopeful that with more experimentation, I can learn how to fix these mistakes.</p>
+
+      <p>To aid my confusion and integration of the Mapbox platform into VS Code, I prompted Claude Sonnet 4.5 with some questions and goals, and found its advice extremely helpful. At first, I had some trouble getting my CSV file to display on top of the Mapbox map I had created. Claude Sonnet 4.5 helped me merge those two files together and make the map interactive by zooming and clicking on specific points. I also troubleshooted by reviewing the changes AI made before hitting “apply” to improve the accuracy of the messages it was giving me.</p>
+
+      <p>I found it helpful to ask the AI tool why it made specific changes and to read all of its feedback so I could learn how to manually complete those tasks on my own next time. I think in terms of intentionality, I really have hope for where this map is going. I like my color choices a lot and also believe the places I handpicked in my community positively reflect my hometown’s atmosphere and what has shaped me into who I am. I’m excited to keep learning more from Mapbox and to make edits to this map down the road.</p>
+
+      <h3>Technical Implementation</h3>
+      <p>This project was built using Python with the following key components:</p>
+      
+      <ul>
+        <li><strong>Data Collection:</strong> Created a CSV dataset with 67 Lake Forest locations including names, addresses, types, descriptions, and image URLs</li>
+        <li><strong>Geocoding:</strong> Used the Mapbox Geocoding API to convert street addresses into latitude/longitude coordinates</li>
+        <li><strong>Visualization:</strong> Built the interactive map using Folium, a Python library for creating Leaflet.js maps</li>
+        <li><strong>Custom Basemap:</strong> Integrated my custom Mapbox Studio style as the basemap tiles</li>
+        <li><strong>Interactivity:</strong> Implemented custom HTML popups with images, descriptions, and styled elements</li>
+        <li><strong>Symbolization:</strong> Applied different marker colors and icons based on location categories</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="https://github.com/hanlonabby/DCDA40833-portfolio">View Repository on GitHub</a></p>
+    <p>&copy; 2026 Abby Hanlon | DCDA 40833 | TCU</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu   = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', function () {
+      navMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+    });
+
+    navMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Dark Mode Toggle
+    const toggleButton = document.querySelector('.dark-mode-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    toggleButton.addEventListener('click', function () {
+      let theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

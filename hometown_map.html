@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_89a77a7a4f4b40d935c9b588d945c55a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 50px; right: 50px; width: 220px; height: auto; 
+                background-color: white; z-index:9999; font-size:14px;
+                border:2px solid grey; border-radius: 5px; padding: 10px">
+    <h4 style="margin-top:0;">Location Types</h4>
+    <p><i class="glyphicon glyphicon-tree" style="color:green"></i> Parks & Nature</p>
+    <p><i class="glyphicon glyphicon-book" style="color:blue"></i> Schools</p>
+    <p><i class="glyphicon glyphicon-cutlery" style="color:red"></i> Restaurants</p>
+    <p><i class="glyphicon glyphicon-coffee" style="color:brown"></i> Coffee Shops</p>
+    <p><i class="glyphicon glyphicon-glass" style="color:darkred"></i> Pubs & Bars</p>
+    <p><i class="glyphicon glyphicon-university" style="color:orange"></i> Cultural Sites</p>
+    <p><i class="glyphicon glyphicon-ship" style="color:lightblue"></i> Waterfront</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_89a77a7a4f4b40d935c9b588d945c55a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_89a77a7a4f4b40d935c9b588d945c55a = L.map(
+                "map_89a77a7a4f4b40d935c9b588d945c55a",
+                {
+                    center: [42.2587, -87.8406],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d95ccdb9151d0769d0ff300dab903cbd = L.tileLayer(
+                "https://api.mapbox.com/styles/v1/abbyhanlon/cmmb8ae9u005o01s5e9rj3hn9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWJieWhhbmxvbiIsImEiOiJjbWx0cW9tdmgwMzZwM2duNXpqM3k5MmU3In0.5XpzgzufR5FXSMfl0VW76A",
+                {"attribution": "Map data \u0026copy; \u003ca href=\"https://www.mapbox.com/\"\u003eMapbox\u003c/a\u003e", "detectRetina": false, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_d95ccdb9151d0769d0ff300dab903cbd.addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var marker_0c5e68b7ad9f2ac87c19531ed2935dba = L.marker(
+                [42.251408, -87.839715],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_bcf6ef3d4f6da0950c5d78edb669a55c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0c5e68b7ad9f2ac87c19531ed2935dba.setIcon(icon_bcf6ef3d4f6da0950c5d78edb669a55c);
+        
+    
+        var popup_a7d5d9b80e64960ae461a810302cac62 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c2f85ce79b84a4b1e7ae0412e78a5fc3 = $(`<div id="html_c2f85ce79b84a4b1e7ae0412e78a5fc3" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Market Square         </h3>         <img src="https://images.squarespace-cdn.com/content/v1/580fbd69893fc0d20d2cf5ec/1480700546467-ZJ63I9YT97ZPWYESV0QP/MktSquare_OKWCable_9458.jpg"               alt="Market Square"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Market Square is the heart of downtown Lake Forest and one of the first planned shopping centers in the United States. Its charming architecture, local boutiques, and cafés make it feel both historic and lively. It’s the kind of place that makes the town feel connected and community-driven.         </p>     </div>     </div>`)[0];
+                popup_a7d5d9b80e64960ae461a810302cac62.setContent(html_c2f85ce79b84a4b1e7ae0412e78a5fc3);
+            
+        
+
+        marker_0c5e68b7ad9f2ac87c19531ed2935dba.bindPopup(popup_a7d5d9b80e64960ae461a810302cac62)
+        ;
+
+        
+    
+    
+            marker_0c5e68b7ad9f2ac87c19531ed2935dba.bindTooltip(
+                `<div>
+                     Market Square
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b1e07cb9a2069b23d11d481def959cd = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_649e214d19a90b9e0ccfd5fdf1941264 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9b1e07cb9a2069b23d11d481def959cd.setIcon(icon_649e214d19a90b9e0ccfd5fdf1941264);
+        
+    
+        var popup_94099d55b0aec81beb43cc3cf299860d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b06d115fa555c2e8b1eaac2ca310b054 = $(`<div id="html_b06d115fa555c2e8b1eaac2ca310b054" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Beach         </h3>         <img src="https://graymalin.com/cdn/shop/files/Lake_Forest_Beach_Day_iqzmmm.jpg?v=1712257122 "               alt="Lake Forest Beach"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Lake Forest Beach offers stunning views of Lake Michigan and is a peaceful place to unwind. The walking paths, sailboats, and open shoreline make it feel calm and expansive. It’s especially beautiful at sunset and feels like a hidden escape within the suburbs.         </p>     </div>     </div>`)[0];
+                popup_94099d55b0aec81beb43cc3cf299860d.setContent(html_b06d115fa555c2e8b1eaac2ca310b054);
+            
+        
+
+        marker_9b1e07cb9a2069b23d11d481def959cd.bindPopup(popup_94099d55b0aec81beb43cc3cf299860d)
+        ;
+
+        
+    
+    
+            marker_9b1e07cb9a2069b23d11d481def959cd.bindTooltip(
+                `<div>
+                     Lake Forest Beach
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_908e51c0b51fe7154d1da5f331b00342 = L.marker(
+                [42.257574, -87.881021],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_f7d501d8f73fb3cb2c26118bda216e6d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_908e51c0b51fe7154d1da5f331b00342.setIcon(icon_f7d501d8f73fb3cb2c26118bda216e6d);
+        
+    
+        var popup_52b51d5f8e2317cad0798f3aa8ea70fe = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_634ab4705ae5eca3222ea1115f93d4d1 = $(`<div id="html_634ab4705ae5eca3222ea1115f93d4d1" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Elawa Farm         </h3>         <img src="https://images.squarespace-cdn.com/content/v1/602c1ed7cafd722aa3b97ca7/8d09028d-a813-4c8f-9d40-6d41ccc91063/Hay+Barn.jpg "               alt="Elawa Farm"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Elawa Farm blends history, sustainability, and community all in one space. Originally built in the early 1900s, it now hosts local markets, educational programs, and seasonal events. It’s a meaningful spot because it connects Lake Forest’s past with a focus on local food and community engagement.         </p>     </div>     </div>`)[0];
+                popup_52b51d5f8e2317cad0798f3aa8ea70fe.setContent(html_634ab4705ae5eca3222ea1115f93d4d1);
+            
+        
+
+        marker_908e51c0b51fe7154d1da5f331b00342.bindPopup(popup_52b51d5f8e2317cad0798f3aa8ea70fe)
+        ;
+
+        
+    
+    
+            marker_908e51c0b51fe7154d1da5f331b00342.bindTooltip(
+                `<div>
+                     Elawa Farm
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_929502278212edf7ce514f1bbf993536 = L.marker(
+                [42.249677, -87.827757],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d2a8f110c416559ca66a45cabfd6061d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_929502278212edf7ce514f1bbf993536.setIcon(icon_d2a8f110c416559ca66a45cabfd6061d);
+        
+    
+        var popup_a5d6d968cc3dff76475f60d2d3d20bc8 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c698e5d73a541bdf77d75f67670a5b2b = $(`<div id="html_c698e5d73a541bdf77d75f67670a5b2b" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest College         </h3>         <img src="https://www.lakeforest.edu/Public/OCM/1600x900_Homepage/Aerial_4_1600x900.jpg "               alt="Lake Forest College"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Lake Forest College is a small liberal arts college with a beautiful lakeside campus. The tree-lined paths and historic buildings give it a classic collegiate feel. It plays an important role in the town’s culture and brings energy, diversity, and academic life to the community.         </p>     </div>     </div>`)[0];
+                popup_a5d6d968cc3dff76475f60d2d3d20bc8.setContent(html_c698e5d73a541bdf77d75f67670a5b2b);
+            
+        
+
+        marker_929502278212edf7ce514f1bbf993536.bindPopup(popup_a5d6d968cc3dff76475f60d2d3d20bc8)
+        ;
+
+        
+    
+    
+            marker_929502278212edf7ce514f1bbf993536.bindTooltip(
+                `<div>
+                     Lake Forest College
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5bfbac6a10dfd20ff6bfeb2fb3662fac = L.marker(
+                [42.21197, -87.844922],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_b4bcf36df7a3497e1686284651436a45 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "lightgreen", "prefix": "glyphicon"}
+            );
+            marker_5bfbac6a10dfd20ff6bfeb2fb3662fac.setIcon(icon_b4bcf36df7a3497e1686284651436a45);
+        
+    
+        var popup_ddd66227e408212d6c4504717ef6990e = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_89e6b3bc302b9353a809a82848382e8a = $(`<div id="html_89e6b3bc302b9353a809a82848382e8a" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Dickinson Hall         </h3>         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYgQPGcN8TjV0ZDYS20fNAJhYRseJXUmIeqCQFdPoYMERs-iM9Fbu9eOuULAhswZZtjnEPcUuU48Kp5gm2P3lvDUDEN7ay5dJFIVXN6tQJ7-9iKvoudobaf5DYYTtO96I_TXiCnXSSa1Uf/s1600/SRBall-LCN-031212-4.JPG "               alt="Dickinson Hall"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Dickinson Hall is a community center that serves as a gathering place for elderly residents. It hosts events, fitness programs, and social activities that strengthen local connections. It represents the town’s commitment to community involvement and active living.         </p>     </div>     </div>`)[0];
+                popup_ddd66227e408212d6c4504717ef6990e.setContent(html_89e6b3bc302b9353a809a82848382e8a);
+            
+        
+
+        marker_5bfbac6a10dfd20ff6bfeb2fb3662fac.bindPopup(popup_ddd66227e408212d6c4504717ef6990e)
+        ;
+
+        
+    
+    
+            marker_5bfbac6a10dfd20ff6bfeb2fb3662fac.bindTooltip(
+                `<div>
+                     Dickinson Hall
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b35bac0779ecb8d21b8c0df5d68784aa = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_8a1e50e78f8081b333fdb05648d845f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b35bac0779ecb8d21b8c0df5d68784aa.setIcon(icon_8a1e50e78f8081b333fdb05648d845f1);
+        
+    
+        var popup_559983e2f68da131d7e06ad3060b5062 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_46f8a99e37a22557ee8cc0b8caadfd74 = $(`<div id="html_46f8a99e37a22557ee8cc0b8caadfd74" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Crab Tree Farm         </h3>         <img src="https://vinci-hamp.com/wp-content/uploads/2016/04/Crabtree-1.jpg "               alt="Crab Tree Farm"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Crab Tree Farm preserves historic architecture and traditional craftsmanship in a peaceful, pastoral setting. Visitors can explore restored barns, gardens, and exhibitions focused on early 20th-century design. It feels quiet and intentional, offering a slower pace that highlights artistry and heritage.         </p>     </div>     </div>`)[0];
+                popup_559983e2f68da131d7e06ad3060b5062.setContent(html_46f8a99e37a22557ee8cc0b8caadfd74);
+            
+        
+
+        marker_b35bac0779ecb8d21b8c0df5d68784aa.bindPopup(popup_559983e2f68da131d7e06ad3060b5062)
+        ;
+
+        
+    
+    
+            marker_b35bac0779ecb8d21b8c0df5d68784aa.bindTooltip(
+                `<div>
+                     Crab Tree Farm
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0a33059843d65e7c897d8bfd5f97af64 = L.marker(
+                [42.24956, -87.840753],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_4c7d02e800810494a3e82bf346b977ce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_0a33059843d65e7c897d8bfd5f97af64.setIcon(icon_4c7d02e800810494a3e82bf346b977ce);
+        
+    
+        var popup_ede803a72f28f916ffb71914d54174b3 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_eef26fca74e2c71df662aa939dcf788b = $(`<div id="html_eef26fca74e2c71df662aa939dcf788b" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Deer Path Inn         </h3>         <img src="https://symphony.cdn.tambourine.com/deer-path-inn-redesign/media/dpi-exteriors-front-entrance-220650-2477-lr-663570c75e50b.jpg "               alt="Deer Path Inn"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Deer Path Inn feels like stepping into an English countryside estate right in the middle of Lake Forest. The elegant dining rooms, afternoon tea service, and cozy fireplaces make it perfect for special occasions. It blends historic charm with a refined, welcoming atmosphere.         </p>     </div>     </div>`)[0];
+                popup_ede803a72f28f916ffb71914d54174b3.setContent(html_eef26fca74e2c71df662aa939dcf788b);
+            
+        
+
+        marker_0a33059843d65e7c897d8bfd5f97af64.bindPopup(popup_ede803a72f28f916ffb71914d54174b3)
+        ;
+
+        
+    
+    
+            marker_0a33059843d65e7c897d8bfd5f97af64.bindTooltip(
+                `<div>
+                     Deer Path Inn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f9f6dba03567879a55472d35ab8d6fd3 = L.marker(
+                [42.252865, -87.840464],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_0d1738a52b10e71733f7d6279ec658a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "white", "markerColor": "brown", "prefix": "glyphicon"}
+            );
+            marker_f9f6dba03567879a55472d35ab8d6fd3.setIcon(icon_0d1738a52b10e71733f7d6279ec658a6);
+        
+    
+        var popup_6d3509d1c0dca9f7e6a12502a7a0a590 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c1345ff481ac4fc18645acdf52c30a68 = $(`<div id="html_c1345ff481ac4fc18645acdf52c30a68" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Starbucks (Market Square)         </h3>         <img src="https://images.squarespace-cdn.com/content/v1/5b5a3e9f0dbda3bd2f57b18a/1532714534324-PA76GTTQEMDHKLK21S97/Lake+Forest+2.jpg?format=1500w "               alt="Starbucks (Market Square)"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Located in Market Square, this Starbucks is a central meeting spot for students, families, and professionals. It’s always buzzing with energy, especially after school or on weekend mornings. It feels like a small-town hub inside a national brand.         </p>     </div>     </div>`)[0];
+                popup_6d3509d1c0dca9f7e6a12502a7a0a590.setContent(html_c1345ff481ac4fc18645acdf52c30a68);
+            
+        
+
+        marker_f9f6dba03567879a55472d35ab8d6fd3.bindPopup(popup_6d3509d1c0dca9f7e6a12502a7a0a590)
+        ;
+
+        
+    
+    
+            marker_f9f6dba03567879a55472d35ab8d6fd3.bindTooltip(
+                `<div>
+                     Starbucks (Market Square)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4dd5edd07b8526e10065c9c696bcbb97 = L.marker(
+                [42.279881, -87.84508],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_e85ce575387ad30bb2de5cd64e2d5a91 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "white", "markerColor": "brown", "prefix": "glyphicon"}
+            );
+            marker_4dd5edd07b8526e10065c9c696bcbb97.setIcon(icon_e85ce575387ad30bb2de5cd64e2d5a91);
+        
+    
+        var popup_c9e0210dbf1703b7bb8ec067afec59ec = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_fce03db28d81c3aada3cc40d093989f5 = $(`<div id="html_fce03db28d81c3aada3cc40d093989f5" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Hansa Coffee Roasters         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/P5QpfLhl3M9DUltcmQ3qNQ/348s.jpg "               alt="Hansa Coffee Roasters"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Just minutes from Lake Forest, Hansa Coffee offers a cozy, community-focused atmosphere. The locally roasted coffee and warm interior make it feel personal and welcoming. It’s a quieter alternative for studying or catching up with friends.         </p>     </div>     </div>`)[0];
+                popup_c9e0210dbf1703b7bb8ec067afec59ec.setContent(html_fce03db28d81c3aada3cc40d093989f5);
+            
+        
+
+        marker_4dd5edd07b8526e10065c9c696bcbb97.bindPopup(popup_c9e0210dbf1703b7bb8ec067afec59ec)
+        ;
+
+        
+    
+    
+            marker_4dd5edd07b8526e10065c9c696bcbb97.bindTooltip(
+                `<div>
+                     Hansa Coffee Roasters
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_448ab8493b412444453e9bc824187cb8 = L.marker(
+                [42.263227, -87.871886],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d42197a22eb89e505260dc5cadda6b98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_448ab8493b412444453e9bc824187cb8.setIcon(icon_d42197a22eb89e505260dc5cadda6b98);
+        
+    
+        var popup_fe76057737962745907856ff50c54585 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_911641ebed0357ea60abed9b5500e2fb = $(`<div id="html_911641ebed0357ea60abed9b5500e2fb" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             West Park         </h3>         <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/West_Park_Pavilion.JPG "               alt="West Park"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             West Park is one of the largest recreational spaces in Lake Forest, featuring sports fields, tennis courts, and open green space. It’s a major gathering place for youth sports and community events. The energy here reflects the town’s active lifestyle.         </p>     </div>     </div>`)[0];
+                popup_fe76057737962745907856ff50c54585.setContent(html_911641ebed0357ea60abed9b5500e2fb);
+            
+        
+
+        marker_448ab8493b412444453e9bc824187cb8.bindPopup(popup_fe76057737962745907856ff50c54585)
+        ;
+
+        
+    
+    
+            marker_448ab8493b412444453e9bc824187cb8.bindTooltip(
+                `<div>
+                     West Park
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5bf464b70865cdce9c26b42419a29a99 = L.marker(
+                [42.257574, -87.881021],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_53eab8a962b254a9abf67060faddd276 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_5bf464b70865cdce9c26b42419a29a99.setIcon(icon_53eab8a962b254a9abf67060faddd276);
+        
+    
+        var popup_6540b9a48a3ff5149696fd07a9d6c6db = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ce41ae88ffdd9b17a3b28e8690f34b05 = $(`<div id="html_ce41ae88ffdd9b17a3b28e8690f34b05" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Middlefork Savanna Forest Preserve         </h3>         <img src="https://www.lcfpd.org/assets/1/7/SlideShowDimensionMain/Middlefork-Savanna--Photo-Credit-Jeff-Goldberg.jpg "               alt="Middlefork Savanna Forest Preserve"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Middlefork Savanna offers wide open prairie landscapes and scenic walking trails. It’s peaceful and expansive, especially in the fall when the grasses change color. It feels like a natural retreat just outside the residential neighborhoods.         </p>     </div>     </div>`)[0];
+                popup_6540b9a48a3ff5149696fd07a9d6c6db.setContent(html_ce41ae88ffdd9b17a3b28e8690f34b05);
+            
+        
+
+        marker_5bf464b70865cdce9c26b42419a29a99.bindPopup(popup_6540b9a48a3ff5149696fd07a9d6c6db)
+        ;
+
+        
+    
+    
+            marker_5bf464b70865cdce9c26b42419a29a99.bindTooltip(
+                `<div>
+                     Middlefork Savanna Forest Preserve
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4a8caf496aaa9888063d435a72bace45 = L.marker(
+                [42.264415, -87.840107],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_24804a05d169a1b5ef01465f3e0e2c98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4a8caf496aaa9888063d435a72bace45.setIcon(icon_24804a05d169a1b5ef01465f3e0e2c98);
+        
+    
+        var popup_526decb8b2aff297e0f3fb49c547981b = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ffdff9f9cac07ebe5aafb46015593c44 = $(`<div id="html_ffdff9f9cac07ebe5aafb46015593c44" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest High School         </h3>         <img src="https://patch.com/img/cdn20/users/22915293/20220426/115717/styles/patch_image/public/lake-forest-high-school-scott-anderson___26115657543.jpg "               alt="Lake Forest High School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Lake Forest High School is known for its strong academics, athletics, and community involvement. The campus feels modern and well-supported, reflecting the town’s investment in education. Friday night football games and school events bring the community together.         </p>     </div>     </div>`)[0];
+                popup_526decb8b2aff297e0f3fb49c547981b.setContent(html_ffdff9f9cac07ebe5aafb46015593c44);
+            
+        
+
+        marker_4a8caf496aaa9888063d435a72bace45.bindPopup(popup_526decb8b2aff297e0f3fb49c547981b)
+        ;
+
+        
+    
+    
+            marker_4a8caf496aaa9888063d435a72bace45.bindTooltip(
+                `<div>
+                     Lake Forest High School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ad7c701fc5feaafe446e946441f0ee4a = L.marker(
+                [42.275258, -87.844352],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_dff56c8a0114c3eca0eb1fc21168dc97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ad7c701fc5feaafe446e946441f0ee4a.setIcon(icon_dff56c8a0114c3eca0eb1fc21168dc97);
+        
+    
+        var popup_44ff752f10e49b24857204130327d845 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_3123bbf76c441af4611667f0c49c1c78 = $(`<div id="html_3123bbf76c441af4611667f0c49c1c78" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Bluff Middle School         </h3>         <img src="https://edclarkschoolphoto.com/wp-content/uploads/2017/12/lakebluffmid.jpg "               alt="Lake Bluff Middle School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Serving students from the Lake Forest and Lake Bluff area, this middle school emphasizes both academic growth and extracurricular involvement. It’s a formative place for many local families. The strong sense of community carries into high school and beyond.         </p>     </div>     </div>`)[0];
+                popup_44ff752f10e49b24857204130327d845.setContent(html_3123bbf76c441af4611667f0c49c1c78);
+            
+        
+
+        marker_ad7c701fc5feaafe446e946441f0ee4a.bindPopup(popup_44ff752f10e49b24857204130327d845)
+        ;
+
+        
+    
+    
+            marker_ad7c701fc5feaafe446e946441f0ee4a.bindTooltip(
+                `<div>
+                     Lake Bluff Middle School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b3c5206b559d954f16414173c534289 = L.marker(
+                [42.2506, -87.837451],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_8f77f06fba27ce38790c759494c7a4c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_9b3c5206b559d954f16414173c534289.setIcon(icon_8f77f06fba27ce38790c759494c7a4c0);
+        
+    
+        var popup_ad32618dbc15d8822a8555b9f4327b95 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_4f9d5347c0b52161192cc36f9a20a982 = $(`<div id="html_4f9d5347c0b52161192cc36f9a20a982" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Gorton Community Center         </h3>         <img src="http://gortoncenter.org/wp-content/uploads/2022/09/Gorton_West-Entrance.jpg "               alt="Gorton Community Center"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Gorton Center is a nonprofit cultural hub that hosts films, performances, classes, and community events. It’s a place where creativity and local engagement come together. The building itself has historic character while supporting modern programming.         </p>     </div>     </div>`)[0];
+                popup_ad32618dbc15d8822a8555b9f4327b95.setContent(html_4f9d5347c0b52161192cc36f9a20a982);
+            
+        
+
+        marker_9b3c5206b559d954f16414173c534289.bindPopup(popup_ad32618dbc15d8822a8555b9f4327b95)
+        ;
+
+        
+    
+    
+            marker_9b3c5206b559d954f16414173c534289.bindTooltip(
+                `<div>
+                     Gorton Community Center
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9e4d2c701a060924071feec223ad4016 = L.marker(
+                [42.24315, -87.84358],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_6d99341b3a91aa4cd7474203e59b535e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "lightgreen", "prefix": "glyphicon"}
+            );
+            marker_9e4d2c701a060924071feec223ad4016.setIcon(icon_6d99341b3a91aa4cd7474203e59b535e);
+        
+    
+        var popup_fc46193e06e76206d5351c72174de76d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_e458f74843e33667f18bb5a3b7feee08 = $(`<div id="html_e458f74843e33667f18bb5a3b7feee08" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Onwentsia Club         </h3>         <img src="https://womenswesternamateur.com/images/press/24-site-announcement.jpg "               alt="Onwentsia Club"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Onwentsia Club is one of the most historic private golf clubs in the Midwest. The beautifully maintained grounds and traditional clubhouse reflect Lake Forest’s long-standing traditions. It represents a more classic and exclusive side of the community.         </p>     </div>     </div>`)[0];
+                popup_fc46193e06e76206d5351c72174de76d.setContent(html_e458f74843e33667f18bb5a3b7feee08);
+            
+        
+
+        marker_9e4d2c701a060924071feec223ad4016.bindPopup(popup_fc46193e06e76206d5351c72174de76d)
+        ;
+
+        
+    
+    
+            marker_9e4d2c701a060924071feec223ad4016.bindTooltip(
+                `<div>
+                     Onwentsia Club
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_70c76aedbf01395a4af4cb0b99878f66 = L.marker(
+                [42.24649, -87.87336],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_ffeffae9a97524b12cb60e2eeabe77b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_70c76aedbf01395a4af4cb0b99878f66.setIcon(icon_ffeffae9a97524b12cb60e2eeabe77b2);
+        
+    
+        var popup_641b7bbb9074093301b4e75214fbe682 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_d663c6177e4a480784d4fd7a46d27c49 = $(`<div id="html_d663c6177e4a480784d4fd7a46d27c49" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Open Lands Association         </h3>         <img src="https://res.cloudinary.com/land-trust-alliance/image/fetch/f_webp,q_60,g_auto:subject,w_6400,h_2880,c_fill/https://lta-util-staging.s3.us-east-2.amazonaws.com/lt-banner-292-1741702293.jpg "               alt="Lake Forest Open Lands Association"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             This organization preserves miles of scenic trails and open prairie land throughout Lake Forest. The quiet paths feel untouched and peaceful, offering a break from busy routines. It represents the town’s deep commitment to conservation.         </p>     </div>     </div>`)[0];
+                popup_641b7bbb9074093301b4e75214fbe682.setContent(html_d663c6177e4a480784d4fd7a46d27c49);
+            
+        
+
+        marker_70c76aedbf01395a4af4cb0b99878f66.bindPopup(popup_641b7bbb9074093301b4e75214fbe682)
+        ;
+
+        
+    
+    
+            marker_70c76aedbf01395a4af4cb0b99878f66.bindTooltip(
+                `<div>
+                     Lake Forest Open Lands Association
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b8c84c995b64c9402fbb81e9b57e1ce4 = L.marker(
+                [42.221069, -87.812304],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_9ce06d5482121cc5148d093ab52ce70a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_b8c84c995b64c9402fbb81e9b57e1ce4.setIcon(icon_9ce06d5482121cc5148d093ab52ce70a);
+        
+    
+        var popup_631e09860b9b75871c6f9827d73f9a52 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_02624b8e23488e2dbe91c43d468a52ca = $(`<div id="html_02624b8e23488e2dbe91c43d468a52ca" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Fort Sheridan Forest Preserve         </h3>         <img src="https://www.lcfpd.org/assets/1/7/GalleryMainDimensionId/e3b11781ca7a40dc8f42fe248ee20b501.jpg "               alt="Fort Sheridan Forest Preserve"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Fort Sheridan blends history with sweeping lake views and dramatic ravines. Former military buildings now sit alongside hiking trails and open shoreline. It feels both historic and expansive at the same time.         </p>     </div>     </div>`)[0];
+                popup_631e09860b9b75871c6f9827d73f9a52.setContent(html_02624b8e23488e2dbe91c43d468a52ca);
+            
+        
+
+        marker_b8c84c995b64c9402fbb81e9b57e1ce4.bindPopup(popup_631e09860b9b75871c6f9827d73f9a52)
+        ;
+
+        
+    
+    
+            marker_b8c84c995b64c9402fbb81e9b57e1ce4.bindTooltip(
+                `<div>
+                     Fort Sheridan Forest Preserve
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b22e9871bee1fefd87dd7f56efab854 = L.marker(
+                [42.25225, -87.83809],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_046cc81d428819570fb3cc4ad1c7749c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_9b22e9871bee1fefd87dd7f56efab854.setIcon(icon_046cc81d428819570fb3cc4ad1c7749c);
+        
+    
+        var popup_f4822a0b18a14bf61a9fb985302aa30d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0dd368438c2df9265b6ec5841ff0e793 = $(`<div id="html_0dd368438c2df9265b6ec5841ff0e793" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Library         </h3>         <img src="https://artslinknorth.com/wp-content/uploads/sites/artslinknorth.com/images/2025/03/venue-featured-lake-forest-library-1741035758-scaled.jpeg "               alt="Lake Forest Library"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The Lake Forest Library is more than just books — it’s a quiet community anchor. With study spaces, events, and historic architecture, it feels calm and intentional. It’s a meaningful place for learning and reflection.         </p>     </div>     </div>`)[0];
+                popup_f4822a0b18a14bf61a9fb985302aa30d.setContent(html_0dd368438c2df9265b6ec5841ff0e793);
+            
+        
+
+        marker_9b22e9871bee1fefd87dd7f56efab854.bindPopup(popup_f4822a0b18a14bf61a9fb985302aa30d)
+        ;
+
+        
+    
+    
+            marker_9b22e9871bee1fefd87dd7f56efab854.bindTooltip(
+                `<div>
+                     Lake Forest Library
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c97be3ad6d3bf553872ee4cc7a6496bc = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_2fcf63a3067d2e7e614c9b782bf7778f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c97be3ad6d3bf553872ee4cc7a6496bc.setIcon(icon_2fcf63a3067d2e7e614c9b782bf7778f);
+        
+    
+        var popup_553d270448f525983890d80ab49c0be1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_9a514b5aa5fae142455a9aa42f067f40 = $(`<div id="html_9a514b5aa5fae142455a9aa42f067f40" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Forest Park Beach         </h3>         <img src="https://static.wixstatic.com/media/531bbc_9fc5f959b16c45d4abf0258efbd8b9c2~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/531bbc_9fc5f959b16c45d4abf0258efbd8b9c2~mv2.jpg "               alt="Forest Park Beach"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Forest Park Beach is known for its dramatic bluff views and quiet shoreline. The walking path above the lake offers one of the most scenic views in town. It’s peaceful and feels slightly tucked away.         </p>     </div>     </div>`)[0];
+                popup_553d270448f525983890d80ab49c0be1.setContent(html_9a514b5aa5fae142455a9aa42f067f40);
+            
+        
+
+        marker_c97be3ad6d3bf553872ee4cc7a6496bc.bindPopup(popup_553d270448f525983890d80ab49c0be1)
+        ;
+
+        
+    
+    
+            marker_c97be3ad6d3bf553872ee4cc7a6496bc.bindTooltip(
+                `<div>
+                     Forest Park Beach
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c2a4e52e483fe0dcf86a874fd10c4b4f = L.marker(
+                [42.24649, -87.87336],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d6776f78128c6266ad5c73d2fb96c7ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_c2a4e52e483fe0dcf86a874fd10c4b4f.setIcon(icon_d6776f78128c6266ad5c73d2fb96c7ea);
+        
+    
+        var popup_20f48901b5ef78152ffedcbdfac8cef1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_93d422e49dbe4df384492d5106ef039d = $(`<div id="html_93d422e49dbe4df384492d5106ef039d" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Mellody Farm Nature Preserve         </h3>         <img src="https://hikingchicago.com/wp-content/uploads/2020/05/Mellody-Farm-middlefork-savanna-overall-1024x682.jpg "               alt="Mellody Farm Nature Preserve"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Mellody Farm Preserve features rolling meadows and walking trails just outside downtown. It’s especially beautiful in the fall and spring. It feels open, simple, and grounding.         </p>     </div>     </div>`)[0];
+                popup_20f48901b5ef78152ffedcbdfac8cef1.setContent(html_93d422e49dbe4df384492d5106ef039d);
+            
+        
+
+        marker_c2a4e52e483fe0dcf86a874fd10c4b4f.bindPopup(popup_20f48901b5ef78152ffedcbdfac8cef1)
+        ;
+
+        
+    
+    
+            marker_c2a4e52e483fe0dcf86a874fd10c4b4f.bindTooltip(
+                `<div>
+                     Mellody Farm Nature Preserve
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6552a27500489394d1c9e875c6b97c32 = L.marker(
+                [42.251148, -87.830827],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_402dcf3fd4ecb0bbfa2a60fe5844a347 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6552a27500489394d1c9e875c6b97c32.setIcon(icon_402dcf3fd4ecb0bbfa2a60fe5844a347);
+        
+    
+        var popup_e66f3dc99cb5b78b98271994958a94db = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_453e0d57985473bdab797f414f8b7b88 = $(`<div id="html_453e0d57985473bdab797f414f8b7b88" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Woodlands Academy of The Sacred Heart         </h3>         <img src="https://assets.isu.pub/document-structure/241003151955-78ca9a0be50ffc254a786dd06123f215/v1/d6679f81e656d6bc96633ba36f8a2157.jpeg "               alt="Woodlands Academy of The Sacred Heart"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Woodlands Academy of the Sacred Heart is a private, Roman Catholic girls' high school in the northeast side of Lake Forest. Founded by the Society of the Sacred Heart, it is located in the Roman Catholic Archdiocese of Chicago.         </p>     </div>     </div>`)[0];
+                popup_e66f3dc99cb5b78b98271994958a94db.setContent(html_453e0d57985473bdab797f414f8b7b88);
+            
+        
+
+        marker_6552a27500489394d1c9e875c6b97c32.bindPopup(popup_e66f3dc99cb5b78b98271994958a94db)
+        ;
+
+        
+    
+    
+            marker_6552a27500489394d1c9e875c6b97c32.bindTooltip(
+                `<div>
+                     Woodlands Academy of The Sacred Heart
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0271ea4651455d57dc2ae01da9ac0e17 = L.marker(
+                [42.26741, -87.83559],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_a7f7db437156ae4f4b6274aed75e4cdd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0271ea4651455d57dc2ae01da9ac0e17.setIcon(icon_a7f7db437156ae4f4b6274aed75e4cdd);
+        
+    
+        var popup_765e1ba232b542b94bc0b79dc9d8ddc9 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0bb27584ac70fc4625135dcd6841ff59 = $(`<div id="html_0bb27584ac70fc4625135dcd6841ff59" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Cemetery         </h3>         <img src="https://www.tclf.org/sites/default/files/styles/crop_2000x700/public/thumbnails/image/2518_hero_LakeForestCemetery.jpg?itok=j6RxBjBP "               alt="Lake Forest Cemetery"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Overlooking Lake Michigan, this cemetery is surprisingly scenic and peaceful. The bluff views and historic monuments give it a reflective, almost park-like feel. It connects the town to generations of history.         </p>     </div>     </div>`)[0];
+                popup_765e1ba232b542b94bc0b79dc9d8ddc9.setContent(html_0bb27584ac70fc4625135dcd6841ff59);
+            
+        
+
+        marker_0271ea4651455d57dc2ae01da9ac0e17.bindPopup(popup_765e1ba232b542b94bc0b79dc9d8ddc9)
+        ;
+
+        
+    
+    
+            marker_0271ea4651455d57dc2ae01da9ac0e17.bindTooltip(
+                `<div>
+                     Lake Forest Cemetery
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e7615d848048453bd8a22315a5a55865 = L.marker(
+                [42.252336, -87.839455],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_cc5cf40050d4ee6c4980b398a67dc0cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_e7615d848048453bd8a22315a5a55865.setIcon(icon_cc5cf40050d4ee6c4980b398a67dc0cb);
+        
+    
+        var popup_268d64272deae9ca5e76a5542dbfa7f1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_db7157e28d5d47b8c44a45ca7b7b0d15 = $(`<div id="html_db7157e28d5d47b8c44a45ca7b7b0d15" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Train Station         </h3>         <img src="https://www.compass.com/m/8dd00447fae1903a0b2f8bc9fa6c609e8c308f39_img_24_bb9c6/origin.webp "               alt="Lake Forest Train Station"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The downtown train station connects Lake Forest to Chicago while keeping its small-town charm. The classic architecture fits perfectly into Market Square. It’s both functional and iconic.         </p>     </div>     </div>`)[0];
+                popup_268d64272deae9ca5e76a5542dbfa7f1.setContent(html_db7157e28d5d47b8c44a45ca7b7b0d15);
+            
+        
+
+        marker_e7615d848048453bd8a22315a5a55865.bindPopup(popup_268d64272deae9ca5e76a5542dbfa7f1)
+        ;
+
+        
+    
+    
+            marker_e7615d848048453bd8a22315a5a55865.bindTooltip(
+                `<div>
+                     Lake Forest Train Station
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e1586d1fe5de5f2b67a655ebdeb0433c = L.marker(
+                [42.246233, -87.848238],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_15d0d61fb20821d767346fa47321bb98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e1586d1fe5de5f2b67a655ebdeb0433c.setIcon(icon_15d0d61fb20821d767346fa47321bb98);
+        
+    
+        var popup_146d1fd73cb5eb75c5a22dcdac1c5164 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6386b04dad2ed463e097c985f8296e48 = $(`<div id="html_6386b04dad2ed463e097c985f8296e48" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             CROYA (Committee Representing Our Young Adults)         </h3>         <img src="https://static.wixstatic.com/media/f33f70_245c8e3fb1384cc8a2fabc340f6456b3~mv2.png/v1/fill/w_568,h_384,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/f33f70_245c8e3fb1384cc8a2fabc340f6456b3~mv2.png "               alt="CROYA (Committee Representing Our Young Adults)"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Croya is a teen-focused community center that brings energy and creativity to the town. It hosts events, programs, and social spaces for young residents. It feels lively and youth-driven.         </p>     </div>     </div>`)[0];
+                popup_146d1fd73cb5eb75c5a22dcdac1c5164.setContent(html_6386b04dad2ed463e097c985f8296e48);
+            
+        
+
+        marker_e1586d1fe5de5f2b67a655ebdeb0433c.bindPopup(popup_146d1fd73cb5eb75c5a22dcdac1c5164)
+        ;
+
+        
+    
+    
+            marker_e1586d1fe5de5f2b67a655ebdeb0433c.bindTooltip(
+                `<div>
+                     CROYA (Committee Representing Our Young Adults)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d3008092cdd1b937eab6aad3723ff3be = L.marker(
+                [42.252919, -87.841818],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_27de4401eb77140aa37c1c560d3505c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_d3008092cdd1b937eab6aad3723ff3be.setIcon(icon_27de4401eb77140aa37c1c560d3505c0);
+        
+    
+        var popup_d4ff142af07e4564be5da95a05d4a0c7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_7284cfd7bc67279b9a2edcfce9c85318 = $(`<div id="html_7284cfd7bc67279b9a2edcfce9c85318" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Penny's from Heaven         </h3>         <img src="https://shopmarketsquare.com/images/PennysFromHeaven.png "               alt="Penny's from Heaven"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Penny's from Heaven is a beloved children’s boutique in Market Square. It has a nostalgic, small-town feel and has been around for decades. It represents local retail charm, and personalized gifts for young children.         </p>     </div>     </div>`)[0];
+                popup_d4ff142af07e4564be5da95a05d4a0c7.setContent(html_7284cfd7bc67279b9a2edcfce9c85318);
+            
+        
+
+        marker_d3008092cdd1b937eab6aad3723ff3be.bindPopup(popup_d4ff142af07e4564be5da95a05d4a0c7)
+        ;
+
+        
+    
+    
+            marker_d3008092cdd1b937eab6aad3723ff3be.bindTooltip(
+                `<div>
+                     Penny's from Heaven
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a442ddf2e3943b546a1322b05467b9b7 = L.marker(
+                [42.249677, -87.827757],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_f04460ecee42b9345c4621a4b24d9ced = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glass", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_a442ddf2e3943b546a1322b05467b9b7.setIcon(icon_f04460ecee42b9345c4621a4b24d9ced);
+        
+    
+        var popup_1965a599c9e24c6b4be1991de9b5c17d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_82cb3e380680d3867aa0c71ecd159adc = $(`<div id="html_82cb3e380680d3867aa0c71ecd159adc" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             The Lantern         </h3>         <img src="https://www.lakeforest.edu/Public/OCM/700x563/Campus%20life/the%20lantern%20city%20of%20lake%20forest.png "               alt="The Lantern"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The Lantern is a restaurant and pub with dive bar-esque feels to it. It's a cozy spot for families to have a meal at, and a historic destination for Lake Forest College students to enjoy a beverage at night. This pub is known for it's town locals and Kareoke Tuesdays.         </p>     </div>     </div>`)[0];
+                popup_1965a599c9e24c6b4be1991de9b5c17d.setContent(html_82cb3e380680d3867aa0c71ecd159adc);
+            
+        
+
+        marker_a442ddf2e3943b546a1322b05467b9b7.bindPopup(popup_1965a599c9e24c6b4be1991de9b5c17d)
+        ;
+
+        
+    
+    
+            marker_a442ddf2e3943b546a1322b05467b9b7.bindTooltip(
+                `<div>
+                     The Lantern
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a7a5971ec10be0a4486afa75a970e268 = L.marker(
+                [42.26138, -87.83567],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_abe5577d45b4c0e3e9ef1b39c81b1ae8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a7a5971ec10be0a4486afa75a970e268.setIcon(icon_abe5577d45b4c0e3e9ef1b39c81b1ae8);
+        
+    
+        var popup_d8d1c9c980b465613db99c98218c9ea7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c2915929d993cc9f445cdf9e212e77c6 = $(`<div id="html_c2915929d993cc9f445cdf9e212e77c6" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Northcroft Park         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/oH-emddFtwgeEvoORu6RRA/l.jpg "               alt="Northcroft Park"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Northcroft Park is located in the West side of Lake Forest, and known for its extensive fields. Popular amongst the AYSO league, many soccer games are held here on Saturday afternoons.          </p>     </div>     </div>`)[0];
+                popup_d8d1c9c980b465613db99c98218c9ea7.setContent(html_c2915929d993cc9f445cdf9e212e77c6);
+            
+        
+
+        marker_a7a5971ec10be0a4486afa75a970e268.bindPopup(popup_d8d1c9c980b465613db99c98218c9ea7)
+        ;
+
+        
+    
+    
+            marker_a7a5971ec10be0a4486afa75a970e268.bindTooltip(
+                `<div>
+                     Northcroft Park
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_548f6c98fca0120968cf6c6cd020d644 = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_ef6c16d97abae7dbc3c05e66b6cea2be = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "lightblue", "prefix": "glyphicon"}
+            );
+            marker_548f6c98fca0120968cf6c6cd020d644.setIcon(icon_ef6c16d97abae7dbc3c05e66b6cea2be);
+        
+    
+        var popup_8ebac2755ce08be5c578befb7bd453aa = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_d1945140787d03b34f3dc493ba5f57fc = $(`<div id="html_d1945140787d03b34f3dc493ba5f57fc" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Yacht Club         </h3>         <img src="https://images.clubexpress.com/477018/graphics/Header_Banner_2_571182833.jpg "               alt="Lake Forest Yacht Club"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The yacht club sits along the shoreline and adds a nautical character to the community. Sailboats and lake views give it a classic North Shore feel. It reflects Lake Forest’s connection to Lake Michigan.         </p>     </div>     </div>`)[0];
+                popup_8ebac2755ce08be5c578befb7bd453aa.setContent(html_d1945140787d03b34f3dc493ba5f57fc);
+            
+        
+
+        marker_548f6c98fca0120968cf6c6cd020d644.bindPopup(popup_8ebac2755ce08be5c578befb7bd453aa)
+        ;
+
+        
+    
+    
+            marker_548f6c98fca0120968cf6c6cd020d644.bindTooltip(
+                `<div>
+                     Lake Forest Yacht Club
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b5fdd7fee0c1b71d726c4a614b2d2a2 = L.marker(
+                [42.248445, -87.891205],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_b63d49b8a4cc86a69e664634aac7ccca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9b5fdd7fee0c1b71d726c4a614b2d2a2.setIcon(icon_b63d49b8a4cc86a69e664634aac7ccca);
+        
+    
+        var popup_32bd35a0408ded06f669259db49f46bf = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_839a60dead07f22ee9d914ec3e380001 = $(`<div id="html_839a60dead07f22ee9d914ec3e380001" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Academy         </h3>         <img src="https://d13b2ieg84qqce.cloudfront.net/cc7d0f36e21a730e05ca54098b389eedb58921ae "               alt="Lake Forest Academy"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Lake Forest Academy is a historic boarding school with a beautiful, expansive campus. The architecture and tree-lined paths feel classic and prestigious. It’s an important academic landmark in the area.         </p>     </div>     </div>`)[0];
+                popup_32bd35a0408ded06f669259db49f46bf.setContent(html_839a60dead07f22ee9d914ec3e380001);
+            
+        
+
+        marker_9b5fdd7fee0c1b71d726c4a614b2d2a2.bindPopup(popup_32bd35a0408ded06f669259db49f46bf)
+        ;
+
+        
+    
+    
+            marker_9b5fdd7fee0c1b71d726c4a614b2d2a2.bindTooltip(
+                `<div>
+                     Lake Forest Academy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cfd5585d876257b7841970a6b8a47a3a = L.marker(
+                [42.247861, -87.855831],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_9b252482f7f9d382d76c18c18e149c72 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_cfd5585d876257b7841970a6b8a47a3a.setIcon(icon_9b252482f7f9d382d76c18c18e149c72);
+        
+    
+        var popup_554142645d712ced3812262d7f44a2c7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_518b9a577ece571b7bfa5f95fea0a470 = $(`<div id="html_518b9a577ece571b7bfa5f95fea0a470" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             First Presbyterian Church         </h3>         <img src="https://firstchurchlf.org/wp-content/uploads/5.16.21-First-Pres-Service-71.jpg "               alt="First Presbyterian Church"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             This church features beautiful traditional architecture and long-standing community involvement. It hosts events, services, and gatherings throughout the year. It feels like a foundational part of town life.         </p>     </div>     </div>`)[0];
+                popup_554142645d712ced3812262d7f44a2c7.setContent(html_518b9a577ece571b7bfa5f95fea0a470);
+            
+        
+
+        marker_cfd5585d876257b7841970a6b8a47a3a.bindPopup(popup_554142645d712ced3812262d7f44a2c7)
+        ;
+
+        
+    
+    
+            marker_cfd5585d876257b7841970a6b8a47a3a.bindTooltip(
+                `<div>
+                     First Presbyterian Church
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7244c2cba940570e5cac4a250e15ea1 = L.marker(
+                [42.246233, -87.848238],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_cd4ee2e69c5b63b0147d1093ffc6f92d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c7244c2cba940570e5cac4a250e15ea1.setIcon(icon_cd4ee2e69c5b63b0147d1093ffc6f92d);
+        
+    
+        var popup_ea6b19e52401a9409a3dbb2370d7bf0a = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_8f83a75d6c12ae0c02f6c718250c3f33 = $(`<div id="html_8f83a75d6c12ae0c02f6c718250c3f33" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Recreation Center         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/Ssc6CzLPFYS0s81XOTx1gQ/348s.jpg "               alt="Lake Forest Recreation Center"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The recreation center provides fitness programs, classes, and events for residents of all ages. It’s energetic and community-focused. It reflects the active lifestyle of Lake Forest families.         </p>     </div>     </div>`)[0];
+                popup_ea6b19e52401a9409a3dbb2370d7bf0a.setContent(html_8f83a75d6c12ae0c02f6c718250c3f33);
+            
+        
+
+        marker_c7244c2cba940570e5cac4a250e15ea1.bindPopup(popup_ea6b19e52401a9409a3dbb2370d7bf0a)
+        ;
+
+        
+    
+    
+            marker_c7244c2cba940570e5cac4a250e15ea1.bindTooltip(
+                `<div>
+                     Lake Forest Recreation Center
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0c7ee10d30d4c96d409ec375ff98723 = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_2d3a0004c9f7b8039141b9d0990ddaee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e0c7ee10d30d4c96d409ec375ff98723.setIcon(icon_2d3a0004c9f7b8039141b9d0990ddaee);
+        
+    
+        var popup_f04dc925cab186789f5a77faf9176a5d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0ffbe9d9f80e4a2b9ed60fd5ab0d235c = $(`<div id="html_0ffbe9d9f80e4a2b9ed60fd5ab0d235c" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Everett Park         </h3>         <img src="https://imagescdn.homes.com/i2/FVTrkL6IZMssyisq8w-fqmajhGufCgGxc6Ie1PJdUTM/117/triangle-park-lake-forest-il.jpg?p=1 "               alt="Everett Park"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Everett Park is a smaller, quiet park tucked within residential streets. It’s peaceful and ideal for short walks or casual gatherings. It feels understated but welcoming.         </p>     </div>     </div>`)[0];
+                popup_f04dc925cab186789f5a77faf9176a5d.setContent(html_0ffbe9d9f80e4a2b9ed60fd5ab0d235c);
+            
+        
+
+        marker_e0c7ee10d30d4c96d409ec375ff98723.bindPopup(popup_f04dc925cab186789f5a77faf9176a5d)
+        ;
+
+        
+    
+    
+            marker_e0c7ee10d30d4c96d409ec375ff98723.bindTooltip(
+                `<div>
+                     Everett Park
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a3431960690692b4d9311251e406c91d = L.marker(
+                [42.26989, -87.89884],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_e4398b0ef9d9bccfc8a3f6963ae45ddd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a3431960690692b4d9311251e406c91d.setIcon(icon_e4398b0ef9d9bccfc8a3f6963ae45ddd);
+        
+    
+        var popup_537349411dc7e4e6e8ac516d030012fb = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_64c1b766c454e0760e2afe0cbcb3d08c = $(`<div id="html_64c1b766c454e0760e2afe0cbcb3d08c" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Montessori School         </h3>         <img src="https://imagescdn.homes.com/i2/csifTda31dzrFYkgfal23m1mXIhHFWqGOozfjPZnyok/117/montessori-school-of-lake-forest-lake-forest-il-primaryphoto.jpg?p=1 "               alt="Lake Forest Montessori School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Lake Forest Montessori School serves early childhood to age 14 students in a close-knit setting. The school's purpose is to set children up for success in a small setting, with 1:1 learning opportunities.         </p>     </div>     </div>`)[0];
+                popup_537349411dc7e4e6e8ac516d030012fb.setContent(html_64c1b766c454e0760e2afe0cbcb3d08c);
+            
+        
+
+        marker_a3431960690692b4d9311251e406c91d.bindPopup(popup_537349411dc7e4e6e8ac516d030012fb)
+        ;
+
+        
+    
+    
+            marker_a3431960690692b4d9311251e406c91d.bindTooltip(
+                `<div>
+                     Lake Forest Montessori School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_240ec3ff816c7e501ec5143ccd7fda74 = L.marker(
+                [42.239873, -87.863193],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_01218dbee23789996ceb2b4929d3a04b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_240ec3ff816c7e501ec5143ccd7fda74.setIcon(icon_01218dbee23789996ceb2b4929d3a04b);
+        
+    
+        var popup_519d458bfc0989991363bf426e98130c = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_960b5e6132ea0aaf6b2dd495402f6f7e = $(`<div id="html_960b5e6132ea0aaf6b2dd495402f6f7e" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Townline Community Park         </h3>         <img src="https://images.homesbymarco.com/pics/parks/4/2805/large/townline_community_park_1.jpg "               alt="Townline Community Park"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Townline Park offers athletic fields and open space for local sports leagues. It’s especially active during spring and summer seasons. It feels energetic and family-centered.         </p>     </div>     </div>`)[0];
+                popup_519d458bfc0989991363bf426e98130c.setContent(html_960b5e6132ea0aaf6b2dd495402f6f7e);
+            
+        
+
+        marker_240ec3ff816c7e501ec5143ccd7fda74.bindPopup(popup_519d458bfc0989991363bf426e98130c)
+        ;
+
+        
+    
+    
+            marker_240ec3ff816c7e501ec5143ccd7fda74.bindTooltip(
+                `<div>
+                     Townline Community Park
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b3fdcab81d76c1f8636ec9f40f94e4c6 = L.marker(
+                [42.2506, -87.837451],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_b9a4460da54bcf468bddd8dbea923755 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b3fdcab81d76c1f8636ec9f40f94e4c6.setIcon(icon_b9a4460da54bcf468bddd8dbea923755);
+        
+    
+        var popup_444c0ef1ada1cb9c45e655390fe5edc1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_3303478623b2b2364593a99c67841817 = $(`<div id="html_3303478623b2b2364593a99c67841817" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Symphony         </h3>         <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Lake_Forest_Symphony_at_the_James_Lumber_Center.jpg "               alt="Lake Forest Symphony"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The Lake Forest Symphony brings professional-level music performances to the community. Concerts add a refined artistic presence to the town. It strengthens the local cultural scene.         </p>     </div>     </div>`)[0];
+                popup_444c0ef1ada1cb9c45e655390fe5edc1.setContent(html_3303478623b2b2364593a99c67841817);
+            
+        
+
+        marker_b3fdcab81d76c1f8636ec9f40f94e4c6.bindPopup(popup_444c0ef1ada1cb9c45e655390fe5edc1)
+        ;
+
+        
+    
+    
+            marker_b3fdcab81d76c1f8636ec9f40f94e4c6.bindTooltip(
+                `<div>
+                     Lake Forest Symphony
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b2a8bb36e7a6dfb328d1dd6a5479e653 = L.marker(
+                [42.246233, -87.848238],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_5342d759f5bd3dcbdfc1c0a39f1c6191 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "university", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b2a8bb36e7a6dfb328d1dd6a5479e653.setIcon(icon_5342d759f5bd3dcbdfc1c0a39f1c6191);
+        
+    
+        var popup_eb9d8ca727d2ee6f3d89da59c8fd60e7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0ce7723c3f8b4b470b67c524afe56c79 = $(`<div id="html_0ce7723c3f8b4b470b67c524afe56c79" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Forest Festival & Fireworks (Deerpath Community Park)         </h3>         <img src="https://chicagoevents.com/wp-content/uploads/220138_070416_3409_LF4thofJuly-scaled-2.jpg "               alt="Lake Forest Festival & Fireworks (Deerpath Community Park)"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             The annual July 4th celebration is a major tradition in Lake Forest. Families gather for live music, fireworks, and community festivities. It captures the small-town spirit of the area.         </p>     </div>     </div>`)[0];
+                popup_eb9d8ca727d2ee6f3d89da59c8fd60e7.setContent(html_0ce7723c3f8b4b470b67c524afe56c79);
+            
+        
+
+        marker_b2a8bb36e7a6dfb328d1dd6a5479e653.bindPopup(popup_eb9d8ca727d2ee6f3d89da59c8fd60e7)
+        ;
+
+        
+    
+    
+            marker_b2a8bb36e7a6dfb328d1dd6a5479e653.bindTooltip(
+                `<div>
+                     Lake Forest Festival & Fireworks (Deerpath Community Park)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3cdf7bcacfe32898df9c7f9d62d3c48e = L.marker(
+                [42.243548, -87.899053],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_e56a988644393b1ed79c8407d3490620 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "beige", "prefix": "glyphicon"}
+            );
+            marker_3cdf7bcacfe32898df9c7f9d62d3c48e.setIcon(icon_e56a988644393b1ed79c8407d3490620);
+        
+    
+        var popup_4d4ead45728adca932b3b235996f6831 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_fdfbd9670a8f7fd2cceb6ee7d68d1be6 = $(`<div id="html_fdfbd9670a8f7fd2cceb6ee7d68d1be6" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Oaken Bistro + Bar         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/f0/bb/9c/lounge.jpg?w=900&h=500&s=1 "               alt="Oaken Bistro + Bar"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A refined and contemporary American bistro with flavorful dishes, craft cocktails, and a welcoming bar atmosphere. Great for brunch, dinner, or happy hour in a stylish yet relaxed setting.         </p>     </div>     </div>`)[0];
+                popup_4d4ead45728adca932b3b235996f6831.setContent(html_fdfbd9670a8f7fd2cceb6ee7d68d1be6);
+            
+        
+
+        marker_3cdf7bcacfe32898df9c7f9d62d3c48e.bindPopup(popup_4d4ead45728adca932b3b235996f6831)
+        ;
+
+        
+    
+    
+            marker_3cdf7bcacfe32898df9c7f9d62d3c48e.bindTooltip(
+                `<div>
+                     Oaken Bistro + Bar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8f5b00e21d13dc9501f0a891ba304f29 = L.marker(
+                [42.24956, -87.840753],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_da5e0669f01ece82a7d744258fe41a87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_8f5b00e21d13dc9501f0a891ba304f29.setIcon(icon_da5e0669f01ece82a7d744258fe41a87);
+        
+    
+        var popup_d16483b99bbc36b604e5c96da473adbf = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_3e48c18c08435ec4519fb40680df258a = $(`<div id="html_3e48c18c08435ec4519fb40680df258a" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             The English Room         </h3>         <img src="https://symphony.cdn.tambourine.com/deer-path-inn-redesign/media/deerpathinn-03_1-englishroom-06-gallery-image-04-65b423424cd05.jpg "               alt="The English Room"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A classic fine-dining experience inside the historic Deer Path Inn, known for elegant service and refined dishes—perfect for special occasions.         </p>     </div>     </div>`)[0];
+                popup_d16483b99bbc36b604e5c96da473adbf.setContent(html_3e48c18c08435ec4519fb40680df258a);
+            
+        
+
+        marker_8f5b00e21d13dc9501f0a891ba304f29.bindPopup(popup_d16483b99bbc36b604e5c96da473adbf)
+        ;
+
+        
+    
+    
+            marker_8f5b00e21d13dc9501f0a891ba304f29.bindTooltip(
+                `<div>
+                     The English Room
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ed7c5bd8826089de77407c6c6aa5c1bb = L.marker(
+                [42.249818, -87.839998],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_35c981c48fae5dfef14f477efeaaebef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ed7c5bd8826089de77407c6c6aa5c1bb.setIcon(icon_35c981c48fae5dfef14f477efeaaebef);
+        
+    
+        var popup_be923a6c376f45985952f30284d054e1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_3b76ca731d20dd0fced447c2a0eaebff = $(`<div id="html_3b76ca731d20dd0fced447c2a0eaebff" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Francesca’s Intimo         </h3>         <img src="https://shhospitality.co/cdn/shop/articles/Intimo_1920x900_crop_center.jpg?v=1712382325 "               alt="Francesca’s Intimo"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A cozy Italian trattoria with rustic pasta, wine, and comfort classics—one of the most popular Italian spots in town.         </p>     </div>     </div>`)[0];
+                popup_be923a6c376f45985952f30284d054e1.setContent(html_3b76ca731d20dd0fced447c2a0eaebff);
+            
+        
+
+        marker_ed7c5bd8826089de77407c6c6aa5c1bb.bindPopup(popup_be923a6c376f45985952f30284d054e1)
+        ;
+
+        
+    
+    
+            marker_ed7c5bd8826089de77407c6c6aa5c1bb.bindTooltip(
+                `<div>
+                     Francesca’s Intimo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ea61068ad94c107525e2f410a8f4f96c = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_8eccfd5fb2a841717da2358f2681b7c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_ea61068ad94c107525e2f410a8f4f96c.setIcon(icon_8eccfd5fb2a841717da2358f2681b7c8);
+        
+    
+        var popup_15d6f759a1d63ef21542be0465c98cf6 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_f1552b8ade9885a51d657cf720fdfe1a = $(`<div id="html_f1552b8ade9885a51d657cf720fdfe1a" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Sophia Steak         </h3>         <img src="https://sophiasteak.com/lakeforest/events/Combo25_1.jpg "               alt="Sophia Steak"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A steakhouse-style menu with classic cuts and a comfortable atmosphere—ideal for special nights out.         </p>     </div>     </div>`)[0];
+                popup_15d6f759a1d63ef21542be0465c98cf6.setContent(html_f1552b8ade9885a51d657cf720fdfe1a);
+            
+        
+
+        marker_ea61068ad94c107525e2f410a8f4f96c.bindPopup(popup_15d6f759a1d63ef21542be0465c98cf6)
+        ;
+
+        
+    
+    
+            marker_ea61068ad94c107525e2f410a8f4f96c.bindTooltip(
+                `<div>
+                     Sophia Steak
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a977c9627c9ab68119a4ac5c40737d0 = L.marker(
+                [42.254203, -87.842116],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_aa4247761429a5436e96b8b90c3c64d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2a977c9627c9ab68119a4ac5c40737d0.setIcon(icon_aa4247761429a5436e96b8b90c3c64d4);
+        
+    
+        var popup_747e9132d090c6fa091fb0afbff275e0 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_1b1a91e80d41cce080a4841251f99b00 = $(`<div id="html_1b1a91e80d41cce080a4841251f99b00" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             The Gallery         </h3>         <img src="https://voyagechicago.com/wp-content/uploads/2018/09/dom_class_1.jpg  "               alt="The Gallery"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A refined dining spot blending contemporary cuisine with an art-inspired ambiance, known for creative dishes and excellent service.         </p>     </div>     </div>`)[0];
+                popup_747e9132d090c6fa091fb0afbff275e0.setContent(html_1b1a91e80d41cce080a4841251f99b00);
+            
+        
+
+        marker_2a977c9627c9ab68119a4ac5c40737d0.bindPopup(popup_747e9132d090c6fa091fb0afbff275e0)
+        ;
+
+        
+    
+    
+            marker_2a977c9627c9ab68119a4ac5c40737d0.bindTooltip(
+                `<div>
+                     The Gallery
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_03856a0728b3a7310a2154afea1d36b6 = L.marker(
+                [42.248739, -87.839549],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_31a20892ccf95b865581b59fea0641fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "white", "markerColor": "beige", "prefix": "glyphicon"}
+            );
+            marker_03856a0728b3a7310a2154afea1d36b6.setIcon(icon_31a20892ccf95b865581b59fea0641fa);
+        
+    
+        var popup_16b119d3e23744fa0f2c4bd528836a41 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6ee7fcd18d5327e6faf8ba6d6fad1d3e = $(`<div id="html_6ee7fcd18d5327e6faf8ba6d6fad1d3e" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Egg Harbor Cafe         </h3>         <img src="https://d1w7312wesee68.cloudfront.net/wC4bbxVWUnVh_By14LNCwGldpBqeaEVwXSTmC-j2ebc/ext:webp/quality:85/plain/s3://toast-sites-resources-prod/restaurantImages/4aa188e7-c4ac-41f2-b197-552bb9d47437/welcome-to-egg-harbor.jpeg "               alt="Egg Harbor Cafe"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A beloved breakfast and lunch café with hearty plates, crepes, and classic morning favorites.         </p>     </div>     </div>`)[0];
+                popup_16b119d3e23744fa0f2c4bd528836a41.setContent(html_6ee7fcd18d5327e6faf8ba6d6fad1d3e);
+            
+        
+
+        marker_03856a0728b3a7310a2154afea1d36b6.bindPopup(popup_16b119d3e23744fa0f2c4bd528836a41)
+        ;
+
+        
+    
+    
+            marker_03856a0728b3a7310a2154afea1d36b6.bindTooltip(
+                `<div>
+                     Egg Harbor Cafe
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dee21cfb49783c28cc7beb55acc104cf = L.marker(
+                [42.256886, -87.841726],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_ff7908f7a9ba629a5ce1e5b3ab78eb0f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_dee21cfb49783c28cc7beb55acc104cf.setIcon(icon_ff7908f7a9ba629a5ce1e5b3ab78eb0f);
+        
+    
+        var popup_9d94928f1ccd220840798f9e21634a6d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_2e3d4dfcd2d6b9502ab0be910edcc2fb = $(`<div id="html_2e3d4dfcd2d6b9502ab0be910edcc2fb" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Kuro Bistro         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/nRMIhQerE61IyOLG0EqtpA/348s.jpg "               alt="Kuro Bistro"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Contemporary Japanese cuisine and sushi, with everything from sashimi to creative rolls and grill menu items.         </p>     </div>     </div>`)[0];
+                popup_9d94928f1ccd220840798f9e21634a6d.setContent(html_2e3d4dfcd2d6b9502ab0be910edcc2fb);
+            
+        
+
+        marker_dee21cfb49783c28cc7beb55acc104cf.bindPopup(popup_9d94928f1ccd220840798f9e21634a6d)
+        ;
+
+        
+    
+    
+            marker_dee21cfb49783c28cc7beb55acc104cf.bindTooltip(
+                `<div>
+                     Kuro Bistro
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7f837b49044921931af9c8d62f896fe8 = L.marker(
+                [42.24956, -87.840753],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_5133441d3885e143ce6b16bf26d62d64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glass", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_7f837b49044921931af9c8d62f896fe8.setIcon(icon_5133441d3885e143ce6b16bf26d62d64);
+        
+    
+        var popup_165e2f8b45de717a64c23da0aac0485f = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_5b8ef61e0930ff7c05b9e815a4acd8da = $(`<div id="html_5b8ef61e0930ff7c05b9e815a4acd8da" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             White Hart Pub         </h3>         <img src="https://symphony.cdn.tambourine.com/deer-path-inn-redesign/media/deerpathinn-whitehartpub-dinner-01-65b428e71b5b0.jpg "               alt="White Hart Pub"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A casual English-style pub setting with pub classics and a friendly vibe for relaxed nights out.         </p>     </div>     </div>`)[0];
+                popup_165e2f8b45de717a64c23da0aac0485f.setContent(html_5b8ef61e0930ff7c05b9e815a4acd8da);
+            
+        
+
+        marker_7f837b49044921931af9c8d62f896fe8.bindPopup(popup_165e2f8b45de717a64c23da0aac0485f)
+        ;
+
+        
+    
+    
+            marker_7f837b49044921931af9c8d62f896fe8.bindTooltip(
+                `<div>
+                     White Hart Pub
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cf2078114ba189d7161aac4376f7463b = L.marker(
+                [42.22455, -87.871992],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_cb440af147c7906e6afc076529e3159b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cf2078114ba189d7161aac4376f7463b.setIcon(icon_cb440af147c7906e6afc076529e3159b);
+        
+    
+        var popup_423998e8180df7d6cfec386a794c1776 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_36a8493a32ae1fbc689caf4e13cc80d7 = $(`<div id="html_36a8493a32ae1fbc689caf4e13cc80d7" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Sushi Kushi Toyo         </h3>         <img src="https://static.wixstatic.com/media/f6bfa7_49de350295d3f4bad8441a3acd8dc43f.jpg/v1/fill/w_556,h_396,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f6bfa7_49de350295d3f4bad8441a3acd8dc43f.jpg "               alt="Sushi Kushi Toyo"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Classic Japanese sushi and favorites, often praised for fresh fish and attentive service.         </p>     </div>     </div>`)[0];
+                popup_423998e8180df7d6cfec386a794c1776.setContent(html_36a8493a32ae1fbc689caf4e13cc80d7);
+            
+        
+
+        marker_cf2078114ba189d7161aac4376f7463b.bindPopup(popup_423998e8180df7d6cfec386a794c1776)
+        ;
+
+        
+    
+    
+            marker_cf2078114ba189d7161aac4376f7463b.bindTooltip(
+                `<div>
+                     Sushi Kushi Toyo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_59c251c41127e37ec6526c09ccc13e69 = L.marker(
+                [42.248496, -87.839472],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_92a2a52e9557d48d94380e284da64bfd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "darkred", "prefix": "glyphicon"}
+            );
+            marker_59c251c41127e37ec6526c09ccc13e69.setIcon(icon_92a2a52e9557d48d94380e284da64bfd);
+        
+    
+        var popup_f1322fb0a72d551284a0defd87d9d88a = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_a4aa40cadb231dcdcf678bb8c538ca26 = $(`<div id="html_a4aa40cadb231dcdcf678bb8c538ca26" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Chief’s Pub         </h3>         <img src="https://chiefspub.com/wp-content/uploads/2024/07/GARAGE-DOORS-OPEN-1-1024x768.jpeg "               alt="Chief’s Pub"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A local sports bar with comfort food, burgers, and a variety of beers—great for casual hangouts.         </p>     </div>     </div>`)[0];
+                popup_f1322fb0a72d551284a0defd87d9d88a.setContent(html_a4aa40cadb231dcdcf678bb8c538ca26);
+            
+        
+
+        marker_59c251c41127e37ec6526c09ccc13e69.bindPopup(popup_f1322fb0a72d551284a0defd87d9d88a)
+        ;
+
+        
+    
+    
+            marker_59c251c41127e37ec6526c09ccc13e69.bindTooltip(
+                `<div>
+                     Chief’s Pub
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f436f1bb8cacbf6ec996276a2f9143f4 = L.marker(
+                [42.253634, -87.840785],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_0f0f614523ec94b909b41f1e57f84260 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_f436f1bb8cacbf6ec996276a2f9143f4.setIcon(icon_0f0f614523ec94b909b41f1e57f84260);
+        
+    
+        var popup_0eea1b14fdb39b81ad4f7412a0f5c734 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_1eba485a88bb8241645017b01b2e7239 = $(`<div id="html_1eba485a88bb8241645017b01b2e7239" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Authentico Mexican Restaurant & Bar         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/17/e0/31/authentico.jpg?w=700&h=-1&s=1 "               alt="Authentico Mexican Restaurant & Bar"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A lively Mexican spot with flavorful tacos and vibrant drinks—perfect for casual meals with friends.         </p>     </div>     </div>`)[0];
+                popup_0eea1b14fdb39b81ad4f7412a0f5c734.setContent(html_1eba485a88bb8241645017b01b2e7239);
+            
+        
+
+        marker_f436f1bb8cacbf6ec996276a2f9143f4.bindPopup(popup_0eea1b14fdb39b81ad4f7412a0f5c734)
+        ;
+
+        
+    
+    
+            marker_f436f1bb8cacbf6ec996276a2f9143f4.bindTooltip(
+                `<div>
+                     Authentico Mexican Restaurant & Bar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1761c4024acf95126d72da2986fcd33e = L.marker(
+                [42.254414, -87.840902],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_680fd40c1229698f1cc4bb1cf7f2ce98 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1761c4024acf95126d72da2986fcd33e.setIcon(icon_680fd40c1229698f1cc4bb1cf7f2ce98);
+        
+    
+        var popup_d204a718b9ef9772d4ad2d524224edc0 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_eadbd7b657fb85e27ea03f607a7b9f60 = $(`<div id="html_eadbd7b657fb85e27ea03f607a7b9f60" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Ferentino’s Pizzeria East         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/fVo6ryjbpOZZera-3hcIpw/l.jpg "               alt="Ferentino’s Pizzeria East"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Classic Italian pizza with generous toppings and neighborhood favorites.         </p>     </div>     </div>`)[0];
+                popup_d204a718b9ef9772d4ad2d524224edc0.setContent(html_eadbd7b657fb85e27ea03f607a7b9f60);
+            
+        
+
+        marker_1761c4024acf95126d72da2986fcd33e.bindPopup(popup_d204a718b9ef9772d4ad2d524224edc0)
+        ;
+
+        
+    
+    
+            marker_1761c4024acf95126d72da2986fcd33e.bindTooltip(
+                `<div>
+                     Ferentino’s Pizzeria East
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4662fe3576cff2b6edb97b32334c1a92 = L.marker(
+                [42.224858, -87.874344],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_47a46c3e7eb865c1789e3ca4dd5b7460 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4662fe3576cff2b6edb97b32334c1a92.setIcon(icon_47a46c3e7eb865c1789e3ca4dd5b7460);
+        
+    
+        var popup_ed73d289d53f932d0f4868fe191a1440 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_94335d8b87705d28a582271032b5c86b = $(`<div id="html_94335d8b87705d28a582271032b5c86b" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lou Malnati’s Pizzeria         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/51/8f/41/outside-view.jpg?w=400&h=-1&s=1 "               alt="Lou Malnati’s Pizzeria"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Famous Chicago-style deep-dish and classic pies, great for takeout or casual dinners.         </p>     </div>     </div>`)[0];
+                popup_ed73d289d53f932d0f4868fe191a1440.setContent(html_94335d8b87705d28a582271032b5c86b);
+            
+        
+
+        marker_4662fe3576cff2b6edb97b32334c1a92.bindPopup(popup_ed73d289d53f932d0f4868fe191a1440)
+        ;
+
+        
+    
+    
+            marker_4662fe3576cff2b6edb97b32334c1a92.bindTooltip(
+                `<div>
+                     Lou Malnati’s Pizzeria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_df4100bc1d670d978e300fbc676a2e87 = L.marker(
+                [42.251728, -87.840898],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_381beb703bc138fdbee3205ffd253de3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_df4100bc1d670d978e300fbc676a2e87.setIcon(icon_381beb703bc138fdbee3205ffd253de3);
+        
+    
+        var popup_920395aef95d26e43efdbace36735ec5 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6de1ff9d924dda75090867c2511e7208 = $(`<div id="html_6de1ff9d924dda75090867c2511e7208" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Left Bank         </h3>         <img src="https://leftbankhotdogs.com/cdn/shop/files/DSC07619.jpg?v=1717034669&width=3840 "               alt="Left Bank"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A casual lunch spot known for its sandwiches and hot dogs, right near Market Square.         </p>     </div>     </div>`)[0];
+                popup_920395aef95d26e43efdbace36735ec5.setContent(html_6de1ff9d924dda75090867c2511e7208);
+            
+        
+
+        marker_df4100bc1d670d978e300fbc676a2e87.bindPopup(popup_920395aef95d26e43efdbace36735ec5)
+        ;
+
+        
+    
+    
+            marker_df4100bc1d670d978e300fbc676a2e87.bindTooltip(
+                `<div>
+                     Left Bank
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5a7ae193d9b8e5e2d9fe165f1c9b96f7 = L.marker(
+                [42.256886, -87.841726],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_e9976697f4fcc4ca0a53e6e75596f4e8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5a7ae193d9b8e5e2d9fe165f1c9b96f7.setIcon(icon_e9976697f4fcc4ca0a53e6e75596f4e8);
+        
+    
+        var popup_e14a7d00c95db796d8aa89efc0f5033f = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_2f1e2b322dc756bbc09f3ee87d7aaa60 = $(`<div id="html_2f1e2b322dc756bbc09f3ee87d7aaa60" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Donati’s Pizza         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/c9/fc/dc/donati-s-pizza-store.jpg?w=900&h=500&s=1 "               alt="Donati’s Pizza"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Classic hand-tossed pizza and Italian favorites—a local comfort choice.         </p>     </div>     </div>`)[0];
+                popup_e14a7d00c95db796d8aa89efc0f5033f.setContent(html_2f1e2b322dc756bbc09f3ee87d7aaa60);
+            
+        
+
+        marker_5a7ae193d9b8e5e2d9fe165f1c9b96f7.bindPopup(popup_e14a7d00c95db796d8aa89efc0f5033f)
+        ;
+
+        
+    
+    
+            marker_5a7ae193d9b8e5e2d9fe165f1c9b96f7.bindTooltip(
+                `<div>
+                     Donati’s Pizza
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_957f362a7574474f7973726d56119f65 = L.marker(
+                [42.2528, -87.840381],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_27dbdefd4b53d020704bdc244a354a13 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_957f362a7574474f7973726d56119f65.setIcon(icon_27dbdefd4b53d020704bdc244a354a13);
+        
+    
+        var popup_8c4c598f754697cfe6a750703e6ee52a = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_218ad1de15d05d4e46e77c37b4ba91cb = $(`<div id="html_218ad1de15d05d4e46e77c37b4ba91cb" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Gerhard’s Elegant European Desserts         </h3>         <img src="https://images.squarespace-cdn.com/content/v1/65fb16532125005806e4cb9f/63fdcb04-92ef-4cd0-8394-c27bfb093efa/gerhards+30th+.jpg "               alt="Gerhard’s Elegant European Desserts"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             European-style desserts, pastries, and sweets—perfect for a post-dinner treat.         </p>     </div>     </div>`)[0];
+                popup_8c4c598f754697cfe6a750703e6ee52a.setContent(html_218ad1de15d05d4e46e77c37b4ba91cb);
+            
+        
+
+        marker_957f362a7574474f7973726d56119f65.bindPopup(popup_8c4c598f754697cfe6a750703e6ee52a)
+        ;
+
+        
+    
+    
+            marker_957f362a7574474f7973726d56119f65.bindTooltip(
+                `<div>
+                     Gerhard’s Elegant European Desserts
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4234534eb71f3ca00f5c3b80e8e0690c = L.marker(
+                [42.25119, -87.839869],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_cf51535ddd58308cb5a99adc878f320a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4234534eb71f3ca00f5c3b80e8e0690c.setIcon(icon_cf51535ddd58308cb5a99adc878f320a);
+        
+    
+        var popup_a82fb3be76f541196298a790b40cc84b = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_e502500ab3aef280497ec2ba51a7c2fd = $(`<div id="html_e502500ab3aef280497ec2ba51a7c2fd" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Rosati’s Pizza         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/laryG3XdjVLIUROaJ1FuNg/348s.jpg "               alt="Rosati’s Pizza"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Classic pizza chain offering thin crust and traditional Italian-American flavors.         </p>     </div>     </div>`)[0];
+                popup_a82fb3be76f541196298a790b40cc84b.setContent(html_e502500ab3aef280497ec2ba51a7c2fd);
+            
+        
+
+        marker_4234534eb71f3ca00f5c3b80e8e0690c.bindPopup(popup_a82fb3be76f541196298a790b40cc84b)
+        ;
+
+        
+    
+    
+            marker_4234534eb71f3ca00f5c3b80e8e0690c.bindTooltip(
+                `<div>
+                     Rosati’s Pizza
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fe2db6788b21ed4562bc32e7a905a043 = L.marker(
+                [42.251008, -87.839829],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d5ef31e608b19bfe5be1b85982b5aa89 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "coffee", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fe2db6788b21ed4562bc32e7a905a043.setIcon(icon_d5ef31e608b19bfe5be1b85982b5aa89);
+        
+    
+        var popup_1b713479f055fd3b9d34ca3287051047 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b5c9a634401c8abec520bad12b9d765e = $(`<div id="html_b5c9a634401c8abec520bad12b9d765e" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Dunkin’ Donuts         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/YNw0zbKcDUbWuLMnpyZmHw/348s.jpg "               alt="Dunkin’ Donuts"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Classic coffee and donuts for quick breakfast or caffeine runs.         </p>     </div>     </div>`)[0];
+                popup_1b713479f055fd3b9d34ca3287051047.setContent(html_b5c9a634401c8abec520bad12b9d765e);
+            
+        
+
+        marker_fe2db6788b21ed4562bc32e7a905a043.bindPopup(popup_1b713479f055fd3b9d34ca3287051047)
+        ;
+
+        
+    
+    
+            marker_fe2db6788b21ed4562bc32e7a905a043.bindTooltip(
+                `<div>
+                     Dunkin’ Donuts
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c095b21d8af27f34505ff39f8142c3d1 = L.marker(
+                [42.251808, -87.841357],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_6b25272e366171e98d324f121d3f921b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_c095b21d8af27f34505ff39f8142c3d1.setIcon(icon_6b25272e366171e98d324f121d3f921b);
+        
+    
+        var popup_c3b62ad75ab61478c72afa40b7ddd587 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b4cb914fc6046999607ee61f92c4aa5b = $(`<div id="html_b4cb914fc6046999607ee61f92c4aa5b" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Le Colonial         </h3>         <img src="https://www.lecolonial.com/wp-content/uploads/2024/05/LakeForest03.jpg "               alt="Le Colonial"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A popular French‑Vietnamese fusion restaurant known for elegant décor and a large, flavorful menu. Great for a nicer night out, and reservations help during busy times.         </p>     </div>     </div>`)[0];
+                popup_c3b62ad75ab61478c72afa40b7ddd587.setContent(html_b4cb914fc6046999607ee61f92c4aa5b);
+            
+        
+
+        marker_c095b21d8af27f34505ff39f8142c3d1.bindPopup(popup_c3b62ad75ab61478c72afa40b7ddd587)
+        ;
+
+        
+    
+    
+            marker_c095b21d8af27f34505ff39f8142c3d1.bindTooltip(
+                `<div>
+                     Le Colonial
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b7e1ea34f0957f321b464227eb32d907 = L.marker(
+                [42.251437, -87.840673],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_28c053201832d49d3de384f43efaf2fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b7e1ea34f0957f321b464227eb32d907.setIcon(icon_28c053201832d49d3de384f43efaf2fe);
+        
+    
+        var popup_e364cc7e40c9aa9cef4b38bf37919174 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_068d9d49b1a090385fa320f3ed962712 = $(`<div id="html_068d9d49b1a090385fa320f3ed962712" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Sweet’s         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/48/23/f2/sweet-s.jpg?w=700&h=400&s=1 "               alt="Sweet’s"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A local institution serving chocolates, caramels, toffee, and rich ice cream. It’s an easy, classic stop after dinner downtown.         </p>     </div>     </div>`)[0];
+                popup_e364cc7e40c9aa9cef4b38bf37919174.setContent(html_068d9d49b1a090385fa320f3ed962712);
+            
+        
+
+        marker_b7e1ea34f0957f321b464227eb32d907.bindPopup(popup_e364cc7e40c9aa9cef4b38bf37919174)
+        ;
+
+        
+    
+    
+            marker_b7e1ea34f0957f321b464227eb32d907.bindTooltip(
+                `<div>
+                     Sweet’s
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4fd7e531d714bd46b40ee51e15b5cf9f = L.marker(
+                [42.279528, -87.844516],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_fa56bad89dbeff7a79d39d4326e9de76 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4fd7e531d714bd46b40ee51e15b5cf9f.setIcon(icon_fa56bad89dbeff7a79d39d4326e9de76);
+        
+    
+        var popup_78549c4a8385bd5d185db7dce4289854 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ac161284b1f63e73fc1f38f3834740ba = $(`<div id="html_ac161284b1f63e73fc1f38f3834740ba" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Inovasi         </h3>         <img src="https://res.cloudinary.com/spothopper/image/fetch/f_auto,q_auto:best,c_fit,h_1200/http://static.spotapps.co/spots/f6/bcd428b6f24cfba53e7bec01b1d963/:original "               alt="Inovasi"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             An elegant yet relaxed bistro in downtown Lake Bluff known for a modern menu and stylish setting—great for lunch or dinner.         </p>     </div>     </div>`)[0];
+                popup_78549c4a8385bd5d185db7dce4289854.setContent(html_ac161284b1f63e73fc1f38f3834740ba);
+            
+        
+
+        marker_4fd7e531d714bd46b40ee51e15b5cf9f.bindPopup(popup_78549c4a8385bd5d185db7dce4289854)
+        ;
+
+        
+    
+    
+            marker_4fd7e531d714bd46b40ee51e15b5cf9f.bindTooltip(
+                `<div>
+                     Inovasi
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cad6b49ac23b38462693b3e81893900b = L.marker(
+                [42.279492, -87.84465],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_28c66d97cef0f89c272469a5461a0bf3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cad6b49ac23b38462693b3e81893900b.setIcon(icon_28c66d97cef0f89c272469a5461a0bf3);
+        
+    
+        var popup_7730e5eb2a326352b2aa7e6a77c2af23 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c02881a5fb92a12c6197e0b510232bf5 = $(`<div id="html_c02881a5fb92a12c6197e0b510232bf5" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             The Otherdoor         </h3>         <img src="https://static.spotapps.co/spots/1e/7b7aa3c7194faab116543bae704294/full "               alt="The Otherdoor"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A casual taqueria serving tacos, burritos, bowls, and nachos with bright décor and generous portions.         </p>     </div>     </div>`)[0];
+                popup_7730e5eb2a326352b2aa7e6a77c2af23.setContent(html_c02881a5fb92a12c6197e0b510232bf5);
+            
+        
+
+        marker_cad6b49ac23b38462693b3e81893900b.bindPopup(popup_7730e5eb2a326352b2aa7e6a77c2af23)
+        ;
+
+        
+    
+    
+            marker_cad6b49ac23b38462693b3e81893900b.bindTooltip(
+                `<div>
+                     The Otherdoor
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a78d43c13abc1c8e4d862a2a3864ae7 = L.marker(
+                [42.279542, -87.84361],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_10cfb3e94293bc7630cc51e06903a4ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2a78d43c13abc1c8e4d862a2a3864ae7.setIcon(icon_10cfb3e94293bc7630cc51e06903a4ec);
+        
+    
+        var popup_53e6b74879914ec94f7f51446182e68c = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_49fe75ed852a51bbc42582b58a022edc = $(`<div id="html_49fe75ed852a51bbc42582b58a022edc" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Bluffington’s Café         </h3>         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/17/55/54/small-town-restaurant.jpg?w=500&h=-1&s=1 "               alt="Bluffington’s Café"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A friendly café that’s great for breakfast, lunch, or coffee with a fun "local" vibe. I used to work here in high school! The owners are Horned Frog Alumni.          </p>     </div>     </div>`)[0];
+                popup_53e6b74879914ec94f7f51446182e68c.setContent(html_49fe75ed852a51bbc42582b58a022edc);
+            
+        
+
+        marker_2a78d43c13abc1c8e4d862a2a3864ae7.bindPopup(popup_53e6b74879914ec94f7f51446182e68c)
+        ;
+
+        
+    
+    
+            marker_2a78d43c13abc1c8e4d862a2a3864ae7.bindTooltip(
+                `<div>
+                     Bluffington’s Café
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_52c3fee6b5af574a6d8efd7b08376ec2 = L.marker(
+                [42.279839, -87.845301],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_1403b69f94d1c6dd1744de15298b957a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_52c3fee6b5af574a6d8efd7b08376ec2.setIcon(icon_1403b69f94d1c6dd1744de15298b957a);
+        
+    
+        var popup_9e4988fc0c8a5ad611bea6b52f5d7761 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6968fa271c02788286a67d3e569843bc = $(`<div id="html_6968fa271c02788286a67d3e569843bc" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Lake Bluff Brewing Co.         </h3>         <img src="https://images.squarespace-cdn.com/content/v1/599f19b2e58c6242318290a7/1503623906633-YEB09WLQZ2GRWEURWCCV/Goat+Burger+%2B+LBBC.jpg "               alt="Lake Bluff Brewing Co."               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A small craft brewery and taproom featuring rotating beers and a pub menu, often with live music.         </p>     </div>     </div>`)[0];
+                popup_9e4988fc0c8a5ad611bea6b52f5d7761.setContent(html_6968fa271c02788286a67d3e569843bc);
+            
+        
+
+        marker_52c3fee6b5af574a6d8efd7b08376ec2.bindPopup(popup_9e4988fc0c8a5ad611bea6b52f5d7761)
+        ;
+
+        
+    
+    
+            marker_52c3fee6b5af574a6d8efd7b08376ec2.bindTooltip(
+                `<div>
+                     Lake Bluff Brewing Co.
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e2e51ba75e5c0e1a55f7cdbe67579bbe = L.marker(
+                [42.27983, -87.84516],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_f3b666e75495911328484dcde428312d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e2e51ba75e5c0e1a55f7cdbe67579bbe.setIcon(icon_f3b666e75495911328484dcde428312d);
+        
+    
+        var popup_8eea4245d593cf12c419a139ada2012b = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_96e4b92e0ab963088a83d66f28f4b113 = $(`<div id="html_96e4b92e0ab963088a83d66f28f4b113" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Mavery Public House         </h3>         <img src="https://i0.wp.com/maevery.com/wp-content/uploads/Bar-with-Craig.jpg?fit=625%2C416&ssl=1 "               alt="Mavery Public House"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             An upscale tavern with American comfort food, plus wines and cocktails—popular for brunch, lunch, or dinner.         </p>     </div>     </div>`)[0];
+                popup_8eea4245d593cf12c419a139ada2012b.setContent(html_96e4b92e0ab963088a83d66f28f4b113);
+            
+        
+
+        marker_e2e51ba75e5c0e1a55f7cdbe67579bbe.bindPopup(popup_8eea4245d593cf12c419a139ada2012b)
+        ;
+
+        
+    
+    
+            marker_e2e51ba75e5c0e1a55f7cdbe67579bbe.bindTooltip(
+                `<div>
+                     Mavery Public House
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4f7aabf0ce50133a6bedf8b139df5517 = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d2210fdce62f3145918c38aab6e2f714 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_4f7aabf0ce50133a6bedf8b139df5517.setIcon(icon_d2210fdce62f3145918c38aab6e2f714);
+        
+    
+        var popup_be84af60751604b469cc576e8ae81bbc = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_77ed0b76376bbcc0786d7719cae55b4a = $(`<div id="html_77ed0b76376bbcc0786d7719cae55b4a" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Amidei Mercatino         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/JCoeZL8mSW_zAK2-tBqLRg/348s.jpg "               alt="Amidei Mercatino"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             A charming seasonal market in Market Square offering fresh fruits, vegetables, flowers, and specialty goods. It brings a European-style outdoor market feel to downtown Lake Forest and is a favorite warm-weather stop.         </p>     </div>     </div>`)[0];
+                popup_be84af60751604b469cc576e8ae81bbc.setContent(html_77ed0b76376bbcc0786d7719cae55b4a);
+            
+        
+
+        marker_4f7aabf0ce50133a6bedf8b139df5517.bindPopup(popup_be84af60751604b469cc576e8ae81bbc)
+        ;
+
+        
+    
+    
+            marker_4f7aabf0ce50133a6bedf8b139df5517.bindTooltip(
+                `<div>
+                     Amidei Mercatino
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6e2494c98ef77be1b323e7277847dd59 = L.marker(
+                [42.251169, -87.840852],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_e47826e47a2c6eba9cc4093c52155abd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6e2494c98ef77be1b323e7277847dd59.setIcon(icon_e47826e47a2c6eba9cc4093c52155abd);
+        
+    
+        var popup_aa186944d6f9285e04ea977a4b42da1f = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b16ceccc42188d4a7ad9b80328d7c4cf = $(`<div id="html_b16ceccc42188d4a7ad9b80328d7c4cf" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Cherokee Elementary School         </h3>         <img src="https://imagescdn.homes.com/i2/OWwXmd-X7r4w1_lphNqL46t3vcmeGRgHeWxVvoVlIEs/117/cherokee-elementary-school-lake-forest-il-primaryphoto.jpg?p=1 "               alt="Cherokee Elementary School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Public elementary school, grades K-4 in District 67 serving the southeast side of Lake Forest.         </p>     </div>     </div>`)[0];
+                popup_aa186944d6f9285e04ea977a4b42da1f.setContent(html_b16ceccc42188d4a7ad9b80328d7c4cf);
+            
+        
+
+        marker_6e2494c98ef77be1b323e7277847dd59.bindPopup(popup_aa186944d6f9285e04ea977a4b42da1f)
+        ;
+
+        
+    
+    
+            marker_6e2494c98ef77be1b323e7277847dd59.bindTooltip(
+                `<div>
+                     Cherokee Elementary School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f570b089b330a20bcbe99d297de30651 = L.marker(
+                [42.215788, -87.87438],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_d9165a02cd6ab573bbd9c99bdc36d4db = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f570b089b330a20bcbe99d297de30651.setIcon(icon_d9165a02cd6ab573bbd9c99bdc36d4db);
+        
+    
+        var popup_88ffaee45f404001681551f40698be90 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_2c0725a95425dca76b460e6aab415dff = $(`<div id="html_2c0725a95425dca76b460e6aab415dff" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Everett Elementary School         </h3>         <img src="https://images.homesbymarco.com/pics/schools/4/17158/large/everett_elementary_school_2.jpg "               alt="Everett Elementary School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Public elementary school, grades K-4 in District 67 serving the southwest side of Lake Forest.         </p>     </div>     </div>`)[0];
+                popup_88ffaee45f404001681551f40698be90.setContent(html_2c0725a95425dca76b460e6aab415dff);
+            
+        
+
+        marker_f570b089b330a20bcbe99d297de30651.bindPopup(popup_88ffaee45f404001681551f40698be90)
+        ;
+
+        
+    
+    
+            marker_f570b089b330a20bcbe99d297de30651.bindTooltip(
+                `<div>
+                     Everett Elementary School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8114ff27e79564e389ca66f4c97c207b = L.marker(
+                [42.264133, -87.835943],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_023edf8f4422f8881ca8178fdc1cad27 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8114ff27e79564e389ca66f4c97c207b.setIcon(icon_023edf8f4422f8881ca8178fdc1cad27);
+        
+    
+        var popup_4b80315f704970e99e55d9ba1a21e769 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_2b319a615b100668cef69f632bf98956 = $(`<div id="html_2b319a615b100668cef69f632bf98956" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Sheridan Elementary School         </h3>         <img src="https://imagescdn.homes.com/i2/ZT1QAzXKF0SJKPko_iU-DrZnY156aKOjrL6zYWE0NAE/117/sheridan-elementary-school-lake-forest-il-primaryphoto.jpg?p=1"               alt="Sheridan Elementary School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Public elementary school, grades K-4 in District 67 serving the northeast side of Lake Forest.         </p>     </div>     </div>`)[0];
+                popup_4b80315f704970e99e55d9ba1a21e769.setContent(html_2b319a615b100668cef69f632bf98956);
+            
+        
+
+        marker_8114ff27e79564e389ca66f4c97c207b.bindPopup(popup_4b80315f704970e99e55d9ba1a21e769)
+        ;
+
+        
+    
+    
+            marker_8114ff27e79564e389ca66f4c97c207b.bindTooltip(
+                `<div>
+                     Sheridan Elementary School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0c8086444bd032dfb40820bb822b43a7 = L.marker(
+                [42.24819, -87.84966],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_3f4fb11b9b72d91fecb67b1ae2717d78 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "book", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0c8086444bd032dfb40820bb822b43a7.setIcon(icon_3f4fb11b9b72d91fecb67b1ae2717d78);
+        
+    
+        var popup_c3f0bf02a32dbb7aaadea84c0c13f7f4 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_02798d956db10d9c93e70f6b944e1689 = $(`<div id="html_02798d956db10d9c93e70f6b944e1689" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Deer Path Middle School         </h3>         <img src=" https://patch.com/img/cdn20/users/20673003/20170801/010614/styles/raw/public/processed_images/deer_path_middle_school_1-1501607157-921.jpg "               alt="Deer Path Middle School"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Public middle school, serving students of Lake Forest grades 5-8.         </p>     </div>     </div>`)[0];
+                popup_c3f0bf02a32dbb7aaadea84c0c13f7f4.setContent(html_02798d956db10d9c93e70f6b944e1689);
+            
+        
+
+        marker_0c8086444bd032dfb40820bb822b43a7.bindPopup(popup_c3f0bf02a32dbb7aaadea84c0c13f7f4)
+        ;
+
+        
+    
+    
+            marker_0c8086444bd032dfb40820bb822b43a7.bindTooltip(
+                `<div>
+                     Deer Path Middle School
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5647701988256ae9627f2e48480c0555 = L.marker(
+                [42.253973, -87.841444],
+                {}
+            ).addTo(map_89a77a7a4f4b40d935c9b588d945c55a);
+        
+    
+            var icon_115ac4f00aed5980077399fe980a7300 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_5647701988256ae9627f2e48480c0555.setIcon(icon_115ac4f00aed5980077399fe980a7300);
+        
+    
+        var popup_9a057c9ffeb946a584567364994bc37f = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ef74a0e8704370c266f711601617cf60 = $(`<div id="html_ef74a0e8704370c266f711601617cf60" style="width: 100.0%; height: 100.0%;">     <div style="width: 320px; font-family: 'Helvetica Neue', Arial, sans-serif;">         <h3 style="margin: 0 0 12px 0;                     color: #1a1a1a;                     font-size: 18px;                    font-weight: 600;                    border-bottom: 3px solid #4a90e2;                     padding-bottom: 8px;">             Hometown Coffee & Juice         </h3>         <img src="https://s3-media0.fl.yelpcdn.com/bphoto/nUpryzF-5gl5NIvxKBVPxg/348s.jpg "               alt="Hometown Coffee & Juice"               style="width: 100%;                      height: 200px;                      object-fit: cover;                      border-radius: 8px;                      margin-bottom: 12px;                     box-shadow: 0 2px 8px rgba(0,0,0,0.1);"              onerror="this.style.display='none'">         <p style="font-size: 14px;                    line-height: 1.6;                    color: #333;                    margin: 0;                   text-align: justify;">             Hometown is an all day cafe that specializes in coffee, juice, smoothies and food. It's a great place to grab a quick bite to eat -- you're guaranteed to run into someone you know!         </p>     </div>     </div>`)[0];
+                popup_9a057c9ffeb946a584567364994bc37f.setContent(html_ef74a0e8704370c266f711601617cf60);
+            
+        
+
+        marker_5647701988256ae9627f2e48480c0555.bindPopup(popup_9a057c9ffeb946a584567364994bc37f)
+        ;
+
+        
+    
+    
+            marker_5647701988256ae9627f2e48480c0555.bindTooltip(
+                `<div>
+                     Hometown Coffee & Juice
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
