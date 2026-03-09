@@ -7,6 +7,69 @@
     <meta name="author" content="Your Name">
     <title>Abby Hanlon | DCDA 40833 Skills Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Collapsible section styles for reflection */
+        .reflection-collapsible {
+            margin: 2rem 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px var(--shadow);
+            overflow: hidden;
+        }
+
+        .reflection-header {
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            border: none;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .reflection-header:hover {
+            background-color: var(--primary-color);
+        }
+
+        .collapsible-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .reflection-header.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        .reflection-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+            background-color: var(--card-bg);
+            border-radius: 4px;
+            opacity: 0;
+        }
+
+        .reflection-content.active {
+            max-height: 3000px;
+            padding: 1.5rem 0;
+            opacity: 1;
+        }
+
+        .reflection-inner {
+            padding: 0 2rem;
+            line-height: 1.6;
+        }
+
+        .reflection-inner p {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation: Hamburger menu on mobile, horizontal links on desktop -->
@@ -19,11 +82,17 @@
         </button>
         <ul id="nav-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
-            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
-            <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-            <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
-            <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+            <li><a href="work-experience.html">Work Samples</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Lab Assignments ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+                    <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+                    <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+                    <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+                    <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+                </ul>
+            </li>
                 </ul>
         <!-- Dark Mode Toggle Button -->
         <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -32,73 +101,79 @@
         </button>
     </nav>
 
-    <!-- Header: Your name and course info -->
+    <!-- Header-->
     <header>
         <h1>Abby Hanlon</h1>
         <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
     </header>
 
     <main>
-        <!-- Welcome Section: Brief introduction to your portfolio -->
+        <!-- Welcome Section: Brief introduction to portfolio -->
         <section id="welcome">
             <h2>Welcome</h2>
             <p>Welcome to my Skills Portfolio for my DCDA 40833 capstone course. This website will highlight work samples of my creative capabilities and passions, exploring the depths of my digital communication and growth in data analysis.
-            <p>Each page represents various lab assignments completed throughout the semester. Additionally, I've included a section where I highlight some of my favorite marketing campaigns and creative ideas, with a focus on each strategic storytelling and audience experience.</p>
-            <!-- I want this section to summarize the main "idea" of my website. I have plans to develop more depth about my "inspiration" sections, as I want to link my personal creative portfolio to my website I code, and a section devoted to a blog about campaigns I've discovered in the world and why I think they're meaningful.  -->
+            <p>Within each page of my lab assignments, you can explore how I've grown and learned various implementations of digital culture and data analysis in VS Code. Additionally, I've included a section where I highlight some of my favorite past projects outside of this class, with a focus on each strategic storytelling and audience experience.</p>
+            <!-- I want this section to summarize the main "idea" of my website. I have updated it to reflect my current goals in pursuing a career. -->
         </section>
 
         <!-- About Section: Tell visitors about yourself -->
         <section id="about">
             <h2>About Me</h2>
-            <p><strong>Who I am: </strong>Hi! My name is Abby Hanlon, and I'm a senior at TCU double-majoring in Strategic Communication and Data Analytics, graduating May 2026. I'm a people person, dedicated to creating meaningful relationships wherever I go, with a "can do" attitude.</p>
-            <p><strong>My interests: </strong>I'm a creative communicator, passionate about digital branding, experiential marketing, and storytelling. I’ve gained hands-on experience through agency, nonprofit, and in-house roles, including graphic design, social media strategy, and event marketing positions. With a strong background in campaign execution, brand development, and content creation, I thrive in fast-paced, collaborative environments where imagination meets strategy.</p>
-            <!-- This section is similar to my LinkedIn profile, to keep it professional, meaningful, and concise for potential employers. -->
-            <p><strong>What I hope to learn: </strong>Throughout this portfolio and the work I accomplish in my final semester as an undergraduate student, I aspire to learn about advanced data visualization, specifically from a design perspective, along with strengthening my "niche" in storytelling and user experience.</p>
-            <!-- I want this section to feel welcoming and warm, with some personalization behind my "about me" story.-->
-
-            <figure class="viz-container">
-                <img src="images/AbbyHanlonHeadshot.jpg" alt="Headshot of Abby Hanlon" style="width: 50%;">
-            </figure>
+            <div class="about-container">
+                <div class="about-text">
+                    <p><strong>Who I am: </strong>Hi! My name is Abby Hanlon, and I'm a senior at TCU double-majoring in Strategic Communication and Data Analytics, graduating May 2026. I'm a people person, dedicated to creating meaningful relationships wherever I go, with a "can do" attitude.</p>
+                    <p><strong>My interests: </strong>I'm a creative communicator, passionate about digital branding, experiential marketing, and storytelling. I've gained hands-on experience through agency, nonprofit, and in-house roles, including graphic design, social media strategy, and event marketing positions. With a strong background in campaign execution, brand development, and content creation, I thrive in fast-paced, collaborative environments where imagination meets strategy.</p>
+                    <!-- This section is similar to my LinkedIn profile, to keep it professional, meaningful, and concise for potential employers. -->
+                    <p><strong>What I hope to learn: </strong>Throughout this portfolio and the work I accomplish in my final semester as an undergraduate student, I aspire to learn about advanced data visualization, specifically from a design perspective, along with strengthening my "niche" in storytelling and user experience.</p>
+                    <!-- I want this section to feel welcoming and warm, with some personalization behind my "about me" story.-->
+                </div>
+                <div class="about-image">
+                    <img src="images/AbbyHanlonHeadshot2026.jpg" alt="Headshot of Abby Hanlon">
+                </div>
+            </div>
         </section>
-        <!-- I plan to update this photo soon, as I'll be taking a new agency headshot in the next couple of weeks. For now, I'm using this one as a placeholder -->
-
-        <!-- Image Carousel Section: I also plan to update this section soon, once I find carousel pictures that I would like to include as my work samples. -->
+<!-- Updated About section to display a more current photo of myself, and to place my headshot side by side my about section for more of a visual appeal -->
         <section id="carousel-section">
             <h2>Gallery</h2>
-            <p>CClick through this gallery to view my creative journey and learn about my work experiences.</p>
-
+            <p>Click on any project below to learn more about my work and view detailed presentations.</p>
+ 
             <div class="carousel-container">
                 <!-- Carousel Slides -->
                 <div class="carousel-slides">
-                    <!-- Slide 1 - will replace with my own images -->
+                    <!-- Slide 1 - 7-Eleven Presentation -->
                     <div class="carousel-slide active">
-                        <img src="images/placeholder1.jpg" alt="Placeholder image 1">
-                        <div class="carousel-caption">
-                            <h3>Image Title 1</h3>
-                            <p>Add a description for your first image here.</p>
-                        </div>
+                        <a href="project-7eleven.html" class="carousel-link">
+                            <img src="images/7eleven-thumbnail.jpg" alt="7-Eleven project presentation preview">
+                            <div class="carousel-caption">
+                                <h3>7-Eleven Marketing Campaign</h3>
+                                <p>Click to view full presentation and details</p>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- Slide 2 - will replace with my own images -->
+                    <!-- Slide 2 - Social Media Portfolio -->
                     <div class="carousel-slide">
-                        <img src="images/placeholder2.jpg" alt="Placeholder image 2">
-                        <div class="carousel-caption">
-                            <h3>Image Title 2</h3>
-                            <p>Add a description for your second image here.</p>
-                        </div>
+                        <a href="project-social-media.html" class="carousel-link">
+                            <img src="images/social-media-thumbnail.jpg" alt="Social media portfolio preview">
+                            <div class="carousel-caption">
+                                <h3>Social Media Portfolio</h3>
+                                <p>Click to view full presentation and details</p>
+                            </div>
+                        </a>
                     </div>
 
-                    <!-- Slide 3 - will replace with my own images-->
+                    <!-- Slide 3 - Tecovas Presentation -->
                     <div class="carousel-slide">
-                        <img src="images/placeholder3.jpg" alt="Placeholder image 3">
-                        <div class="carousel-caption">
-                            <h3>Image Title 3</h3>
-                            <p>Add a description for your third image here.</p>
-                        </div>
+                        <a href="project-tecovas.html" class="carousel-link">
+                            <img src="images/tecovas-thumbnail.jpg" alt="Tecovas project presentation preview">
+                            <div class="carousel-caption">
+                                <h3>Tecovas Consumer Research Report</h3>
+                                <p>Click to view full presentation and details</p>
+                            </div>
+                        </a>
                     </div>
-
-                    <!-- will additionally add more slides by copying the structure above -->
                 </div>
+                <!-- Updated these carousel slides with relevant work from outside of this course to showcase other skills I have too. -->
 
                 <!-- Previous Button -->
                 <button class="carousel-btn prev-btn" aria-label="Previous slide">
@@ -115,7 +190,7 @@
                     <button class="indicator active" aria-label="Go to slide 1"></button>
                     <button class="indicator" aria-label="Go to slide 2"></button>
                     <button class="indicator" aria-label="Go to slide 3"></button>
-                    <!-- Add more indicators if you add more slides -->
+                </div>
                 </div>
             </div>
         </section>
@@ -123,45 +198,95 @@
         <!-- Portfolio Section: Links to all lab pages -->
         <section id="portfolio">
             <h2>My Work</h2>
-            <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
+            <p>Hover over each lab card to see more details. Click "View Lab" to explore the full assignment.</p>
 
             <!-- Portfolio Grid: Cards linking to each lab page -->
             <div class="portfolio-grid">
 
                 <!-- Lab 2: AI Tool Evaluation -->
-                <a href="ai-evaluation.html" class="portfolio-card">
-                    <h3>AI Tool Evaluation</h3>
-                    <span class="lab-tag">Lab 2</span>
-                    <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
-                </a>
+                <div class="lab-card">
+                    <div class="lab-header" data-lab="02">
+                        <span class="lab-number">Lab 2</span>
+                        <h3 class="lab-title">AI Tool Evaluation</h3>
+                    </div>
+                    <div class="lab-dropdown">
+                        <div class="lab-dropdown-content">
+                            <div class="lab-description">
+                                <h4>About This Lab</h4>
+                                <p>Analysis of AI tools (ChatGPT and Grok) and their capabilities, exploring how artificial intelligence is changing digital culture. Includes capability assessment, appropriate use cases, and ethical considerations.</p>
+                            </div>
+                            <a href="lab02.html" class="view-lab-btn">View Lab →</a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Lab 3: Tufte Critique -->
-                <a href="tufte-critique.html" class="portfolio-card">
-                    <h3>Tufte Critique</h3>
-                    <span class="lab-tag">Lab 3</span>
-                    <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
-                </a>
+                <!-- Lab 3: Visualization Critique -->
+                <div class="lab-card">
+                    <div class="lab-header" data-lab="03">
+                        <span class="lab-number">Lab 3</span>
+                        <h3 class="lab-title">Visualization Critique</h3>
+                    </div>
+                    <div class="lab-dropdown">
+                        <div class="lab-dropdown-content">
+                            <div class="lab-description">
+                                <h4>About This Lab</h4>
+                                <p>Critical analysis of "The Missing Migrants Project" data visualization with a focus on artistic interpretation, emotional engagement, accessibility, and ethical considerations in data storytelling.</p>
+                            </div>
+                            <a href="lab03.html" class="view-lab-btn">View Lab →</a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Lab 4: Tableau Visualization -->
-                <a href="tableau-visualization.html" class="portfolio-card">
-                    <h3>Tableau Visualization</h3>
-                    <span class="lab-tag">Lab 4</span>
-                    <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
-                </a>
+                <!-- Lab 4: Data Visualization in Tableau Public -->
+                <div class="lab-card">
+                    <div class="lab-header" data-lab="04">
+                        <span class="lab-number">Lab 4</span>
+                        <h3 class="lab-title">Data Visualization in Tableau Public</h3>
+                    </div>
+                    <div class="lab-dropdown">
+                        <div class="lab-dropdown-content">
+                            <div class="lab-description">
+                                <h4>About This Lab</h4>
+                                <p>Interactive Billboard Hot 100 dashboard created with Tableau Public, exploring music chart patterns and artist longevity trends. Features data preparation, design choices, and pattern analysis.</p>
+                            </div>
+                            <a href="lab04.html" class="view-lab-btn">View Lab →</a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Lab 5: TBD -->
-                <a href="lab5.html" class="portfolio-card">
-                    <h3>Lab 5</h3>
-                    <span class="lab-tag">Lab 5</span>
-                    <p>Content based on Lab 5 assignment.</p>
-                </a>
+                <!-- Lab 5: Vibe Coding -->
+                <div class="lab-card">
+                    <div class="lab-header" data-lab="05">
+                        <span class="lab-number">Lab 5</span>
+                        <h3 class="lab-title">Vibe Coding</h3>
+                    </div>
+                    <div class="lab-dropdown">
+                        <div class="lab-dropdown-content">
+                            <div class="lab-description">
+                                <h4>About This Lab</h4>
+                                <p>Reflection on using AI-assisted coding (Claude Sonnet 4.5) to implement dark mode toggle and interactive carousel features. Explores technical understanding, process evaluation, and ethical considerations.</p>
+                            </div>
+                            <a href="lab05.html" class="view-lab-btn">View Lab →</a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Lab 6: Hometown Map -->
-                <a href="hometown-map.html" class="portfolio-card">
-                    <h3>Hometown Map</h3>
-                    <span class="lab-tag">Lab 6</span>
-                    <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
-                </a>
+                <!-- Lab 6: Python Mapping -->
+                <div class="lab-card">
+                    <div class="lab-header" data-lab="06">
+                        <span class="lab-number">Lab 6</span>
+                        <h3 class="lab-title">Python Mapping</h3>
+                    </div>
+                    <div class="lab-dropdown">
+                        <div class="lab-dropdown-content">
+                            <div class="lab-description">
+                                <h4>About This Lab</h4>
+                                <p>Interactive Folium map of Lake Forest, Illinois, featuring custom Mapbox basemap design and 67 meaningful hometown locations. Includes design inspiration, cartographic challenges, and technical implementation.</p>
+                            </div>
+                            <a href="lab06.html" class="view-lab-btn">View Lab →</a>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -169,11 +294,60 @@
         <!-- Reflection Section: Optional semester reflection -->
         <section id="reflection">
             <h2>Semester Reflection</h2>
-            <!-- TODO: After completing all labs, write a reflection on your growth -->
-            <p><strong>What I learned:</strong> I've learned the importance of starting off strong with organization within code, and how you practice it. Keeping your VS Code space clean and easy to read is one of the most vital skills in learning how to develop a website.</p>
-            <p><strong>Challenges I overcame:</strong> I’m having the most trouble being creative with my color schemes and beginning the initial stages of brainstorming what I want to make of this portfolio. I know that struggling with color schemes might seem kind of silly. Still, I’m passionate about a fair user experience and about creating a website that feels welcoming, engaging, and artistic.</p>
-            <p><strong>How I grew:</strong> [How did your understanding of digital culture and data analytics evolve?]</p>
-            <p><strong>Looking ahead:</strong> [How will you apply these skills in the future?]</p>
+            
+            <div class="reflection-collapsible">
+                <button class="reflection-header">
+                    Overview
+                    <span class="collapsible-icon">▼</span>
+                </button>
+                <div class="reflection-content">
+                    <div class="reflection-inner">
+                        <p>Throughout this semester, I have worked with various aspects of coding languages to produce different types of projects for a personalized portfolio that highlights projects implementing CSS, HTML, and JavaScript, as well as previous projects that strengthen my overall portfolio and professional experience. Throughout this project, I wanted the message of functionality with user experience to be at the forefront. This semester, I’ve focused primarily on strengthening my skills in visual appeal and user interaction. Since my generation’s attention spans are limited, I feel it’s important to find innovative ways to present long-form text and detailed information. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reflection-collapsible">
+                <button class="reflection-header">
+                    Proficiencies
+                    <span class="collapsible-icon">▼</span>
+                </button>
+                <div class="reflection-content">
+                    <div class="reflection-inner">
+                <p><strong>Digital Culture</strong></p>
+                        <p>In this portfolio, I explain and visualize many concepts that are currently relevant to digital culture. As mentioned in my overview, my main goal towards the end of this project was to make my website as interactive as possible, using drop-downs and click-through slideshows, to increase engagement with my viewers and the content I'm showcasing. Especially highlighted in Lab 4, I want to emphasize the importance of having readable, digestible content on a computer screen – for all types of groups to enjoy. Although my website isn't extremely advanced yet, I wanted to create something both easy to read and straightforward to customize. Implementing a dark to light mode was a great challenge I took on along the way, and is available to use on all pages of my portfolio.</p>
+                        
+                        <p><strong>Data Analytics</strong></p>
+                        <p>Working with resources like Tableau and Mapbox in labs 4 and 6 deepened my understanding of using real-time data to create visually appealing results. I really enjoyed playing around with various AI platforms within VS Code itself, learning from AI Vibe Coding services, and experimenting with how AI can aid your coding capabilities and strengthen the areas in which you might lack skill. Although AI can sometimes be a harmful tool in higher education, this course has taught me that AI for coding is actually a great resource when you have a very specific inquiry. AI can aid you in the right steps to getting "unstuck" with messy or incorrect code, and can help you learn the foundations of learning strategies personalized and tailored completely to you.</p>
+                        
+                        <p><strong>Project Design and Planning</strong></p>
+                        <p>I wanted my portfolio to be easy to follow, with every section smoothly guiding you to the next. I took inspiration from various student portfolios I've seen online and of my classmates, and found it fun to implement my own twist on a bright color palette paired with a simple, yet bold font choice.</p>
+                        
+                        <p><strong>Collaboration</strong></p>
+                        <p>In this portfolio, I've explored collaboration with various development tools, including Mapbox, Tableau, Claude Sonnet 4.5, and Google Sheets (for CSV files), to create a website highlighting my projects as a student while learning more about these individual software platforms. I really enjoyed troubleshooting errors and understanding how each piece of software can integrate into VS Code. Using Claude Sonnet 4.5 towards the end of my portfolio was extremely helpful, as the software occasionally suggested downloading specific add-ons to make ideas and visuals run more smoothly. I especially found this helpful when I wanted to add PDF documents of my resume and previous work, as Claude Sonnet 4.5 recommended I download vscode-pdf to make these documents work smoothly with the rest of my website design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reflection-collapsible">
+                <button class="reflection-header">
+                    Self Evaluation
+                    <span class="collapsible-icon">▼</span>
+                </button>
+                <div class="reflection-content">
+                    <div class="reflection-inner">
+                        <p>Over the course of the semester, I've produced a portfolio highlighting my hard work in DCDA and beyond the classroom through other relevant coursework and real-world experience. After receiving each lab's feedback, I would make sure to fix any errors in previous labs for the next assignment, and triple-check my work before submitting the following lab. An area where I believe I grew significantly was in my visualization integration and understanding of user experience. I'm really fascinated by design and creating material that is easily accessible for all.</p>
+                        
+                        <p>I made several updates to improve both the look and functionality of my portfolio website. I updated my homepage with a newer headshot and fixed a few minor grammatical errors throughout the site. I also restructured the welcome page so my headshot now sits side by side with my about me section, rather than appearing underneath it, which makes the page feel more balanced and easier to read.</p>
+                        
+                        <p>Using vibe coding with Claude Sonnet 4.5 and VS Code chat, I worked on integrating my previous projects into a carousel, where visitors can click each image to open a full project page in a separate tab in my portfolio. This process took several attempts because I had to be very specific with my prompts and troubleshoot response errors before the code worked correctly. Once I understood how the code was functioning, I was able to tweak it and add a "Work Samples" section across all pages so employers can easily find my projects right away. VS Code chat also recommended installing a PDF extension and suggested simplifying my file names, such as renaming them to formats like "7eleven-presentation.pdf," which helped the files display correctly. It also helped me structure thumbnail images like "7eleven-thumbnail.jpg," which made the carousel function properly.</p>
+                        
+                        <p>I also used AI to clean up the navigation menu and improve the user experience of my portfolio. I created a dropdown menu that lets visitors easily access all of my labs, and after troubleshooting issues where the menu would disappear when hovering, I worked with AI to fix the behavior. I also added "Next Lab" navigation buttons at the bottom of each lab page to help viewers move through the assignments more easily. Each button links to the next lab and includes a small hover animation that slides it slightly to the right when a user interacts with it.</p>
+                        
+                        <p>Finally, I worked with Claude to improve the overall flow of the lab pages. I implemented dropdown sections within each lab to make the information easier to read and less overwhelming. At first, the transition felt abrupt when a section was closed, so I updated the CSS to create smoother animations. I added a minimum height to the main container to prevent the footer from jumping when sections expand or collapse, and applied consistent transition timing across containers to make the experience feel more polished and calm for the user.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -200,10 +374,29 @@
 
         // Close the menu when a link is tapped (better mobile UX)
         navMenu.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                navMenu.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
+            link.addEventListener('click', function (e) {
+                // Don't close if it's the dropdown toggle
+                if (link.classList.contains('dropdown-toggle')) {
+                    e.preventDefault();
+                    const dropdown = link.parentElement;
+                    dropdown.classList.toggle('open');
+                } else {
+                    navMenu.classList.remove('open');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Dropdown functionality for mobile
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(function (toggle) {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = toggle.parentElement;
+                    dropdown.classList.toggle('open');
+                }
             });
         });
 
@@ -329,6 +522,22 @@
         if (slides.length > 0) {
             startAutoPlay();
         }
+
+        // Reflection Collapsible Sections Functionality
+        const reflectionHeaders = document.querySelectorAll('.reflection-header');
+        
+        reflectionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                // Toggle active class on the header
+                this.classList.toggle('active');
+                
+                // Get the associated content div
+                const content = this.nextElementSibling;
+                
+                // Toggle active class on the content
+                content.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>

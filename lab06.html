@@ -8,6 +8,116 @@
   <title>Lab 6: Python Mapping | Abby Hanlon</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* Assignment Overview Styles */
+    .assignment-overview {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    .collapsible-header {
+      width: 100%;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1.5rem 2rem;
+      border: none;
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .collapsible-header:hover {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-header.active .collapsible-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      opacity: 0;
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+      padding: 1.5rem 0;
+      opacity: 1;
+    }
+
+    .collapsible-inner {
+      padding: 0 2rem;
+      line-height: 1.6;
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .collapsible-content:not(.active) .collapsible-inner {
+      transform: translateY(-10px);
+    }
+
+    .close-section {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .close-btn {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section-wrapper {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    main {
+      min-height: 60vh;
+    }
+
     .map-container {
       width: 100%;
       height: 600px;
@@ -61,11 +171,17 @@
 
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
-      <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
-      <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-      <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
-      <li><a href="lab06.html" class="active">Lab 6: Python Mapping</a></li>
+      <li><a href="work-experience.html">Work Samples</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle active">Lab Assignments ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+          <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+          <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+          <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+          <li><a href="lab06.html" class="active">Lab 6: Python Mapping</a></li>
+        </ul>
+      </li>
     </ul>
 
     <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -80,6 +196,24 @@
   </header>
 
   <main>
+    <!-- Assignment Overview Section -->
+    <div class="assignment-overview">
+      <button class="collapsible-header">
+        Assignment Overview
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div class="collapsible-inner">
+          <p><em>For this lab, I designed a custom Mapbox basemap inspired by a piece of art that meant something to me, then built a dataset of meaningful places from my hometown. I used Python to geocode the locations, organize them by category, and turn everything into an interactive map with pop-ups and my custom style. This project let me combine creative design with technical mapping tools in a way that felt personal and visually cohesive.</em></p>
+          <div class="close-section">
+            <button class="close-btn">
+              Close Section <span class="close-icon">▲</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="reflection">
       <h2>Lake Forest, Illinois - Interactive Map</h2>
       
@@ -106,8 +240,16 @@
 
       <h2>Reflection</h2>
 
-      <h3>Design Inspiration</h3>
-      <p>For the personalized map of my hometown, Lake Forest, Illinois – a suburb of Chicago - I decided to draw artistic inspiration from one of my favorite local artists, Mark McMahon. He is very well known in my area for his loose, abstract, and watercolor-esque approach to painting busy scenes of the north Chicago suburbs and the beauty of those communities.</p>
+      <!-- Design Inspiration Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Design Inspiration
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>For the personalized map of my hometown, Lake Forest, Illinois – a suburb of Chicago - I decided to draw artistic inspiration from one of my favorite local artists, Mark McMahon. He is very well known in my area for his loose, abstract, and watercolor-esque approach to painting busy scenes of the north Chicago suburbs and the beauty of those communities.</p>
 
       <p>Growing up in such a beautiful town surrounded by creativity, I saw McMahon’s work displayed in my elementary and high school, along with our local library, and as a mural in a local restaurant. His work reminds me of home, and I took inspiration for the color choices on my personal map from the map he painted of the Lake Forest area, which you can view below. I wanted my map to feel whimsical yet resemble the realness of the earth.</p>
       <figure class="viz-container">
@@ -115,18 +257,50 @@
         <figcaption>Mark McMahon's Map of Lake Forest, Illinois</figcaption>
       </figure>
       
-      <p>The text style is pretty basic and straightforward, as I wanted all types of viewers to easily access my map and its detailing. I left the font choice basic and clean for this reason. Although Lake Forest and its surrounding communities are situated on very flat land, I was able to see the mountains' depths when I zoomed into states like Colorado and Nevada. I enjoyed understanding the ins and outs of the Mapbox platform and how detailed one can truly make a map. </p>
+              <p>The text style is pretty basic and straightforward, as I wanted all types of viewers to easily access my map and its detailing. I left the font choice basic and clean for this reason. Although Lake Forest and its surrounding communities are situated on very flat land, I was able to see the mountains' depths when I zoomed into states like Colorado and Nevada. I enjoyed understanding the ins and outs of the Mapbox platform and how detailed one can truly make a map. </p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Cartographic and Technical Challenges</h3>
+      <!-- Cartographic and Technical Challenges Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Cartographic and Technical Challenges
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>Throughout my experience, both in class and on my own time learning Mapbox, I encountered various challenges, both technical and cartographic, as I tried to understand the software and learn from my mistakes. It was easy to get caught up in minor details and to feel confused or frustrated when I colored the wrong type of “land” or “road.” To overcome this issue, I found it best to keep the detailing in my map very straightforward and easy to read. I look forward to asking more questions in class to fully grasp this platform’s capabilities in the future.</p>
 
       <p>Additionally, I’m currently struggling with how to make the text on roads and in town areas larger when users zoom in. I was having confusion bouncing between both Mapbox and VS Code when applying minor edits to my map, including trying to make the text bigger. I am unsure of this answer at the moment, but when I preview my map in Mapbox, the road and town section text appears larger and easier to read than when displayed in my VS Code portfolio. I’m hopeful that with more experimentation, I can learn how to fix these mistakes.</p>
 
       <p>To aid my confusion and integration of the Mapbox platform into VS Code, I prompted Claude Sonnet 4.5 with some questions and goals, and found its advice extremely helpful. At first, I had some trouble getting my CSV file to display on top of the Mapbox map I had created. Claude Sonnet 4.5 helped me merge those two files together and make the map interactive by zooming and clicking on specific points. I also troubleshooted by reviewing the changes AI made before hitting “apply” to improve the accuracy of the messages it was giving me.</p>
 
-      <p>I found it helpful to ask the AI tool why it made specific changes and to read all of its feedback so I could learn how to manually complete those tasks on my own next time. I think in terms of intentionality, I really have hope for where this map is going. I like my color choices a lot and also believe the places I handpicked in my community positively reflect my hometown’s atmosphere and what has shaped me into who I am. I’m excited to keep learning more from Mapbox and to make edits to this map down the road.</p>
+              <p>I found it helpful to ask the AI tool why it made specific changes and to read all of its feedback so I could learn how to manually complete those tasks on my own next time. I think in terms of intentionality, I really have hope for where this map is going. I like my color choices a lot and also believe the places I handpicked in my community positively reflect my hometown's atmosphere and what has shaped me into who I am. I'm excited to keep learning more from Mapbox and to make edits to this map down the road.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Technical Implementation</h3>
+      <!-- Technical Implementation Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Technical Implementation
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>This project was built using Python with the following key components:</p>
       
       <ul>
@@ -134,10 +308,23 @@
         <li><strong>Geocoding:</strong> Used the Mapbox Geocoding API to convert street addresses into latitude/longitude coordinates</li>
         <li><strong>Visualization:</strong> Built the interactive map using Folium, a Python library for creating Leaflet.js maps</li>
         <li><strong>Custom Basemap:</strong> Integrated my custom Mapbox Studio style as the basemap tiles</li>
-        <li><strong>Interactivity:</strong> Implemented custom HTML popups with images, descriptions, and styled elements</li>
-        <li><strong>Symbolization:</strong> Applied different marker colors and icons based on location categories</li>
-      </ul>
+                <li><strong>Interactivity:</strong> Implemented custom HTML popups with images, descriptions, and styled elements</li>
+                <li><strong>Symbolization:</strong> Applied different marker colors and icons based on location categories</li>
+              </ul>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </section>
+
+    <div class="lab-navigation">
+      <a href="lab05.html" class="back-lab-btn">← Back to Lab 5</a>
+      <a href="index.html" class="next-lab-btn">Back to Home</a>
+    </div>
   </main>
 
   <footer>
@@ -180,6 +367,35 @@
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
       }
+    });
+
+    // Collapsible sections functionality
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    collapsibleHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Close buttons functionality
+    const closeButtons = document.querySelectorAll('.close-btn');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.closest('.section-wrapper') || btn.closest('.assignment-overview');
+        const header = wrapper.querySelector('.collapsible-header');
+        const content = wrapper.querySelector('.collapsible-content');
+        
+        header.classList.remove('active');
+        content.classList.remove('active');
+        content.style.maxHeight = null;
+      });
     });
   </script>
 </body>

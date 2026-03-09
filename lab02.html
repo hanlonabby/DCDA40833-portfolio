@@ -5,6 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Evaluation | Abby Hanlon</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Collapsible Section Styles */
+    .assignment-overview {
+      margin: 2rem auto;
+      max-width: 900px;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: 0 2px 4px var(--shadow);
+    }
+
+    .collapsible-header {
+      background-color: var(--secondary-color);
+      color: white;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .collapsible-header:hover {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-header.active {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-header.active .collapsible-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      opacity: 0;
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+      padding: 1.5rem 0;
+      opacity: 1;
+    }
+
+    .collapsible-inner {
+      padding: 0 2rem;
+      line-height: 1.6;
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .collapsible-content:not(.active) .collapsible-inner {
+      transform: translateY(-10px);
+    }
+
+    .close-section {
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .close-btn {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section-wrapper {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .section-wrapper section {
+      margin: 0;
+      padding: 0;
+    }
+
+    .assignment-overview {
+      margin: 2rem auto;
+      max-width: 900px;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: 0 2px 4px var(--shadow);
+      transition: all 0.5s ease-in-out;
+    }
+
+    main {
+      min-height: 60vh;
+      transition: all 0.5s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,11 +153,17 @@
 
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="lab02.html" class="active">Lab 2: AI Evaluation</a></li>
-      <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
-      <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-      <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
-      <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+      <li><a href="work-experience.html">Work Samples</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle active">Lab Assignments ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="lab02.html" class="active">Lab 2: AI Evaluation</a></li>
+          <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+          <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+          <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+          <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+        </ul>
+      </li>
     </ul>
 
     <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -35,15 +177,54 @@
   </header>
 
   <main>
-    <section>
-      <h2>Introduction</h2>
-      <p>In this exercise, I compared two popular AI tools, ChatGPT and Grok, by asking them the same marketing-related questions I had been working through earlier in the day. I focused on prompts tied to campaign planning, audience targeting, and creative strategy to see how each platform responded to real, practical marketing challenges. While both tools were quick and generally clear in their responses, they differed in tone, depth, and how well they captured marketing nuance and audience insight. This side-by-side comparison helped me better understand where each platform excels and where they fall short, and reinforced that AI works best as a creative and strategic support tool, and definetly not a replacement for human thinking and judgment.</p>
-    </section>
+    <!-- Assignment Overview Section -->
+    <div class="assignment-overview">
+      <button class="collapsible-header">
+        Assignment Overview
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div class="collapsible-inner">
+          <p><em>I explored different AI tools and evaluated them using a framework that focused on capabilities, appropriate use, ethics, and transparency. I tested the tools with prompts related to my coursework and interests to see what they did well and where they struggled. This lab helped me think more critically about how AI can fit into my academic and professional workflow while still relying on human judgment and fact-checking.</em></p>
+          <div class="close-section">
+            <button class="close-btn">
+              Close Section <span class="close-icon">▲</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <section>
-      <h2>Tool 1: ChatGPT</h2>
+    <!-- Introduction Section -->
+    <div class="section-wrapper">
+      <button class="collapsible-header">
+        Introduction
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <section>
+          <div class="collapsible-inner">
+            <p>In this exercise, I compared two popular AI tools, ChatGPT and Grok, by asking them the same marketing-related questions I had been working through earlier in the day. I focused on prompts tied to campaign planning, audience targeting, and creative strategy to see how each platform responded to real, practical marketing challenges. While both tools were quick and generally clear in their responses, they differed in tone, depth, and how well they captured marketing nuance and audience insight. This side-by-side comparison helped me better understand where each platform excels and where they fall short, and reinforced that AI works best as a creative and strategic support tool, and definetly not a replacement for human thinking and judgment.</p>
+            <div class="close-section">
+              <button class="close-btn">
+                Close Section <span class="close-icon">▲</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
 
-      <h3>Capabilities</h3>
+    <!-- Tool 1: ChatGPT Section -->
+    <div class="section-wrapper">
+      <button class="collapsible-header">
+        Tool 1: ChatGPT
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <section>
+          <div class="collapsible-inner">
+            <h3>Capabilities</h3>
       <p>ChatGPT is good at explaining concepts clearly. It can break down complex ideas, conversations, and equations, making them easier to understand and digest. ChatGPT’s best examples of making complex ideas easier to understand include summarizing research, explaining how algorithms work, and translating between languages. This platform can produce writing in many styles, purposes, and meanings, such as essays, stories/poems, emails, and resumes, slogans/scripts. The platform’s creativity features are vast and constantly improving with every prompt or conversation a user adds. It excels at generating campaign ideas, suggesting topic starters, and listing potential solutions. It can assist with learning and practice by processing and helping users understand foreign languages, coding concepts, interview preparation, and improving academic or professional skills. ChatGPT makes processes easy to follow, creating clear outlines for managing tasks like writing a research paper, formatting a podcast script, solving a math problem, or structuring a marketing plan.</p>
 
       <h3>Appropriate Use</h3>
@@ -59,13 +240,25 @@
         <img src="images/ChatResponse2.jpeg" alt="ChatGPT Response to my prompt with photos" style="width: 80%;">
         <img src="images/GrokResponse1.jpeg" alt="Grok Response to my prompt with photos" style="width: 80%;">
         <figcaption>Both ChatGPT and Grok provided me with a detailed response to my prompt, including explanations and examples.</figcaption>
-      </figure>
-    </section>
+            </figure>
+            <div class="close-section">
+              <button class="close-btn">
+                Close Section <span class="close-icon">▲</span>
+              </button>
+            </div>          </div>
+        </section>
+      </div>
+    </div>
 
-    <section>
-      <h2>Tool 2: Grok</h2>
-
-      <h3>Capabilities</h3>
+    <!-- Tool 2: Grok Section -->    <div class="section-wrapper">
+      <button class="collapsible-header">
+        Tool 2: Grok
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <section>
+          <div class="collapsible-inner">
+            <h3>Capabilities</h3>
       <p>Grok is particularly great at providing advanced reasoning, support, and rationale for math/science-related problem-solving and coding tasks, and at giving users real-time information. It uses integrated web and social media tools, specifically X, to help source and update its information for accuracy. It can think for extended periods to correct errors that the AI service might have initially given the user, before the user has the time to find them, delivering more accurate and well-reasoned answers. Grok is also good at keeping a “neutral” voice and tone in its wording in responses. It’s noted for having a “less censored” personality, which adds to its informal, more human-like tone in its answers.</p>
 
       <p>Grok faces slower response times when a user asks it to complete a deep reasoning task, and it can lead to increased variability and errors when tasked with a larger coding assignment. Some of its limitations also stem from the idea that its data is sourced from X. On this platform, any voice, opinion, bias, or judgment can be written about and posted, leaving Grok at risk of inadvertently eliciting biased information.</p>
@@ -76,11 +269,25 @@
       <p>Grok is well-suited for solving complex tasks related to mathematical problems, scientific issues, and coding and debugging. It also uses real-time research from the web and X to provide users with up-to-date market analysis and trend monitoring. It is noted that it is even possible to explore controversial topics that other AI systems will not allow. Grok can be counterproductive when you want to ask it a quick question, like what the weather might be like later in the day, because of its typical paragraph-long responses. Sometimes this data can also be misinformation or incorrect because the service often prioritizes speed over accuracy.</p>
 
       <h3>Ethical Considerations</h3>
-      <p>Similarly, Grok was also pre-trained on a large amount of publicly available internet data, which combined datasets curated and reviewed by human AI specialists. In later versions, the AI service has integrated the social media platform X into its regular database, strengthening its ability to present current-event data to users. Ethically speaking, this can be a problem for X users alone who don’t feel comfortable having their information filtered through an AI platform and who may be at risk of misinformation and intellectual property infringement. Potential biases can stem from its training on unfiltered web content, leading to polarized, stereotypical material. Grok is also noted to have censorship issues and political imbalances in its response patterns.</p>
-    </section>
+      <p>Similarly, Grok was also pre-trained on a large amount of publicly available internet data, which combined datasets curated and reviewed by human AI specialists. In later versions, the AI service has integrated the social media platform X into its regular database, strengthening its ability to present current-event data to users. Ethically speaking, this can be a problem for X users alone who don’t feel comfortable having their information filtered through an AI platform and who may be at risk of misinformation and intellectual property infringement. Potential biases can stem from its training on unfiltered web content, leading to polarized, stereotypical material. Grok is also noted to have censorship issues and political imbalances in its response patterns.</p>            <div class="close-section">
+              <button class="close-btn">
+                Close Section <span class="close-icon">▲</span>
+              </button>
+            </div>          </div>
+        </section>
+      </div>
+    </div>
 
-    <section>
-      <h2>Broader Reflections</h2>
+    <!-- Broader Reflections Section -->
+    <div class="section-wrapper">
+      <button class="collapsible-header">
+        Broader Reflections
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <section>
+          <div class="collapsible-inner">
+            <h2>Broader Reflections</h2>
 
       <h3>Prompt: “Create a social media content strategy for a mid-size music festival targeting Gen Z, including platforms, posting cadence, and KPIs.”</h3>
       <p><b>ChatGPT Response & Thoughts:</b> ChatGPT gave me a fleshed-out, Gen-Z-focused social media content strategy for a mid-size music festival that prioritizes culture, authenticity, and participation over straight promotion. The strategy prioritizes TikTok and Instagram as primary platforms, with Snapchat and YouTube Shorts as supporting platforms, and outlines a content timeline spanning 4-8 weeks pre-festival, festival week, and 2-4 weeks post-festival.</p>
@@ -102,9 +309,19 @@
 
       <p>The campaign treats Gen Z as intelligent adults who deserve the unfiltered version, not a sales pitch. This approach builds trust through radical transparency and consistency over time, rather than one-off "relatable" stunts. It should feel like stumbling across an employee's personal video diary or a no-BS internal documentary series—something that wasn't made "for the kids" but exists as it is.”</p>
 
-      <p>However, as the AI tool kept generating responses, I noticed that the techniques and ideas it provided felt overused, redundant, and unoriginal. For example, it gave me components to integrate into my campaign, including: “Day in my life” videos, behind-the-scenes videos, and livestreaming Q&A sessions. Once again, this felt generic and something I’ve seen a million times as a student marketer.</p>
-    </section>
-  </main>
+      <p>However, as the AI tool kept generating responses, I noticed that the techniques and ideas it provided felt overused, redundant, and unoriginal. For example, it gave me components to integrate into my campaign, including: “Day in my life” videos, behind-the-scenes videos, and livestreaming Q&A sessions. Once again, this felt generic and something I’ve seen a million times as a student marketer.</p>            <div class="close-section">
+              <button class="close-btn">
+                Close Section <span class="close-icon">▲</span>
+              </button>
+            </div>          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="lab-navigation">
+      <a href="index.html" class="back-lab-btn">← Back to Home</a>
+      <a href="lab03.html" class="next-lab-btn">Next: Lab 3 →</a>
+    </div>  </main>
 
   <footer>
     <p>&copy; 2026 Abby Hanlon | <a href="https://github.com/hanlonabby/DCDA40833-portfolio">GitHub</a></p>
@@ -148,6 +365,30 @@
         localStorage.setItem('theme', htmlElement.classList.contains('dark-mode') ? 'dark' : 'light');
       });
     }
+
+    // Collapsible sections
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    
+    collapsibleHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        content.classList.toggle('active');
+      });
+    });
+
+    // Close buttons
+    const closeButtons = document.querySelectorAll('.close-btn');
+    
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const content = this.closest('.collapsible-content');
+        const header = content.previousElementSibling;
+        content.classList.remove('active');
+        header.classList.remove('active');
+      });
+    });
   </script>
 </body>
 </html>

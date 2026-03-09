@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Work Experience - Abby Hanlon Portfolio">
+    <meta name="author" content="Abby Hanlon">
+    <title>Work Experience | Abby Hanlon Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Resume PDF viewer styling */
+        .pdf-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 700px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+        
+        .resume-viewer {
+            background-color: var(--card-bg);
+        }
+        
+        .pdf-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .pdf-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .pdf-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* Work Samples Grid */
+        .work-samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+        
+        /* Project Card */
+        .project-card {
+            position: relative;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px var(--shadow);
+        }
+        
+        /* Project Thumbnail */
+        .project-thumbnail {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-thumbnail {
+            opacity: 0.9;
+        }
+        
+        .project-title {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            background-color: var(--card-bg);
+            border-top: 2px solid var(--border-color);
+        }
+        
+        /* Dropdown Content */
+        .project-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background-color: var(--card-bg);
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .project-card:hover .project-dropdown {
+            max-height: 500px;
+        }
+        
+        .project-dropdown-content {
+            padding: 1.5rem;
+        }
+        
+        .project-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .project-description h4 {
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .view-project-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .view-project-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 500px;
+            }
+            
+            .work-samples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work-experience.html" class="active">Work Samples</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Lab Assignments ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+                    <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+                    <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+                    <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+                    <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+                </ul>
+            </li>
+        </ul>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Work Experience</h1>
+        <p>Abby Hanlon | Professional Journey</p>
+    </header>
+
+    <main>
+        <!-- Introduction -->
+        <section id="intro">
+            <h2>Professional Work & Portfolio</h2>
+            <p>Welcome to my work samples page! Below you'll find my resume and a collection of marketing and communication projects I've completed. Hover over each project thumbnail to view the full presentation, download the PDF, and learn more about the work.</p>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>View My Resume</h2>
+            <p>Download or view my full resume below to see a comprehensive overview of my education, experience, and skills.</p>
+            
+            <div class="pdf-container">
+                <!-- Embedded PDF viewer -->
+                <iframe 
+                    src="pdfs/Abby-Hanlon-Resume.pdf" 
+                    class="pdf-viewer resume-viewer"
+                    title="Abby Hanlon Resume">
+                    <p>Your browser does not support PDFs. 
+                       <a href="pdfs/Abby-Hanlon-Resume.pdf">Download my resume</a> to view it.
+                    </p>
+                </iframe>
+                
+                <!-- Resume Controls -->
+                <div class="pdf-controls">
+                    <a href="pdfs/Abby-Hanlon-Resume.pdf" download class="pdf-btn">Download Resume</a>
+                    <a href="pdfs/Abby-Hanlon-Resume.pdf" target="_blank" class="pdf-btn">Open in New Tab</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Samples Section -->
+        <section id="work-samples">
+            <h2>My Work Samples</h2>
+            <p>Hover over each project to learn more about the work. Click "View Full Project" to see the complete presentation with detailed descriptions, key highlights, and downloadable PDFs.</p>
+            
+            <div class="work-samples-grid">
+                <!-- 7-Eleven Project -->
+                <div class="project-card">
+                    <img src="images/7eleven-thumbnail.jpg" alt="7-Eleven Marketing Campaign" class="project-thumbnail">
+                    <h3 class="project-title">7-Eleven Marketing Campaign</h3>
+                    <div class="project-dropdown">
+                        <div class="project-dropdown-content">
+                            <div class="project-description">
+                                <h4>About This Project</h4>
+                                <p>A comprehensive marketing campaign for 7-Eleven focusing on campaign strategy, target audience analysis, and creative direction. This project demonstrates skills in brand positioning, consumer research, and digital marketing tactics.</p>
+                            </div>
+                            <a href="project-7eleven.html" class="view-project-btn">View Full Project →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Portfolio -->
+                <div class="project-card">
+                    <img src="images/social-media-thumbnail.jpg" alt="Social Media Portfolio" class="project-thumbnail">
+                    <h3 class="project-title">Social Media Portfolio</h3>
+                    <div class="project-dropdown">
+                        <div class="project-dropdown-content">
+                            <div class="project-description">
+                                <h4>About This Project</h4>
+                                <p>A collection of social media content, campaigns, and strategies across multiple platforms. This portfolio showcases content creation, engagement optimization, analytics tracking, and brand voice development.</p>
+                            </div>
+                            <a href="project-social-media.html" class="view-project-btn">View Full Project →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tecovas Strategy -->
+                <div class="project-card">
+                    <img src="images/tecovas-thumbnail.jpg" alt="Tecovas Marketing Strategy" class="project-thumbnail">
+                    <h3 class="project-title">Tecovas Marketing Strategy</h3>
+                    <div class="project-dropdown">
+                        <div class="project-dropdown-content">
+                            <div class="project-description">
+                                <h4>About This Project</h4>
+                                <p>A strategic marketing analysis and recommendation plan for Tecovas, featuring brand positioning, target market insights, competitive analysis, and marketing channel strategies to enhance brand awareness and customer acquisition.</p>
+                            </div>
+                            <a href="project-tecovas.html" class="view-project-btn">View Full Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; background-color: var(--card-bg); margin-top: 2rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2026 Abby Hanlon | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

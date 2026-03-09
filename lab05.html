@@ -7,6 +7,117 @@
   <meta name="author" content="Abby Hanlon">
   <title>Lab 5: Vibe Coding | Abby Hanlon</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Assignment Overview Styles */
+    .assignment-overview {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    .collapsible-header {
+      width: 100%;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1.5rem 2rem;
+      border: none;
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .collapsible-header:hover {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-header.active .collapsible-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      opacity: 0;
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+      padding: 1.5rem 0;
+      opacity: 1;
+    }
+
+    .collapsible-inner {
+      padding: 0 2rem;
+      line-height: 1.6;
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .collapsible-content:not(.active) .collapsible-inner {
+      transform: translateY(-10px);
+    }
+
+    .close-section {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .close-btn {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section-wrapper {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    main {
+      min-height: 60vh;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,11 +130,17 @@
 
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
-      <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
-      <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-      <li><a href="lab05.html" class="active">Lab 5: Vibe Coding</a></li>
-      <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+      <li><a href="work-experience.html">Work Samples</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle active">Lab Assignments ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+          <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+          <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+          <li><a href="lab05.html" class="active">Lab 5: Vibe Coding</a></li>
+          <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+        </ul>
+      </li>
     </ul>
 
     <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -37,10 +154,36 @@
   </header>
 
   <main>
+    <!-- Assignment Overview Section -->
+    <div class="assignment-overview">
+      <button class="collapsible-header">
+        Assignment Overview
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div class="collapsible-inner">
+          <p><em>For this lab, I experimented with AI as a coding collaborator to see when it helps and when it becomes problematic. I used AI to generate and modify code for different tasks while making sure I could still read, explain, and understand what the code was doing. This lab helped me think more critically about how to responsibly use AI in development without losing control of the work.</em></p>
+          <div class="close-section">
+            <button class="close-btn">
+              Close Section <span class="close-icon">▲</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="reflection">
       <h2>Vibe Coding Reflection & Analysis</h2>
 
-      <h3>Technical Understanding</h3>
+      <!-- Technical Understanding Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Technical Understanding
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>Using the chatbox feature in Visual Studio Code, I used Claude Sonnet 4.5 to Vibe Code a dark mode toggle button, as well as the basic blueprint for an image carousel that I plan to update with real-world examples as a highlight of what I’m capable of producing as the semester goes on. With internship experience in graphic design, digital marketing, campaign execution, social media management, and visual branding, I want to find innovative ways to showcase my creations and projects in my portfolio to potential employers and website visitors. I believe that any type of “visual carousel” is an innovative and interactive way to showcase hard work, and using vibe coding to describe what I was hoping to get out of it was a great success. My site now features a toggle button at the top right corner that can actively switch back and forth from light mode (via the sun emoji), or dark mode (a darker web interface via the moon emoji) to appeal to users’ differing preferences when viewing a website on their computers or on a mobile device. I used AI to learn and understand how this toggle integration created a smooth visual transition from dark to light mode using the CSS transition coding feature in HTML. Through learning how to produce this code;</p>
 
       <pre><code>html {
@@ -51,14 +194,58 @@
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }</code></pre>
 
-      <p>I applied it, and I can see a gradual transition from light to dark web interfaces, and vice versa, which creates a nice flow and an upscale look for my website. Additionally, throughout my back-and-forth with my chatbox, I created a sample-size carousel on my work homepage to showcase the work I want to showcase. I look forward to integrating these design changes into my portfolio more as the semester goes on and to creating even more intricate ones.</p>
+              <p>I applied it, and I can see a gradual transition from light to dark web interfaces, and vice versa, which creates a nice flow and an upscale look for my website. Additionally, throughout my back-and-forth with my chatbox, I created a sample-size carousel on my work homepage to showcase the work I want to showcase. I look forward to integrating these design changes into my portfolio more as the semester goes on and to creating even more intricate ones.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Process Evaluation</h3>
+      <!-- Process Evaluation Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Process Evaluation
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>I’ve had a lot of success with using AI in Vibe Coding, specifically Claude Sonnet 4.5. In class, we completed an exercise where we Vibe Coded a mini game using similar prompts. Throughout my experience using these platforms, I’ve found AI really helpful when I'm feeling stuck or confused, or when a string of code isn’t displaying the way I planned. Between our interactive class discussion of creating mini games and the feedback I’ve gotten from different AI platforms, I’ve learned the importance of specific wording, providing it feedback when you (as a user) don’t like what it generated for you, and that it is always extra important to check its work. Since for this exercise I just used AI to walk me through and lay the “groundwork” for my HTML and CSS styling pages, I wanted to learn as much as I could through keeping my prompts straightforward and the coding clean. When I learned how to integrate an image carousel into my homepage, Claude Sonnet 4.5 created a CAROUSEL_GUIDE.md section with blank instructions for installing a carousel in my code, providing the basics to highlight well-thought-out portfolio pieces interactively.</p>
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Ethical & Pedagogical Considerations</h3>
-      <p>In terms of using AI down the line in building my portfolio, I plan to use it as a tool to walk me through situations when I seem stuck or confused. Using AI as a tool rather than a cheat code makes me a stronger coder and a stronger individual, with strengths in the DCDA categories. Learning from my mistakes when asking for feedback from AI can teach my peers and me to code ethically and intentionally.</p>
+      <!-- Ethical & Pedagogical Considerations Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Ethical & Pedagogical Considerations
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>In terms of using AI down the line in building my portfolio, I plan to use it as a tool to walk me through situations when I seem stuck or confused. Using AI as a tool rather than a cheat code makes me a stronger coder and a stronger individual, with strengths in the DCDA categories. Learning from my mistakes when asking for feedback from AI can teach my peers and me to code ethically and intentionally.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </section>
+
+    <div class="lab-navigation">
+      <a href="lab04.html" class="back-lab-btn">← Back to Lab 4</a>
+      <a href="lab06.html" class="next-lab-btn">Next: Lab 6 →</a>
+    </div>
   </main>
 
   <footer>
@@ -97,6 +284,35 @@
     darkModeToggle.addEventListener('click', function () {
       htmlElement.classList.toggle('dark-mode');
       localStorage.setItem('theme', htmlElement.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+
+    // Collapsible sections functionality
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    collapsibleHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Close buttons functionality
+    const closeButtons = document.querySelectorAll('.close-btn');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.closest('.section-wrapper') || btn.closest('.assignment-overview');
+        const header = wrapper.querySelector('.collapsible-header');
+        const content = wrapper.querySelector('.collapsible-content');
+        
+        header.classList.remove('active');
+        content.classList.remove('active');
+        content.style.maxHeight = null;
+      });
     });
   </script>
 </body>

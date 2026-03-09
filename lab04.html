@@ -5,6 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Visualization in Tableau Public | Abby Hanlon</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Assignment Overview Styles */
+    .assignment-overview {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    .collapsible-header {
+      width: 100%;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1.5rem 2rem;
+      border: none;
+      text-align: left;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .collapsible-header:hover {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-header.active .collapsible-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      opacity: 0;
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+      padding: 1.5rem 0;
+      opacity: 1;
+    }
+
+    .collapsible-inner {
+      padding: 0 2rem;
+      line-height: 1.6;
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .collapsible-content:not(.active) .collapsible-inner {
+      transform: translateY(-10px);
+    }
+
+    .close-section {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .close-btn {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section-wrapper {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+    }
+
+    main {
+      min-height: 60vh;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,11 +128,17 @@
 
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
-      <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
-      <li><a href="lab04.html" class="active">Lab 4: Data Visualization in Tableau Public</a></li>
-      <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
-      <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+      <li><a href="work-experience.html">Work Samples</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle active">Lab Assignments ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+          <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+          <li><a href="lab04.html" class="active">Lab 4: Data Visualization in Tableau Public</a></li>
+          <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+          <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+        </ul>
+      </li>
     </ul>
 
     <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -35,6 +152,24 @@
   </header>
 
   <main>
+    <!-- Assignment Overview Section -->
+    <div class="assignment-overview">
+      <button class="collapsible-header">
+        Assignment Overview
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div class="collapsible-inner">
+          <p><em>For this lab, I used Tableau Public to explore and visualize a dataset of my choice. I created charts to look for patterns, trends, and unexpected insights in the data. This assignment helped me practice exploratory data analysis and learn how to communicate findings through clear visualizations.</em></p>
+          <div class="close-section">
+            <button class="close-btn">
+              Close Section <span class="close-icon">▲</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section>
       <h2>Data Source</h2>
 
@@ -97,25 +232,126 @@
     <section class="reflection">
       <h2>Reflection & Analysis</h2>
 
-      <h3>1. Data Preparation</h3>
-      <p>Before deciding to gather data from Kaggle, I knew I wanted to focus on a music-industry dataset. I explored the links provided for free datasets in Lab 4 and found many others that were publicly available, but I stumbled upon this one from Kaggle. In my decision-making stage, I realized that this industry has limited free data, and as the semester continues, I would like to gather more information on how to access deeper insights into streaming numbers, platforms, analytics, and trends. I had some complications with uploading this dataset at first, as the uploading process took a couple of tries. I think this had to do with the CSV file's density, but I was able to quickly overcome it.</p>
+      <!-- Data Preparation Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          1. Data Preparation
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>Before deciding to gather data from Kaggle, I knew I wanted to focus on a music-industry dataset. I explored the links provided for free datasets in Lab 4 and found many others that were publicly available, but I stumbled upon this one from Kaggle. In my decision-making stage, I realized that this industry has limited free data, and as the semester continues, I would like to gather more information on how to access deeper insights into streaming numbers, platforms, analytics, and trends. I had some complications with uploading this dataset at first, as the uploading process took a couple of tries. I think this had to do with the CSV file's density, but I was able to quickly overcome it.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>2. Design Choices</h3>
-      <p>I had a lot of fun playing around with all the variations Tableau can create to showcase data points. Although some of these data points I created were straightforward – like the line chart showing longevity over time – it took a couple of tries to figure out which data point to use on which axis, and to edit the chart so the points increase as the years progress.</p>
+      <!-- Design Choices Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          2. Design Choices
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>I had a lot of fun playing around with all the variations Tableau can create to showcase data points. Although some of these data points I created were straightforward – like the line chart showing longevity over time – it took a couple of tries to figure out which data point to use on which axis, and to edit the chart so the points increase as the years progress.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>3. Patterns/Predictions</h3>
-      <p>Before I uploaded all my data to Tableau, I took the time to jot down a couple of notes and predictions about what I thought the datasets would visualize for me. I predicted that the 1990s would increase the amount of artist listens, and ultimately the number of weeks an artist stays at the top of the charts, because this decade included the early origins of streaming music. I also predicted that artists from the mid-2000s to the present day would have a more consistent track record of staying at the top of the charts week after week, due to the rise, influence, and widespread success of radio, streaming services, and, now more than ever, personalized music libraries. Finally, I predicted that Taylor Swift would remain a key player at the top of the charts in recent years because of her international success, which makes her such a household name in this industry.</p>
+      <!-- Patterns/Predictions Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          3. Patterns/Predictions
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>Before I uploaded all my data to Tableau, I took the time to jot down a couple of notes and predictions about what I thought the datasets would visualize for me. I predicted that the 1990s would increase the amount of artist listens, and ultimately the number of weeks an artist stays at the top of the charts, because this decade included the early origins of streaming music. I also predicted that artists from the mid-2000s to the present day would have a more consistent track record of staying at the top of the charts week after week, due to the rise, influence, and widespread success of radio, streaming services, and, now more than ever, personalized music libraries. Finally, I predicted that Taylor Swift would remain a key player at the top of the charts in recent years because of her international success, which makes her such a household name in this industry.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>4. Surprises/Outliers</h3>
-      <p>I think the most surprising feature I had after playing around with Tableau was its depiction of a heatmap, where I focused on showcasing data that compares how long songs stayed on the charts based on the era, their peak chart position, and number of weeks on the chart – the darker the color, the more weeks that artist or group had on the chart. I was really struggling at first to figure out what I was looking to create versus what Tableau was giving me. I played around with creating a scatter plot at first, but I got confused, and the data points weren’t displaying properly. I think in the future I’d love to develop a better understanding of which tools and visualizations are best for specific areas of data.</p>
+      <!-- Surprises/Outliers Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          4. Surprises/Outliers
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>I think the most surprising feature I had after playing around with Tableau was its depiction of a heatmap, where I focused on showcasing data that compares how long songs stayed on the charts based on the era, their peak chart position, and number of weeks on the chart – the darker the color, the more weeks that artist or group had on the chart. I was really struggling at first to figure out what I was looking to create versus what Tableau was giving me. I played around with creating a scatter plot at first, but I got confused, and the data points weren't displaying properly. I think in the future I'd love to develop a better understanding of which tools and visualizations are best for specific areas of data.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>5. Questions for Further Investigation</h3>
-      <p>In response to this exploration on Tableau, I've developed a couple of open-ended questions that could provide some deeper understanding in the future:
-      Do gaps in data from public files cause inconsistent data collection and understanding? Is data focused on years hard to sort through with a wide range of points? Are certain genres or artists driving longer top-chart longevity than others at specific points in time?</p>
+      <!-- Questions for Further Investigation Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          5. Questions for Further Investigation
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>In response to this exploration on Tableau, I've developed a couple of open-ended questions that could provide some deeper understanding in the future:
+              Do gaps in data from public files cause inconsistent data collection and understanding? Is data focused on years hard to sort through with a wide range of points? Are certain genres or artists driving longer top-chart longevity than others at specific points in time?</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>6. Tool Evaluation</h3>
-      <p>I really like using Tableau as a visualization tool. Although I thought some of the markers, tools, and sectioning provided limited explanation of what each tool did, it was pretty easy to pick up with some trial and error and an occasional Google search. Platforms like Tableau are good for data visualization that might look flat or uninteresting in a regular Excel sheet. Importing data directly from a CSV file is easy and efficient, making it fast to showcase data. Although I think this is a great alternative for showcasing intricate data points in a creative way, some types of data are better shown in a different format, especially long text data or open-ended survey responses. Altogether, I enjoyed exploring Tableau and am excited about the possibility of using it more this semester.</p>
+      <!-- Tool Evaluation Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          6. Tool Evaluation
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>I really like using Tableau as a visualization tool. Although I thought some of the markers, tools, and sectioning provided limited explanation of what each tool did, it was pretty easy to pick up with some trial and error and an occasional Google search. Platforms like Tableau are good for data visualization that might look flat or uninteresting in a regular Excel sheet. Importing data directly from a CSV file is easy and efficient, making it fast to showcase data. Although I think this is a great alternative for showcasing intricate data points in a creative way, some types of data are better shown in a different format, especially long text data or open-ended survey responses. Altogether, I enjoyed exploring Tableau and am excited about the possibility of using it more this semester.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </section>
+
+    <div class="lab-navigation">
+      <a href="lab03.html" class="back-lab-btn">← Back to Lab 3</a>
+      <a href="lab05.html" class="next-lab-btn">Next: Lab 5 →</a>
+    </div>
   </main>
 
   <footer>
@@ -162,6 +398,35 @@
         localStorage.setItem('theme', htmlElement.classList.contains('dark-mode') ? 'dark' : 'light');
       });
     }
+
+    // Collapsible sections functionality
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    collapsibleHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Close buttons functionality
+    const closeButtons = document.querySelectorAll('.close-btn');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.closest('.section-wrapper') || btn.closest('.assignment-overview');
+        const header = wrapper.querySelector('.collapsible-header');
+        const content = wrapper.querySelector('.collapsible-content');
+        
+        header.classList.remove('active');
+        content.classList.remove('active');
+        content.style.maxHeight = null;
+      });
+    });
   </script>
 </body>
 </html>

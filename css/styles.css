@@ -92,7 +92,7 @@ nav {
     background-color: var(--secondary-color);
     padding: 0.75rem;
     display: flex;              /* Make nav a flex container */
-    justify-content: center;    /* Center the ul inside nav */
+    justify-content: center;    /* Center everything */
     align-items: center;        /* Vertically center items */
     position: sticky;           /* Stick to top when scrolling */
     top: 0;
@@ -105,7 +105,7 @@ nav {
 nav ul {
     list-style: none;           /* Remove bullets */
     padding: 0;                 /* Remove default padding */
-    margin: 0;                  /* Remove default margin */
+    margin: 0;                  /* No margin */
     display: flex;              /* Arrange items horizontally */
     flex-direction: row;        /* Explicit: horizontal on desktop */
     justify-content: center;    /* Center the items */
@@ -115,6 +115,7 @@ nav ul {
 
 nav li {
     list-style: none;           /* Extra insurance - remove bullets */
+    position: relative;         /* For dropdown positioning */
 }
 
 nav a {
@@ -123,10 +124,114 @@ nav a {
     padding: 0.5rem 1rem;
     transition: background-color 0.3s ease;
     border-radius: 4px;
+    display: block;
 }
 
 nav a:hover {
     background-color: var(--primary-color);
+}
+
+/* Position dark mode toggle absolutely on the right */
+.dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Show sun in light mode, moon in dark mode */
+.dark-mode-toggle .moon-icon {
+    display: none;
+}
+
+html.dark-mode .dark-mode-toggle .sun-icon {
+    display: none;
+}
+
+html.dark-mode .dark-mode-toggle .moon-icon {
+    display: inline;
+}
+
+html:not(.dark-mode) .dark-mode-toggle .sun-icon {
+    display: inline;
+}
+
+/* =========================
+   Dropdown Menu Styles
+   ========================= */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+/* Create invisible bridge between toggle and menu for smooth hovering */
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.25rem;
+    display: none;
+}
+
+.dropdown:hover::before {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--secondary-color);
+    min-width: 250px;
+    box-shadow: 0 4px 6px var(--shadow);
+    border-radius: 4px;
+    margin-top: 0.25rem;        /* Small gap */
+    padding: 0.5rem 0;
+    z-index: 1000;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--primary-color);
+}
+
+.dropdown-menu a.active {
+    background-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Show dropdown on hover - keep visible when hovering menu */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 /* =========================
@@ -170,6 +275,14 @@ main section p {
     line-height: 1.8;
 }
 
+/* date range for highlighting my work experience new section of my portfolio*/
+.date-range {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+
 /* Lists inside sections */
 main section ul,
 main section ol {
@@ -179,6 +292,100 @@ main section ol {
 
 main section li {
     margin-bottom: 0.5rem;
+}
+
+/* =========================
+   Next Lab Navigation Button
+   ========================= */
+.lab-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.back-lab-btn {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow);
+    border: 2px solid var(--secondary-color);
+}
+
+.back-lab-btn:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.next-lab-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.next-lab-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* =========================
+   About Section Layout
+   ========================= */
+.about-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image {
+    flex: 0 0 400px;
+    text-align: center;
+}
+
+.about-image img {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Made photo slightly bigger so it feels more cohesive with the size of the text box */
+
+/* Mobile responsiveness for about section */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        flex: 1;
+        width: 100%;
+    }
 }
 
 /* =========================
@@ -354,61 +561,141 @@ html.dark-mode .framework-callout {
 /* Grid layout for portfolio cards on home page */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
 
-/* Individual portfolio card styling */
-.portfolio-card {
-    display: block;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: all 0.3s ease;
+/* Lab Card Styles */
+.lab-card {
+    position: relative;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lab-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px var(--shadow);
+}
+
+/* Lab Header (replaces thumbnail) */
+.lab-header {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
     position: relative;
 }
 
-.portfolio-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 16px rgba(77, 25, 121, 0.15);
-    transform: translateY(-4px);
+.lab-card:hover .lab-header {
+    opacity: 0.95;
 }
 
-.portfolio-card h3 {
+.lab-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lab-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Lab Dropdown Content */
+.lab-dropdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: var(--card-bg);
+    border-top: 2px solid var(--border-color);
+}
+
+.lab-card:hover .lab-dropdown {
+    max-height: 500px;
+}
+
+.lab-dropdown-content {
+    padding: 1.5rem;
+}
+
+.lab-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.lab-description h4 {
+    margin-bottom: 0.75rem;
     color: var(--primary-color);
-    margin: 0 0 0.5rem 0;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 
-.portfolio-card p {
+.lab-description p {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    margin: 0.75rem 0 0 0;
-    line-height: 1.5;
 }
 
-/* Dark mode hover effect for portfolio cards */
-html.dark-mode .portfolio-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 16px rgba(230, 81, 111, 0.25);
-    transform: translateY(-4px);
-}
-
-/* Lab tag badge on portfolio cards */
-.lab-tag {
-    display: inline-block;
-    background: var(--secondary-color);
+.view-lab-btn {
+    background-color: var(--secondary-color);
     color: white;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.5rem;
+    border: none;
+    padding: 0.75rem 2rem;
     border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.view-lab-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* All labs use solid pink background */
+.lab-header[data-lab="02"],
+.lab-header[data-lab="03"],
+.lab-header[data-lab="04"],
+.lab-header[data-lab="05"],
+.lab-header[data-lab="06"] {
+    background: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lab-header {
+        height: 180px;
+    }
+    
+    .lab-number {
+        font-size: 2.5rem;
+    }
+    
+    .lab-title {
+        font-size: 1.1rem;
+    }
 }
 
 /* =========================
@@ -477,6 +764,24 @@ html.dark-mode .portfolio-card:hover {
     margin: 0;
     font-size: 1rem;
     opacity: 0.95;
+}
+
+/* Clickable carousel links */
+.carousel-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.carousel-link:hover {
+    transform: scale(1.02);
+}
+
+.carousel-link img {
+    cursor: pointer;
 }
 
 /* Navigation Buttons */
@@ -615,61 +920,6 @@ footer a:hover {
 }
 
 /* =========================
-   Dark Mode Toggle Button
-   ========================= */
-.dark-mode-toggle {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-    padding: 0.4rem 0.8rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: all 0.3s ease;
-    margin-left: auto;
-    font-size: 1.2rem;
-}
-
-.dark-mode-toggle:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* Show sun in light mode, moon in dark mode */
-.dark-mode-toggle .moon-icon {
-    display: none;
-}
-
-html.dark-mode .dark-mode-toggle .sun-icon {
-    display: none;
-}
-
-html.dark-mode .dark-mode-toggle .moon-icon {
-    display: inline;
-}
-
-/* I had to fix this code because AI Vibe coding gave me a couple of errors:*/
-.dark-mode-toggle .moon-icon {
-    display: none;
-}
-
-html.dark-mode .dark-mode-toggle .sun-icon {
-    display: none;
-}
-
-html.dark-mode .dark-mode-toggle .moon-icon {
-    display: inline;
-}
-
-html:not(.dark-mode) .dark-mode-toggle .sun-icon {
-    display: inline;
-}
-
-
-/* I want to figure out how to change the toggle from an emoji to an icon in the future. */
-
-/* =========================
    Hamburger Menu Button
    ========================= */
 /* Hidden by default on desktop */
@@ -749,6 +999,29 @@ html:not(.dark-mode) .dark-mode-toggle .sun-icon {
         width: 100%;
         text-align: center;
         padding: 0.75rem 1rem;   /* Larger tap targets on mobile */
+    }
+
+    /* Dropdown menu on mobile */
+    .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        margin-top: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;  /* Disable hover on mobile */
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;  /* Show when dropdown is opened via JS */
+    }
+
+    .dropdown-menu a {
+        padding-left: 2rem;  /* Indent submenu items */
+        font-size: 0.9rem;
     }
 
     main section {

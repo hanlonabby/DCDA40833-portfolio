@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skills Portfolio showcasing work from DCDA 40833">
+    <meta name="author" content="Your Name">
+    <title>Abby Hanlon | DCDA 40833 Skills Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation: Hamburger menu on mobile, horizontal links on desktop -->
+    <nav>
+        <!-- Hamburger button: only visible on screens under 768px -->
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+            <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+            <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+            <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+            <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+                </ul>
+        <!-- Dark Mode Toggle Button -->
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+    </nav>
+
+    <!-- Header: Your name and course info -->
+    <header>
+        <h1>Abby Hanlon</h1>
+        <p>DCDA 40833 Skills Portfolio | Spring 2026</p>
+    </header>
+
+    <main>
+        <!-- Welcome Section: Brief introduction to your portfolio -->
+        <section id="welcome">
+            <h2>Welcome</h2>
+            <p>Welcome to my Skills Portfolio for my DCDA 40833 capstone course. This website will highlight work samples of my creative capabilities and passions, exploring the depths of my digital communication and growth in data analysis.
+            <p>Each page represents various lab assignments completed throughout the semester. Additionally, I've included a section where I highlight some of my favorite marketing campaigns and creative ideas, with a focus on each strategic storytelling and audience experience.</p>
+            <!-- I want this section to summarize the main "idea" of my website. I have plans to develop more depth about my "inspiration" sections, as I want to link my personal creative portfolio to my website I code, and a section devoted to a blog about campaigns I've discovered in the world and why I think they're meaningful.  -->
+        </section>
+
+        <!-- About Section: Tell visitors about yourself -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p><strong>Who I am: </strong>Hi! My name is Abby Hanlon, and I'm a senior at TCU double-majoring in Strategic Communication and Data Analytics, graduating May 2026. I'm a people person, dedicated to creating meaningful relationships wherever I go, with a "can do" attitude.</p>
+            <p><strong>My interests: </strong>I'm a creative communicator, passionate about digital branding, experiential marketing, and storytelling. I’ve gained hands-on experience through agency, nonprofit, and in-house roles, including graphic design, social media strategy, and event marketing positions. With a strong background in campaign execution, brand development, and content creation, I thrive in fast-paced, collaborative environments where imagination meets strategy.</p>
+            <!-- This section is similar to my LinkedIn profile, to keep it professional, meaningful, and concise for potential employers. -->
+            <p><strong>What I hope to learn: </strong>Throughout this portfolio and the work I accomplish in my final semester as an undergraduate student, I aspire to learn about advanced data visualization, specifically from a design perspective, along with strengthening my "niche" in storytelling and user experience.</p>
+            <!-- I want this section to feel welcoming and warm, with some personalization behind my "about me" story.-->
+
+            <figure class="viz-container">
+                <img src="images/AbbyHanlonHeadshot2026.jpg" alt="Headshot of Abby Hanlon" style="width: 50%;">
+            </figure>
+        </section>
+<!-- Updated About section to display a more current photo of myself, and to place my headshot side by side my about section for more of a visual appeal -->
+        <section id="carousel-section">
+            <h2>Gallery</h2>
+            <p>CClick through this gallery to view my creative journey and learn about my work experiences.</p>
+
+            <div class="carousel-container">
+                <!-- Carousel Slides -->
+                <div class="carousel-slides">
+                    <!-- Slide 1 - will replace with my own images -->
+                    <div class="carousel-slide active">
+                        <img src="images/placeholder1.jpg" alt="Placeholder image 1">
+                        <div class="carousel-caption">
+                            <h3>Image Title 1</h3>
+                            <p>Add a description for your first image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - will replace with my own images -->
+                    <div class="carousel-slide">
+                        <img src="images/placeholder2.jpg" alt="Placeholder image 2">
+                        <div class="carousel-caption">
+                            <h3>Image Title 2</h3>
+                            <p>Add a description for your second image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 - will replace with my own images-->
+                    <div class="carousel-slide">
+                        <img src="images/placeholder3.jpg" alt="Placeholder image 3">
+                        <div class="carousel-caption">
+                            <h3>Image Title 3</h3>
+                            <p>Add a description for your third image here.</p>
+                        </div>
+                    </div>
+
+                    <!-- will additionally add more slides by copying the structure above -->
+                </div>
+
+                <!-- Previous Button -->
+                <button class="carousel-btn prev-btn" aria-label="Previous slide">
+                    <span>&#10094;</span>
+                </button>
+
+                <!-- Next Button -->
+                <button class="carousel-btn next-btn" aria-label="Next slide">
+                    <span>&#10095;</span>
+                </button>
+
+                <!-- Carousel Indicators (dots) -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" aria-label="Go to slide 1"></button>
+                    <button class="indicator" aria-label="Go to slide 2"></button>
+                    <button class="indicator" aria-label="Go to slide 3"></button>
+                    <!-- Add more indicators if you add more slides -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section: Links to all lab pages -->
+        <section id="portfolio">
+            <h2>My Work</h2>
+            <p>Click on any card below to view that lab assignment. Focus of actual labs may change over the course of the semester:</p>
+
+            <!-- Portfolio Grid: Cards linking to each lab page -->
+            <div class="portfolio-grid">
+
+                <!-- Lab 2: AI Tool Evaluation -->
+                <a href="ai-evaluation.html" class="portfolio-card">
+                    <h3>AI Tool Evaluation</h3>
+                    <span class="lab-tag">Lab 2</span>
+                    <p>Analysis of AI tools and their capabilities, exploring how artificial intelligence is changing digital culture.</p>
+                </a>
+
+                <!-- Lab 3: Tufte Critique -->
+                <a href="tufte-critique.html" class="portfolio-card">
+                    <h3>Tufte Critique</h3>
+                    <span class="lab-tag">Lab 3</span>
+                    <p>Critical analysis of a data visualization using Edward Tufte's principles of graphical excellence.</p>
+                </a>
+
+                <!-- Lab 4: Tableau Visualization -->
+                <a href="tableau-visualization.html" class="portfolio-card">
+                    <h3>Tableau Visualization</h3>
+                    <span class="lab-tag">Lab 4</span>
+                    <p>Interactive data visualization created with Tableau Public, exploring patterns in real-world data.</p>
+                </a>
+
+                <!-- Lab 5: TBD -->
+                <a href="lab5.html" class="portfolio-card">
+                    <h3>Lab 5</h3>
+                    <span class="lab-tag">Lab 5</span>
+                    <p>Content based on Lab 5 assignment.</p>
+                </a>
+
+                <!-- Lab 6: Hometown Map -->
+                <a href="hometown-map.html" class="portfolio-card">
+                    <h3>Hometown Map</h3>
+                    <span class="lab-tag">Lab 6</span>
+                    <p>Interactive Folium map showcasing meaningful locations from my hometown with personal reflections.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Reflection Section: Optional semester reflection -->
+        <section id="reflection">
+            <h2>Semester Reflection</h2>
+            <!-- TODO: After completing all labs, write a reflection on your growth -->
+            <p><strong>What I learned:</strong> I've learned the importance of starting off strong with organization within code, and how you practice it. Keeping your VS Code space clean and easy to read is one of the most vital skills in learning how to develop a website.</p>
+            <p><strong>Challenges I overcame:</strong> I’m having the most trouble being creative with my color schemes and beginning the initial stages of brainstorming what I want to make of this portfolio. I know that struggling with color schemes might seem kind of silly. Still, I’m passionate about a fair user experience and about creating a website that feels welcoming, engaging, and artistic.</p>
+            <p><strong>How I grew:</strong> [How did your understanding of digital culture and data analytics evolve?]</p>
+            <p><strong>Looking ahead:</strong> [How will you apply these skills in the future?]</p>
+        </section>
+    </main>
+
+    <!-- Footer: Links and copyright -->
+    <footer>
+        <p><a href="https://github.com/hanlonabby/DCDA40833-portfolio">View Repository on GitHub</a></p>
+        <p>&copy; 2026 Abby Hanlon | DCDA 40833 | TCU</p>
+    </footer>
+    <!-- Hamburger menu toggle script (vanilla JS, no frameworks) -->
+    <script>
+        // Grab the hamburger button and the nav link list
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu   = document.getElementById('nav-menu');
+
+        // Toggle the menu open/closed when the button is clicked
+        hamburger.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+
+            // Update aria-expanded for accessibility
+            const isOpen = navMenu.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close the menu when a link is tapped (better mobile UX)
+        navMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navMenu.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved preference, otherwise check system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            htmlElement.classList.add('dark-mode');
+        }
+
+        // Toggle dark mode when button is clicked
+        darkModeToggle.addEventListener('click', function () {
+            htmlElement.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            if (htmlElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Image Carousel Functionality
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        let currentSlide = 0;
+        let autoPlayInterval;
+
+        // Show specific slide
+        function showSlide(index) {
+            // Wrap around if index is out of bounds
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+
+            // Add active class to current slide and indicator
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+        }
+
+        // Next slide
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto-play carousel
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Event listeners for navigation buttons
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay(); // Restart auto-play after manual navigation
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        }
+
+        // Event listeners for indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', function() {
+                showSlide(index);
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        });
+
+        // Pause auto-play on hover, resume on mouse leave
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            }
+        });
+
+        // Start auto-play when page loads (if carousel exists)
+        if (slides.length > 0) {
+            startAutoPlay();
+        }
+    </script>
+</body>
+</html>

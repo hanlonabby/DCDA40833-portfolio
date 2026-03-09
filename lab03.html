@@ -5,6 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visualization Critique | Abby Hanlon</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Collapsible Section Styles */
+    .assignment-overview {
+      margin: 2rem auto;
+      max-width: 900px;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: 0 2px 4px var(--shadow);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .collapsible-header {
+      background-color: var(--secondary-color);
+      color: white;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .collapsible-header:hover {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-header.active {
+      background-color: var(--primary-color);
+    }
+
+    .collapsible-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-header.active .collapsible-icon {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, padding 0.5s ease-in-out;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      opacity: 0;
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+      padding: 1.5rem 0;
+      opacity: 1;
+    }
+
+    .collapsible-inner {
+      padding: 0 2rem;
+      line-height: 1.6;
+      transform: translateY(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .collapsible-content:not(.active) .collapsible-inner {
+      transform: translateY(-10px);
+    }
+
+    .close-section {
+      text-align: center;
+      padding: 3rem;
+      /* padding needed a lot of adjustment so the close section button didn't feel crammed at the bottom */
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .close-btn {
+      background-color: transparent;
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      padding: 0.5rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .section-wrapper {
+      margin: 2rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px var(--shadow);
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .section-wrapper section {
+      margin: 0;
+      padding: 0;
+    }
+
+    .critique-section {
+      margin: 2rem 0;
+    }
+
+    .critique-section h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    main {
+      min-height: 60vh;
+      transition: all 0.5s ease-in-out;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,11 +153,17 @@
 
     <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
-      <li><a href="lab03.html" class="active">Lab 3: Visualization Critique</a></li>
-      <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
-      <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
-      <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+      <li><a href="work-experience.html">Work Samples</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle active">Lab Assignments ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+          <li><a href="lab03.html" class="active">Lab 3: Visualization Critique</a></li>
+          <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+          <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+          <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+        </ul>
+      </li>
     </ul>
 
     <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -35,6 +177,24 @@
   </header>
 
   <main>
+    <!-- Assignment Overview Section -->
+    <div class="assignment-overview">
+      <button class="collapsible-header">
+        Assignment Overview
+        <span class="collapsible-icon">▼</span>
+      </button>
+      <div class="collapsible-content">
+        <div class="collapsible-inner">
+          <p><em>For this lab, I selected an infographic and wrote a critique analyzing how it worked as both art and information. I focused on how clearly the piece translated data, what the artistic choices added or took away, and how effectively it balanced creativity with meaning.</em></p>
+          <div class="close-section">
+            <button class="close-btn">
+              Close Section <span class="close-icon">▲</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section>
       <h2>Visualization</h2>
       <figure class="viz-container">
@@ -46,11 +206,20 @@
       </figure>
     </section>
 
-    <section>
+    <!-- Critique Section Header (Always Visible) -->
+    <section class="critique-section">
       <h2>Critique</h2>
 
-      <h3>Information Resolution</h3>
-      <p>The Missing Migrants Project, created by Soha Elghany, is a visual dataset of people who died or went missing during migration processes worldwide from 2014 to June 2022. This type of data visualization is called a Packed Bubble Chart, an easy way for viewers to understand data because circle size represents quantitative values, and color shows categories. With proper captioning and a brief summary to support her table, this visualization both artistically and respectfully represents the lives of one to thousands of migrants who were tragically killed or injured throughout their migration route. Each circular ring represents a migration route and origin location, as each dot represents an incident that has caused someone or a group of people to die; the bigger the dot, the more people died.</p>
+      <!-- Information Resolution Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Information Resolution
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
+              <p>The Missing Migrants Project, created by Soha Elghany, is a visual dataset of people who died or went missing during migration processes worldwide from 2014 to June 2022. This type of data visualization is called a Packed Bubble Chart, an easy way for viewers to understand data because circle size represents quantitative values, and color shows categories. With proper captioning and a brief summary to support her table, this visualization both artistically and respectfully represents the lives of one to thousands of migrants who were tragically killed or injured throughout their migration route. Each circular ring represents a migration route and origin location, as each dot represents an incident that has caused someone or a group of people to die; the bigger the dot, the more people died.</p>
 
       <p>An obvious answer to what is gained through artistic interpretation is the immediate emotional impact and engagement this graph presents. Through its colors and design flow, the circular composition pulls the viewer in from a central viewpoint. Its simple pattern recognition can stimulate viewers' curiosity and might help the message of the data points stick in their memory. A packed bubble chart suggests hierarchy without labels, creating a shared understanding of grouping and layers without seeming overly text-heavy.</p>
 
@@ -59,16 +228,77 @@
       <p>I believe this artistic approach enhances the data’s meaning rather than hindering it, thanks to its use of minimal text and a strong visual design. With further investigation and interest in this graph, a viewer can explore a topic that, from a societally sensitive perspective, can lead one to think more deeply about the global migration crisis. Elghany emphasizes in her article that “each death is more than a statistic; it represents a human life, a story of hope, fear, and displacement…” (Elghany, 2022), and viewers can easily pick up on that notion.</p>
 
       <p>Ethical considerations, accuracy to avoid misrepresented bias, and data collection – along with empathy and respect – were at the forefront for the success of this design. As much as each datapoint represents an individual, it also explores the digestion of this graph as a whole. This work balances artistic expression with informal integrity by making intentional choices that enhance engagement through color-coding and varying sizes, without completely obscuring the underlying data. While the artistic composition prioritizes visual and emotional impact, it also maintains informational integrity by representing proportions and groupings rather than distorting them for visual appeal.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Emotional Manipulation vs. Engagement</h3>
+      <!-- Engagement Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Engagement
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>I think the limited wording significantly affects the visual's emotional weight. In some aspects, the notion of “less is more” can have a deeper connection with the viewer than a text-heavy graph. In essence, I think that this packed bubble chart uses emotion to deepen understanding, not to replace critical thinking. By representing each missing or deceased person as a distinct mark and revealing personal details when the cursor hovers over them, the visual humanizes the statistics and encourages empathetic engagement. The emotional layer of this visual is intended to help viewers grasp the scale and human impact of this issue, not to create misleading datapoints.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Accessibility</h3>
+      <!-- Accessibility Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Accessibility
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>Although this data visual is simple in its shape, it doesn’t offer much grace for those with visual impairments. The choice of colors representing each ring creates a darker palette and offers minimal distinction between categories. For someone who might be colorblind, graphs like this might be challenging to fully understand or read. As visually appealing as this might be to a regular viewer, a minimal text explanation could cause confusion and therefore exclude audiences who can and cannot understand the data. As a way to mitigate this issue, the author/artist could add non-color cues to distinguish categories, perhaps by adding patterns, outlines, or varying stroke depths, so the meaning behind each ring isn’t solely focused on colors.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
 
-      <h3>Conclusion</h3>
+      <!-- Conclusion Subsection -->
+      <div class="section-wrapper">
+        <button class="collapsible-header">
+          Conclusion
+          <span class="collapsible-icon">▼</span>
+        </button>
+        <div class="collapsible-content">
+          <section>
+            <div class="collapsible-inner">
       <p>All in all, I had an inspiring experience learning from <a href="https://www.data-to-art.com/artist/soha-elghany/missing-migrants" target="_blank">Data to Art's website</a> and the story behind how data can be transformed into meaningful art. As a creatively motivated individual, I find that websites and communities like Data to Art influence my ideas, goals, and passions simultaneously. I am deeply interested in the intersection of data and eye-catching visualization, and doing so through extended engagement. Discovering this website and exploring various artistic approaches to presenting statistics is a skill I would love to improve, so I can someday create my own portfolio of visualization techniques.</p>
+              
+              <div class="close-section">
+                <button class="close-btn">Close Section ▲</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </section>
+
+    <div class="lab-navigation">
+      <a href="lab02.html" class="back-lab-btn">← Back to Lab 2</a>
+      <a href="lab04.html" class="next-lab-btn">Next: Lab 4 →</a>
+    </div>
   </main>
 
   <footer>
@@ -113,6 +343,35 @@
         localStorage.setItem('theme', htmlElement.classList.contains('dark-mode') ? 'dark' : 'light');
       });
     }
+
+    // Collapsible sections functionality
+    const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+    collapsibleHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Close buttons functionality
+    const closeButtons = document.querySelectorAll('.close-btn');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wrapper = btn.closest('.section-wrapper') || btn.closest('.assignment-overview');
+        const header = wrapper.querySelector('.collapsible-header');
+        const content = wrapper.querySelector('.collapsible-content');
+        
+        header.classList.remove('active');
+        content.classList.remove('active');
+        content.style.maxHeight = null;
+      });
+    });
   </script>
 </body>
 </html>

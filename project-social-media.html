@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Social Media Portfolio - Abby Hanlon Portfolio">
+    <meta name="author" content="Abby Hanlon">
+    <title>Social Media Portfolio | Abby Hanlon Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Additional styles for PDF presentation page */
+        .project-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .project-header h3,
+        .project-header ul,
+        .project-header p {
+            text-align: left;
+        }
+        
+        .project-header > h2 {
+            text-align: center;
+        }
+        
+        .pdf-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+        
+        .pdf-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .pdf-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .pdf-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work-experience.html">Work Samples</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Lab Assignments ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="lab02.html">Lab 2: AI Evaluation</a></li>
+                    <li><a href="lab03.html">Lab 3: Visualization Critique</a></li>
+                    <li><a href="lab04.html">Lab 4: Data Visualization in Tableau Public</a></li>
+                    <li><a href="lab05.html">Lab 5: Vibe Coding</a></li>
+                    <li><a href="lab06.html">Lab 6: Python Mapping</a></li>
+                </ul>
+            </li>
+        </ul>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Social Media Portfolio</h1>
+        <p>Abby Hanlon | Portfolio Project</p>
+    </header>
+
+    <main>
+        <a href="index.html#carousel-section" class="back-link">← Back to Gallery</a>
+        
+        <!-- Project Description Section -->
+        <section id="project-description">
+            <div class="project-header">
+                <h2>Social Media Portfolio</h2>
+            
+            <h3>Presentation Overview</h3>
+            <p>This presentation highlights the social media work I’ve created across several organizations, including Roxo Agency, Chi Omega at TCU, and Eventric, a software company in the live music industry. My work ranges from developing visual content and managing Instagram feeds to creating Reels, TikToks, event promotions, and campaign assets. I focus on combining creative design with strategic messaging to build engaging content that reflects each brand’s voice and connects with its audience.</p>
+            
+            <h3>Key Highlights</h3>
+            <ul>
+                <li>Managed and created social media content for organizations including Roxo Agency, Chi Omega, and Eventric.</li>
+                <li>Designed Instagram posts, stories, Reels, and TikToks for campaigns, recruitment events, and brand storytelling.</li>
+                <li>Produced promotional content for live music industry clients and events such as festival activations and product demos.</li>
+                <li>Developed cohesive visual identities and social media templates to strengthen brand consistency across platforms.</li>
+            </ul>
+            
+            <h3>Skills Demonstrated</h3>
+            <p>Social Media Strategy, Content Creation, Graphic Design, Short-Form Video (Reels & TikTok), Copywriting, Brand Voice Development, Community Engagement, Digital Marketing.</p>
+        </section>
+
+        <!-- PDF Presentation Section -->
+        <section id="presentation">
+            <h2>View Portfolio</h2>
+            <p>Click through the PDF below or download it to view offline.</p>
+            
+            <div class="pdf-container">
+                <!-- Embedded PDF viewer -->
+                <iframe 
+                    src="pdfs/social-media-portfolio.pdf" 
+                    class="pdf-viewer"
+                    title="Social Media Portfolio">
+                    <p>Your browser does not support PDFs. 
+                       <a href="pdfs/social-media-portfolio.pdf">Download the PDF</a> to view it.
+                    </p>
+                </iframe>
+                
+                <!-- PDF Controls -->
+                <div class="pdf-controls">
+                    <a href="pdfs/social-media-portfolio.pdf" download class="pdf-btn">Download PDF</a>
+                    <a href="pdfs/social-media-portfolio.pdf" target="_blank" class="pdf-btn">Open in New Tab</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Link to my other related projects -->
+        <section id="related">
+            <h2>More Projects</h2>
+            <p>Check out my other work: 
+                <a href="project-7eleven.html">7-Eleven Campaign</a> | 
+                <a href="project-tecovas.html">Tecovas Brand Strategy</a> | 
+                <a href="index.html#carousel-section">View all projects</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; background-color: var(--card-bg); margin-top: 2rem; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2026 Abby Hanlon | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
