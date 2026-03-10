@@ -115,6 +115,130 @@
     main {
       min-height: 60vh;
     }
+
+    /* Data Source Modal Styles */
+    .data-source-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      border-bottom: 2px dashed var(--secondary-color);
+      padding-bottom: 2px;
+    }
+
+    .data-source-header:hover {
+      color: var(--primary-color);
+    }
+
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .data-source-header:hover .info-icon {
+      background-color: var(--primary-color);
+      transform: scale(1.1);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: var(--secondary-color);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+      transition: color 0.3s ease, transform 0.2s ease;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      color: var(--primary-color);
+      transform: scale(1.2);
+    }
+
+    .modal-body {
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    .modal-body p {
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 
@@ -170,69 +294,81 @@
       </div>
     </div>
 
-    <section>
-      <h2>Data Source</h2>
+   <section>
+  <h2 class="data-source-header" id="dataSourceHeader">
+    Data Source
+    <span class="info-icon" title="Click for dataset information">i</span>
+  </h2>
 
-      <h3>Billboard Hot 100 Dashboard</h3>
+  <!-- Data Source explanation-->
 
-      <div class='tableauPlaceholder' id='viz1770838981720' style='position: relative'>
-        <noscript>
-          <a href='#'>
-            <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bi&#47;billboard-hot-100-dashboard&#47;Dashboard1&#47;1_rss.png' style='border: none' />
-          </a>
-        </noscript>
+<!-- Vibe coded a click and view section that explains my dataset that I created with Tableau better for a viewer to understand. I directly took this idea from the feedback I got on Lab 4, where I was prompted to provide additional context about the explanation of my dataset to the viewer. Using Claude Sonnet 4.5 to help me integrate this into my portfolio section was helpful and straightforward, all I had to focus on was creating a prompt that was simple and contextual. -->
 
-        <object class='tableauViz' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='billboard-hot-100-dashboard&#47;Dashboard1' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bi&#47;billboard-hot-100-dashboard&#47;Dashboard1&#47;1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-          <param name='filter' value='publish=yes' />
-        </object>
+  <div id="dataSourceModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>About This Dataset</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
       </div>
+      <div class="modal-body">
+        <p><strong>Dataset Name:</strong> Billboard Hot 100 Longevity</p>
+        <p><strong>Source:</strong> Kaggle</p>
+        <p><strong>Description:</strong> This dashboard analyzes songs that appeared on the Billboard Hot 100 chart from 1958 to 2021. The dataset tracks each song’s weekly ranking, the artist who performed it, the highest position it reached, and how many weeks it remained on the chart. Because each row represents one song appearing on the chart in a specific week, the data can be used to examine long-term trends in music popularity.</p>
 
-      <script type='text/javascript'>
-        var divElement = document.getElementById('viz1770838981720');
-        var vizElement = divElement.getElementsByTagName('object')[0];
+        <p>The visualizations focus on three key areas. First, the dashboard identifies the artists with the longest presence on the Billboard Hot 100, measured by the total number of weeks their songs appeared on the chart. Second, it compares song longevity across different musical eras, showing how long songs typically stayed on the chart over time. Finally, the heatmap explores the relationship between chart success and longevity, highlighting how long songs remained on the chart depending on the highest rank they achieved.</p>
 
-        if (divElement.offsetWidth > 800) {
-          vizElement.style.minWidth='420px';
-          vizElement.style.maxWidth='650px';
-          vizElement.style.width='100%';
-          vizElement.style.minHeight='587px';
-          vizElement.style.maxHeight='887px';
-          vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-        } else if (divElement.offsetWidth > 500) {
-          vizElement.style.minWidth='420px';
-          vizElement.style.maxWidth='650px';
-          vizElement.style.width='100%';
-          vizElement.style.minHeight='587px';
-          vizElement.style.maxHeight='887px';
-          vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-        } else {
-          vizElement.style.width='100%';
-          vizElement.style.height='1027px';
-        }
+        <p>Together, these visualizations help reveal patterns in artist success, song longevity, and chart performance, offering insight into how music popularity has changed across decades of the Billboard Hot 100.</p>
+      </div>
+    </div>
+  </div>
 
-        var scriptElement = document.createElement('script');
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-      </script>
-    </section>
+  <h3>Billboard Hot 100 Longevity Dashboard</h3>
+
+  <div class='tableauPlaceholder' id='viz1773172420954' style='position: relative'>
+    <noscript>
+      <a href='#'>
+        <img alt='Dashboard 2'
+          src='https://public.tableau.com/static/images/bi/billboard-hot-100-dashboard/Dashboard2/1_rss.png'
+          style='border: none' />
+      </a>
+    </noscript>
+
+    <object class='tableauViz' style='display:none;'>
+      <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+      <param name='embed_code_version' value='3' />
+      <param name='site_root' value='' />
+      <param name='name' value='billboard-hot-100-dashboard/Dashboard2' />
+      <param name='tabs' value='no' />
+      <param name='toolbar' value='yes' />
+      <param name='static_image' value='https://public.tableau.com/static/images/bi/billboard-hot-100-dashboard/Dashboard2/1.png' />
+      <param name='animate_transition' value='yes' />
+      <param name='display_static_image' value='yes' />
+      <param name='display_spinner' value='yes' />
+      <param name='display_overlay' value='yes' />
+      <param name='display_count' value='yes' />
+      <param name='language' value='en-US' />
+    </object>
+  </div>
+
+  <script type='text/javascript'>
+    var divElement = document.getElementById('viz1773172420954');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+  vizElement.style.width = '100%';
+  vizElement.style.height = '800px';
+ /* updated visualization height to better fit the dashboard and avoid excessive scrolling */
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+</section>
+<!-- Updated 03/10/25 with more detailed description and updated visualizations -->
 
     <section class="reflection">
       <h2>Reflection & Analysis</h2>
 
-      <!-- Data Preparation Subsection -->
+      <!-- Data Preparation Subsection  -->
       <div class="section-wrapper">
         <button class="collapsible-header">
           1. Data Preparation
@@ -427,6 +563,37 @@
         content.style.maxHeight = null;
       });
     });
+
+    // Data Source Modal functionality
+    const dataSourceHeader = document.getElementById('dataSourceHeader');
+    const dataSourceModal = document.getElementById('dataSourceModal');
+    const modalClose = document.getElementById('modalClose');
+
+    if (dataSourceHeader && dataSourceModal && modalClose) {
+      // Open modal when clicking the data source header
+      dataSourceHeader.addEventListener('click', () => {
+        dataSourceModal.classList.add('active');
+      });
+
+      // Close modal when clicking the X button
+      modalClose.addEventListener('click', () => {
+        dataSourceModal.classList.remove('active');
+      });
+
+      // Close modal when clicking outside the modal content
+      dataSourceModal.addEventListener('click', (e) => {
+        if (e.target === dataSourceModal) {
+          dataSourceModal.classList.remove('active');
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && dataSourceModal.classList.contains('active')) {
+          dataSourceModal.classList.remove('active');
+        }
+      });
+    }
   </script>
 </body>
 </html>
